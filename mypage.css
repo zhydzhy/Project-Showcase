@@ -1,4 +1,9 @@
-/* ===== Base Styles (Earth Tone Palette) ===== */
+/* =========================================================
+   Earth-Tone Portfolio Stylesheet — Clean Consolidation
+   Author: Haotian Zhang
+   ========================================================= */
+
+/* ===== Global Theme ===== */
 :root {
   --primary: #8B6B4A;         /* warm brown */
   --primary-dark: #5C4033;    /* deep walnut */
@@ -9,7 +14,24 @@
   --error: #A64B2A;           /* rustic red clay */
   --warning: #D8A25E;         /* amber sand */
 }
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font/MapleMono-Regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font/MapleMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Maple Mono';
+  src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font/MapleMono-Bold.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font/MapleMono-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* ===== Base Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -17,137 +39,44 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Maple Mono', monospace;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
   background-color: var(--primary-light);
   color: var(--text);
-  line-height: 1.6;
 }
 
-/* ===== Header & Navigation ===== */
+/* ===== Unified Title Styling ===== */
+h1, h2, h3 {
+  font-family: 'Maple Mono', monospace;
+  font-weight: 700;
+}
+
+nav a {
+  font-family: 'Maple Mono', monospace;
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #7b3f00; /* deep brown like 'Windows Rant' */
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #8b4513; /* sienna */
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #9a6229; /* lighter brown */
+}
+
+/* =========================================================
+   Header & Navigation
+   ========================================================= */
 header {
   background-color: var(--accent);
-  color: var(--text-light);
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.3);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-}
-
-nav a.active{
-  color: var(--text-light);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  background-color: rgba(139, 107, 74, 0.6);
-  transition: all 0.3s ease;
-}
-
-nav a:hover {
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
-}
-
-/* ===== Sections ===== */
-section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ===== Project Grid ===== */
-.project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.project-card {
-  flex: 1 1 350px; /* responsive width */
-  max-width: 500px;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  border: 2px solid var(--primary);
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  align-self: flex-start; /* prevent height sync between rows */
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 5px 5px 15px rgba(60, 40, 20, 0.3);
-  background-color: var(--primary-light);
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  background: var(--primary);
-  color: var(--text-light);
-  padding: 1.5rem 0;
-  margin-top: 50px;
-}
-
-.footer-link {
-  color: var(--warning);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-link:hover {
-  color: var(--error);
-  text-decoration: underline;
-}
-
-a.read-more {
-  color: var(--primary-dark);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 2px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-a.read-more:hover {
-  color: var(--accent);
-  border-color: var(--primary-dark);
-}
-
-
-/* ===== Responsive Adjustments ===== */
-@media (max-width: 768px) {
-  .layout {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .content, footer {
-    margin-left: 0;
-  }
-
-  .sidebar a {
-    display: inline-block;
-    margin-right: 1rem;
-  }
-}
-
-/* ===== Header & Navigation — refined earth-tone interactions ===== */
-header {
-  background-color: var(--accent);     /* clay caramel */
   color: var(--text-light);
   padding: 16px 0;
   text-align: center;
@@ -170,15 +99,14 @@ nav a {
   text-decoration: none;
   padding: 10px 14px;
   border-radius: 10px;
-  color: var(--text-light);            /* light beige text */
-  background: transparent;             /* no muddy pills by default */
+  color: var(--text-light);
   transition: color .2s ease, background-color .2s ease, transform .08s ease;
 }
 
-/* Hover / keyboard focus: subtle warm highlight + underline bar */
+/* Hover + focus underline */
 nav a:hover,
 nav a:focus-visible {
-  background-color: rgba(139, 107, 74, 0.22);  /* warm brown haze */
+  background-color: rgba(139, 107, 74, 0.22);
   color: var(--text-light);
   outline: none;
 }
@@ -198,14 +126,14 @@ nav a::after {
 
 nav a:hover::after,
 nav a:focus-visible::after {
-  background: var(--warning);          /* amber sand bar */
+  background: var(--warning);
   transform: translateY(0);
 }
 
-/* Active (current page) — stronger pill + persistent bar */
+/* Active (current page) */
 nav a.active {
-  background-color: var(--primary-dark);   /* deep walnut */
-  color: var(--primary-light);             /* soft sand text */
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 
 nav a.active::after {
@@ -213,12 +141,142 @@ nav a.active::after {
   transform: translateY(0);
 }
 
-/* Mouse down (onclick) feedback */
+/* Click feedback */
 nav a:active {
   transform: translateY(1px);
-  background-color: #4b352a;   /* a touch deeper than primary-dark */
+  background-color: #4b352a;
 }
-/* ===== Tech & Life Page ===== */
+
+/* Responsive nav scroll */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 8px;
+    gap: 12px;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar { display: none; }
+  nav a { white-space: nowrap; padding: 10px 14px; background: rgba(139,107,74,0.2); }
+}
+
+/* =========================================================
+   Section Defaults
+   ========================================================= */
+section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* ===== About Page (balanced layout) ===== */
+#about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px; /* more breathing space */
+  background-color: #EDE3D1; /* consistent with projects & techlife */
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#about-page h1 {
+  text-align: center;
+  font-size: 1.9rem;
+  color: #3a2e27;
+  margin-bottom: 1.6rem;
+}
+
+#about-page h2 {
+  color: #5c4033;
+  font-size: 1.3rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1.5px solid rgba(139, 107, 74, 0.25);
+  padding-bottom: 0.3rem;
+}
+
+#about-page p {
+  color: #3d342b;
+  line-height: 1.65;
+  font-size: 1.05rem;
+  text-align: justify;
+  margin-bottom: 1.2rem;
+}
+
+#about-page .experience {
+  margin-top: 2rem;
+}
+
+#about-page .experience-item {
+  margin-bottom: 1.5rem;
+}
+
+#about-page .experience-item h3 {
+  color: #7b3f00;
+  margin-bottom: 0.2rem;
+  font-size: 1.15rem;
+}
+
+#about-page .experience-item p {
+  margin-bottom: 0.3rem;
+  color: #3a2e27;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   Projects Page (clean text layout)
+   ========================================================= */
+
+.content-section {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px 16px;   /* tighter overall padding */
+  background-color: #EDE3D1;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #3a2e27;
+  margin-bottom: 1.2rem;
+  border-bottom: none;  /* remove underline */
+}
+
+.project-item {
+  margin-bottom: 0.9rem;  /* drastically reduced spacing between projects */
+}
+
+.project-item h2 {
+  font-size: 1.15rem;
+  color: #3a2e27;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
+}
+
+.project-period {
+  color: #8b6b3e;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.project-item p {
+  color: #3d352b;
+  line-height: 1.45;    /* more compact line height */
+  text-align: justify;
+  margin-bottom: 0.3rem;
+}
+
+/* remove last gap */
+.project-item:last-of-type {
+  margin-bottom: 0;
+}
+
+
+
+/* =========================================================
+   Tech & Life Page
+   ========================================================= */
 #techlife {
   max-width: 850px;
   margin: 0 auto;
@@ -240,7 +298,7 @@ nav a:active {
   font-size: 1.05rem;
 }
 
-/* ===== Inline Link Styling (Tech & Life links, subtle) ===== */
+/* Subtle inline link style */
 #techlife a,
 section a.inline-link {
   color: var(--primary-dark);
@@ -257,45 +315,24 @@ section a.inline-link:hover {
   border-color: var(--primary-dark);
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: row;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 0 8px;
-    gap: 12px;
-    scrollbar-width: none; /* hide scrollbar in Firefox */
-  }
-  nav ul::-webkit-scrollbar {
-    display: none; /* hide scrollbar in Chrome/Safari */
-  }
-
-  nav a {
-    white-space: nowrap;
-    padding: 10px 14px;
-    background: rgba(139, 107, 74, 0.2);
-  }
+/* =========================================================
+   Footer
+   ========================================================= */
+footer {
+  text-align: center;
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 1.5rem 0;
+  margin-top: 50px;
 }
 
-/* ===== Unified Title Styling (across all pages) ===== */
-h1, h2, h3 {
-  color: var(--primary-dark); /* same warm deep brown tone */
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
+.footer-link {
+  color: var(--warning);
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* Optional: Add subtle warmth for accent headers */
-h1 {
-  font-size: 2rem;
-  color: #7b3f00; /* deep brown similar to 'The Windows Rant' tone */
-}
-
-h2 {
-  font-size: 1.6rem;
-  color: #8b4513; /* sienna tone – warm and natural */
-}
-
-h3 {
-  font-size: 1.3rem;
-  color: #9a6229; /* lighter brown for subheadings */
+.footer-link:hover {
+  color: var(--error);
+  text-decoration: underline;
 }

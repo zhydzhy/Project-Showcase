@@ -5,57 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Haotian Zhang</title>
   <link rel="stylesheet" href="mypage.css">
-  <style>
-    /* === Accordion-style expandable projects === */
-    .project-card {
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .project-summary {
-      font-size: 1rem;
-      color: #3a2e27;
-    }
-
-    .project-details {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 0.4s ease;
-    }
-
-    .project-card.expanded .project-details {
-      max-height: 800px;
-      opacity: 1;
-      margin-top: 0.8rem;
-    }
-
-    .read-more {
-      margin-top: 1rem;
-      display: inline-block;
-      background-color: var(--accent);
-      color: var(--text-light);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .read-more:hover {
-      background-color: var(--primary-dark);
-    }
-
-    /* Optional hover highlight */
-    .project-card:hover {
-      background-color: rgba(240, 232, 220, 0.5);
-      transform: translateY(-3px);
-    }
-  </style>
 </head>
-
 <body>
   <header>
     <nav>
@@ -68,91 +18,65 @@
     </nav>
   </header>
 
-  <section id="projects">
-  <h1>Projects</h1>
-  <div class="project-grid">
-    <!-- Project 1 -->
-    <div class="project-card">
-      <h3>Traffic Detection System (Capstone Project)</h3>
-      <p class="project-summary">
-        Multimodal hazard detection using RGB + LiDAR fusion and Vision-Language Models.
-      </p>
-      <div class="project-details">
-        <p><strong>Technologies:</strong> CARLA, VLM, Edge AI, Python, C++, Linux</p>
-        <ul>
-          <li>Developed a traffic detection system using synthetic datasets from RGB cameras and LiDAR sensors.</li>
-          <li>Applied graph-based projection to fuse LiDAR and RGB data for improved hazard recognition.</li>
-          <li>Generated 50K+ multimodal samples and 40+ edge case scenarios to benchmark model robustness.</li>
-          <li>Designed an Edge AI deployment pipeline for real-time detection on embedded devices.</li>
-        </ul>
-      </div>
-      <button class="read-more">Read More</button>
-    </div>
+  <main class="content-section">
+    <h1 class="page-title">Projects</h1>
 
-    <!-- Project 2 -->
-    <div class="project-card">
-      <h3>Network Simulation</h3>
-      <p class="project-summary">
-        Virtualized BGP/OSPF network simulation with automated configuration and analysis.
-      </p>
-      <div class="project-details">
-        <p><strong>Technologies:</strong> Python, FRRouting, ContainerLab</p>
-        <ul>
-          <li>Built a 10-router topology using BGP/OSPF protocols in ContainerLab.</li>
-          <li>Reduced setup time by 40% through automation and efficient scripting.</li>
-          <li>Led a team of three to implement, test, and present the network simulation project.</li>
-        </ul>
-      </div>
-      <button class="read-more">Read More</button>
-    </div>
+    <section class="project-item">
+    <h2>Traffic Detection System</h2>
+    <p class="project-period"><em>CARLA, Vision-Language Models, Edge AI</em></p>
+    <p>
+      Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM)
+      for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB–LiDAR projection fusion,
+      and optimized the trained model for real-time embedded inference using Python, PyTorch, and C++.
+    </p>
+  </section>
 
-    <!-- Project 3 -->
-    <div class="project-card">
-      <h3>Light Sensor Swarm System</h3>
-      <p class="project-summary">
-        Distributed IoT network of ESP8266 and Raspberry Pi for smart light monitoring.
+    <section class="project-item">
+      <h2>Light Sensor Swarm System</h2>
+      <p class="project-period"><em>ESP8266, Raspberry Pi, IoT Networking</em></p>
+      <p>
+        Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central
+        Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware
+        sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.
       </p>
-      <div class="project-details">
-        <p><strong>Technologies:</strong> Distributed Systems, Python, C++, Linux, Arduino</p>
-        <ul>
-          <li>Built a distributed IoT network with six ESP8266 nodes and a Raspberry Pi hub.</li>
-          <li>Implemented dynamic device discovery to halve reconfiguration time.</li>
-          <li>Added adaptive sleep cycles for 40% lower power consumption while maintaining real-time performance.</li>
-        </ul>
-      </div>
-      <button class="read-more">Read More</button>
-    </div>
-  </div>
-</section>
+    </section>
+
+   <section class="project-item">
+    <h2>Real-Time Canny Edge Detection Optimization</h2>
+    <p class="project-period"><em>OpenCV, Multi-threading, PSNR Evaluation</em></p>
+    <p>
+      Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading
+      and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance
+      across different threading strategies for embedded applications.
+    </p>
+  </section>
+
+  <section class="project-item">
+    <h2>Network Simulation</h2>
+    <p class="project-period"><em>Python, FRRouting, ContainerLab, Docker</em></p>
+    <p>
+      Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols,
+      reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation,
+      earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration,
+      and hands-on routing protocol configuration in a virtualized environment.
+    </p>
+  </section>
+
+  <section class="project-item">
+    <h2>Waybar & Omarchy Linux Workflow Setup</h2>
+    <p class="project-period"><em>Linux, Hyprland, System Automation</em></p>
+    <p>
+      Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity.
+      Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics
+      with MapleMono fonts and script-based automation.
+    </p>
+  </section>
+
+  </main>
 
   <footer>
         <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a href="beian.miit.gov.cn">津ICP备2025036959号</a></p>
-    </footer>
-
-  <script>
-  // Accordion behavior: only one project open at a time
-  const cards = document.querySelectorAll('.project-card');
-
-  cards.forEach(card => {
-    card.addEventListener('click', e => {
-      // Prevent double trigger from button clicks
-      if (e.target.tagName.toLowerCase() === 'button') e.stopPropagation();
-
-      // Collapse all other cards
-      cards.forEach(c => {
-        if (c !== card) c.classList.remove('expanded');
-        const btn = c.querySelector('.read-more');
-        if (btn) btn.textContent = 'Read More';
-      });
-
-      // Toggle the clicked card
-      card.classList.toggle('expanded');
-      const button = card.querySelector('.read-more');
-      if (button) button.textContent = card.classList.contains('expanded') ? 'Show Less' : 'Read More';
-    });
-  });
-</script>
-
-
+  </footer>
 </body>
+
 </html>
