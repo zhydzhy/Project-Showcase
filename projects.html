@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Haotian Zhang</title>
+  <link rel="stylesheet" href="mypage.css">
+  <style>
+    /* === Accordion-style expandable projects === */
+    .project-card {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .project-summary {
+      font-size: 1rem;
+      color: #3a2e27;
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .project-card.expanded .project-details {
+      max-height: 800px;
+      opacity: 1;
+      margin-top: 0.8rem;
+    }
+
+    .read-more {
+      margin-top: 1rem;
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--text-light);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .read-more:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Optional hover highlight */
+    .project-card:hover {
+      background-color: rgba(240, 232, 220, 0.5);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="techlife.html">Tech & Life</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="projects">
+  <h1>Projects</h1>
+  <div class="project-grid">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <h3>Traffic Detection System (Capstone Project)</h3>
+      <p class="project-summary">
+        Multimodal hazard detection using RGB + LiDAR fusion and Vision-Language Models.
+      </p>
+      <div class="project-details">
+        <p><strong>Technologies:</strong> CARLA, VLM, Edge AI, Python, C++, Linux</p>
+        <ul>
+          <li>Developed a traffic detection system using synthetic datasets from RGB cameras and LiDAR sensors.</li>
+          <li>Applied graph-based projection to fuse LiDAR and RGB data for improved hazard recognition.</li>
+          <li>Generated 50K+ multimodal samples and 40+ edge case scenarios to benchmark model robustness.</li>
+          <li>Designed an Edge AI deployment pipeline for real-time detection on embedded devices.</li>
+        </ul>
+      </div>
+      <button class="read-more">Read More</button>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <h3>Network Simulation</h3>
+      <p class="project-summary">
+        Virtualized BGP/OSPF network simulation with automated configuration and analysis.
+      </p>
+      <div class="project-details">
+        <p><strong>Technologies:</strong> Python, FRRouting, ContainerLab</p>
+        <ul>
+          <li>Built a 10-router topology using BGP/OSPF protocols in ContainerLab.</li>
+          <li>Reduced setup time by 40% through automation and efficient scripting.</li>
+          <li>Led a team of three to implement, test, and present the network simulation project.</li>
+        </ul>
+      </div>
+      <button class="read-more">Read More</button>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <h3>Light Sensor Swarm System</h3>
+      <p class="project-summary">
+        Distributed IoT network of ESP8266 and Raspberry Pi for smart light monitoring.
+      </p>
+      <div class="project-details">
+        <p><strong>Technologies:</strong> Distributed Systems, Python, C++, Linux, Arduino</p>
+        <ul>
+          <li>Built a distributed IoT network with six ESP8266 nodes and a Raspberry Pi hub.</li>
+          <li>Implemented dynamic device discovery to halve reconfiguration time.</li>
+          <li>Added adaptive sleep cycles for 40% lower power consumption while maintaining real-time performance.</li>
+        </ul>
+      </div>
+      <button class="read-more">Read More</button>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Haotian Zhang. All Rights Reserved.
+      <a class="footer-link" href="mailto:mail@nitro.tj.cn">mail@nitro.tj.cn</a>
+    </p>
+  </footer>
+
+  <script>
+  // Accordion behavior: only one project open at a time
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+      // Prevent double trigger from button clicks
+      if (e.target.tagName.toLowerCase() === 'button') e.stopPropagation();
+
+      // Collapse all other cards
+      cards.forEach(c => {
+        if (c !== card) c.classList.remove('expanded');
+        const btn = c.querySelector('.read-more');
+        if (btn) btn.textContent = 'Read More';
+      });
+
+      // Toggle the clicked card
+      card.classList.toggle('expanded');
+      const button = card.querySelector('.read-more');
+      if (button) button.textContent = card.classList.contains('expanded') ? 'Show Less' : 'Read More';
+    });
+  });
+</script>
+
+
+</body>
+</html>

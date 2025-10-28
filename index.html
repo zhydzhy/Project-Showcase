@@ -1,107 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="mypage.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haotian Zhang | Portfolio</title>
+  <link rel="stylesheet" href="mypage.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="techlife.html">Tech & Life</a></li>
 
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is still a work-in-progress as you can see, I only implemented a static website, I'm working on 
-          making this website fancier as soon as I learn more about fron-end coding.
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h1>Welcome to My Portfolio</h1>
+    <p>
+      Hi! I’m <strong>Haotian (Nitro) Zhang</strong> — a graduate student at the University of California, Irvine, pursuing a Master’s in <em>Embedded and Cyber-Physical Systems</em>.
+    </p>
+    <p>
+      I specialize in embedded AI, robotics, and system-level optimization, working across Python, C++, and Linux to build efficient and intelligent systems.
+      This site showcases my technical projects, research experience, and professional journey.
+    </p>
+  </section>
+
+  <section id="highlight">
+    <h2>Featured Work</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Traffic Detection System</h3>
+        <p>
+          Developed a multimodal Vision-Language Model pipeline using synthetic RGB + LiDAR data in CARLA to detect hazardous road interactions.
+          Optimized for embedded Edge AI deployment and real-time inference.
         </p>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi! I'm Haotian (Nitro), I'm a CS major student who loves playing CS2 on my free time.</p>
-        <h3>Education</h3>
-        <p> Computer Science, Bachelor of Science, Univeristy of California, Irvine </p>
-        <p> Embedded and Cyber-Physical System, Master of Engineering, Univeristy of California, Irvine </p>
-
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <article>
-                    <h4>Light Sensor Swarm System</h4>
-                    <p> I designed and implemented a Light Sensor Swarm System using a distributed IoT network consisting
-                       of six ESP8266 nodes and a Raspberry Pi as the central hub, achieving a 95% data transmission 
-                       success rate over UDP. To enhance network flexibility, I developed a dynamic device discovery 
-                       protocol using UDP, which reduced node reconfiguration time by 50% compared to traditional 
-                       static setups. Additionally, I optimized power consumption by implementing intelligent sleep 
-                       cycles, significantly extending battery life while ensuring real-time responsiveness for 
-                       continuous light monitoring. This system demonstrates efficient wireless communication, 
-                       scalability, and energy-aware operation in IoT deployments.                    
-                    </p>
-                </article>
-          </div>
-            <div class="project-card">
-                <h4>Traffic Detection System </h4>
-                <p>
-                    I developed a traffic detection system that leverages synthetic datasets generated from RGB cameras 
-                    and LiDAR sensors to train a Vision-Language Model (VLM) for identifying hazardous interactions on 
-                    the road. Using the CARLA simulation platform, I generated RGB and LiDAR data, then projected LiDAR 
-                    point clouds onto RGB images to create hybrid images, enhancing the model's ability to recognize 
-                    complex scenarios. The dataset was specifically designed to include challenging traffic conditions 
-                    and edge cases, such as unexpected accidents and sudden traffic disruptions, ensuring the model's 
-                    robustness and stability in real-world road environments. After training the VLM on this dataset to 
-                    detect road hazards, the final goal was to deploy the optimized model onto embedded Edge AI devices 
-                    using Python, C++, and Linux for real-time danger detection.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="contact">
-  <div class="contact-container">
-    <h2>Contact Me</h2>
-    <p class="section-subtitle">Get in touch for opportunities or questions</p>
-    
-    <form class="contact-form">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Your Name" required>
+        <a href="projects.html" class="read-more">View All Projects</a>
       </div>
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Your Email" required>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Subject">
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" placeholder="Your Message" required></textarea>
-      </div>
-      <button type="submit" class="btn-submit">Send Message</button>
-    </form>
 
-    <div class="contact-info">
-      <p>Alternatively, reach me at: <a href="mailto:mail@nitro.tj.cn">mail@nitro.tj.cn(placeholder)</a></p>
-      <div class="social-links">
-        <!-- Add your social media links here -->
+      <div class="project-card">
+        <h3>Light Sensor Swarm System</h3>
+        <p>
+          Built a distributed IoT sensor network using ESP8266 nodes and a Raspberry Pi hub for adaptive light detection with dynamic discovery and power management.
+        </p>
+        <a href="projects.html" class="read-more">View All Projects</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="about-brief">
+    <h2>About Me</h2>
+    <p>
+      I enjoy combining <strong>AI-driven perception</strong> with <strong>real-time embedded systems</strong>.
+      Beyond engineering, I’m a lifelong learner and gamer — often diving into strategy and precision games like <em>CS2</em> to sharpen focus and teamwork.
+    </p>
+    <a href="about.html" class="read-more">Learn More</a>
+  </section>
 
     <footer>
-        <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a href="mailto:mail@nitro.tj.cn">mail@nitro.tj.cn(placeholder)</a></p>
+        <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a href="beian.miit.gov.cn">津ICP备2025036959号</a></p>
     </footer>
 </body>
 </html>

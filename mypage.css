@@ -1,13 +1,13 @@
-/* ===== Base Styles ===== */
+/* ===== Base Styles (Earth Tone Palette) ===== */
 :root {
-  --primary: #007acc;
-  --primary-dark: #004a8d;
-  --primary-light: #e6f7ff;
-  --accent: #0059ff;
-  --text: #333;
-  --text-light: #f0f2f5;
-  --error: #b60101;
-  --warning: #ffcc00;
+  --primary: #8B6B4A;         /* warm brown */
+  --primary-dark: #5C4033;    /* deep walnut */
+  --primary-light: #EDE3D1;   /* light sand */
+  --accent: #A47449;          /* caramel / clay */
+  --text: #2E2B28;            /* dark charcoal brown */
+  --text-light: #F5F1EB;      /* light beige */
+  --error: #A64B2A;           /* rustic red clay */
+  --warning: #D8A25E;         /* amber sand */
 }
 
 * {
@@ -18,7 +18,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f2f5;
+  background-color: var(--primary-light);
   color: var(--text);
   line-height: 1.6;
 }
@@ -26,10 +26,10 @@ body {
 /* ===== Header & Navigation ===== */
 header {
   background-color: var(--accent);
-  color: var(--error);
+  color: var(--text-light);
   padding: 20px 0;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.3);
 }
 
 nav ul {
@@ -40,19 +40,19 @@ nav ul {
   padding: 0;
 }
 
-nav a {
-  color: #000;
+nav a.active{
+  color: var(--text-light);
   text-decoration: none;
   font-weight: bold;
   padding: 8px 15px;
   border-radius: 5px;
-  background-color: rgba(0, 140, 255, 0.54);
+  background-color: rgba(139, 107, 74, 0.6);
   transition: all 0.3s ease;
 }
 
 nav a:hover {
   background-color: var(--primary-dark);
-  color: white;
+  color: var(--primary-light);
 }
 
 /* ===== Sections ===== */
@@ -71,24 +71,24 @@ section {
 }
 
 .project-card {
-  background: white;
+  background: var(--text-light);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--primary);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--accent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(60, 40, 20, 0.3);
   background-color: var(--primary-light);
 }
 
 /* ===== Contact Section ===== */
 #contact {
   padding: 60px 20px;
-  background-color: #f8f9fa;
+  background-color: #f6f1e7; /* warm parchment */
 }
 
 .contact-container {
@@ -102,11 +102,11 @@ section {
 .contact-form {
   width: 100%;
   max-width: 500px;
-  background: white;
+  background: var(--text-light);
   padding: 2.5rem;
   border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  border: 2px solid #007acc; /* Added border */
+  box-shadow: 0 5px 20px rgba(60, 40, 20, 0.1);
+  border: 2px solid var(--accent);
 }
 
 .form-group {
@@ -117,20 +117,20 @@ section {
   width: 100%;
   padding: 15px;
   font-size: 1rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #d2b48c; /* tan border */
   border-radius: 8px;
   transition: all 0.3s ease;
-  background-color: #fff; /* Ensure white background */
-  color: #333; /* Text color */
+  background-color: #fffdf8;
+  color: var(--text);
 }
 
 .form-control::placeholder {
-  color: #999; /* Placeholder text color */
+  color: #8b8175;
 }
 
 .form-control:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(164, 116, 73, 0.25);
   outline: none;
 }
 
@@ -142,13 +142,13 @@ textarea.form-control {
 .btn-submit {
   padding: 15px 30px;
   font-size: 1rem;
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--accent);
+  color: var(--text-light);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%; /* Full width button */
+  width: 100%;
 }
 
 .btn-submit:hover {
@@ -165,11 +165,12 @@ textarea.form-control {
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
+
 /* ===== Footer ===== */
 footer {
   text-align: center;
-  background: var(--primary-dark);
-  color: white;
+  background: var(--primary);
+  color: var(--text-light);
   padding: 1.5rem 0;
   margin-top: 50px;
 }
@@ -181,19 +182,176 @@ footer {
 }
 
 .footer-link:hover {
-  color: #ff9900;
+  color: var(--error);
   text-decoration: underline;
 }
 
+a.read-more {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+a.read-more:hover {
+  color: var(--accent);
+  border-color: var(--primary-dark);
+}
+
+
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  nav ul {
+  .layout {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .content, footer {
+    margin-left: 0;
+  }
+
+  .sidebar a {
+    display: inline-block;
+    margin-right: 1rem;
   }
 }
+
+/* ===== Header & Navigation — refined earth-tone interactions ===== */
+header {
+  background-color: var(--accent);     /* clay caramel */
+  color: var(--text-light);
+  padding: 16px 0;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.25);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--text-light);            /* light beige text */
+  background: transparent;             /* no muddy pills by default */
+  transition: color .2s ease, background-color .2s ease, transform .08s ease;
+}
+
+/* Hover / keyboard focus: subtle warm highlight + underline bar */
+nav a:hover,
+nav a:focus-visible {
+  background-color: rgba(139, 107, 74, 0.22);  /* warm brown haze */
+  color: var(--text-light);
+  outline: none;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 2px;
+  background: transparent;
+  transition: background-color .2s ease, transform .2s ease;
+  transform: translateY(3px);
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  background: var(--warning);          /* amber sand bar */
+  transform: translateY(0);
+}
+
+/* Active (current page) — stronger pill + persistent bar */
+nav a.active {
+  background-color: var(--primary-dark);   /* deep walnut */
+  color: var(--primary-light);             /* soft sand text */
+}
+
+nav a.active::after {
+  background: var(--warning);
+  transform: translateY(0);
+}
+
+/* Mouse down (onclick) feedback */
+nav a:active {
+  transform: translateY(1px);
+  background-color: #4b352a;   /* a touch deeper than primary-dark */
+}
+/* ===== Tech & Life Page ===== */
+#techlife {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background-color: #fffdf8;
+  border-radius: 12px;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+  color: #3a2e27;
+}
+
+#techlife h1, #techlife h2, #techlife h3 {
+  color: var(--primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+#techlife p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+/* ===== Inline Link Styling (Tech & Life links, subtle) ===== */
+#techlife a,
+section a.inline-link {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+#techlife a:hover,
+section a.inline-link:hover {
+  color: var(--accent);
+  border-color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 8px;
+    gap: 12px;
+    scrollbar-width: none; /* hide scrollbar in Firefox */
+  }
+  nav ul::-webkit-scrollbar {
+    display: none; /* hide scrollbar in Chrome/Safari */
+  }
+
+  nav a {
+    white-space: nowrap;
+    padding: 10px 14px;
+    background: rgba(139, 107, 74, 0.2);
+  }
+}
+
