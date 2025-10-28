@@ -280,19 +280,26 @@ section {
 #techlife {
   max-width: 850px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   background-color: #EDE3D1;
   border-radius: 12px;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.08);
-  line-height: 1.8;
+  line-height: 1..65;
   color: #3a2e27;
+  font-size: 1.05rem;
 }
 
-#techlife h1, #techlife h2, #techlife h3 {
+#techlife h1, 
+#techlife h2, 
+#techlife h3 {
   color: var(--primary-dark);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
 }
 
+#techlife h1 { font-size: 1.9rem; }
+#techlife h2 { font-size: 1.4rem; }
+#techlife h3 { font-size: 1.2rem; }
 #techlife p {
   margin-bottom: 1.2rem;
   font-size: 1.05rem;
