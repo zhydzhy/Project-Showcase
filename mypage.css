@@ -85,87 +85,6 @@ section {
   background-color: var(--primary-light);
 }
 
-/* ===== Contact Section ===== */
-#contact {
-  padding: 60px 20px;
-  background-color: #f6f1e7; /* warm parchment */
-}
-
-.contact-container {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-form {
-  width: 100%;
-  max-width: 500px;
-  background: var(--text-light);
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(60, 40, 20, 0.1);
-  border: 2px solid var(--accent);
-}
-
-.form-group {
-  margin-bottom: 1.8rem;
-}
-
-.form-control {
-  width: 100%;
-  padding: 15px;
-  font-size: 1rem;
-  border: 1px solid #d2b48c; /* tan border */
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background-color: #fffdf8;
-  color: var(--text);
-}
-
-.form-control::placeholder {
-  color: #8b8175;
-}
-
-.form-control:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(164, 116, 73, 0.25);
-  outline: none;
-}
-
-textarea.form-control {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.btn-submit {
-  padding: 15px 30px;
-  font-size: 1rem;
-  background-color: var(--accent);
-  color: var(--text-light);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.btn-submit:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-}
-
-.contact-info {
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.contact-info p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
 /* ===== Footer ===== */
 footer {
   text-align: center;
@@ -301,7 +220,7 @@ nav a:active {
   max-width: 850px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
-  background-color: #fffdf8;
+  background-color: #EDE3D1;
   border-radius: 12px;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.08);
   line-height: 1.8;
@@ -355,3 +274,25 @@ section a.inline-link:hover {
   }
 }
 
+/* ===== Unified Title Styling (across all pages) ===== */
+h1, h2, h3 {
+  color: var(--primary-dark); /* same warm deep brown tone */
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+/* Optional: Add subtle warmth for accent headers */
+h1 {
+  font-size: 2rem;
+  color: #7b3f00; /* deep brown similar to 'The Windows Rant' tone */
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: #8b4513; /* sienna tone – warm and natural */
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #9a6229; /* lighter brown for subheadings */
+}
