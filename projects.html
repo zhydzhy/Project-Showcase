@@ -28,9 +28,27 @@
     <p>
       Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM)
       for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB–LiDAR projection fusion,
-      and optimized the trained model for real-time embedded inference using Python, PyTorch, and C++.
+      and optimized the trained model for real-time embedded inference using Raspberry Pi.
     </p>
-  </section>
+    <p> Designed and implemented a multimodal traffic detection pipeline that integrates RGB camera and LiDAR point cloud data 
+      for robust corner-case hazard understanding in autonomous driving scenarios. Built a synthetic dataset generation engine in CARLA, 
+      covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.
+    </p>
+    <p>
+    Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling downstream 
+    Vision-Language Models (MiniCPM-o, Qwen-VL, BLIP-2 variants) to perform spatial reasoning and semantic grounding. 
+    </p>
+    <p>
+    Implemented ontology-driven annotation using AVCCO ontology + TTL triples to guide model reasoning and generate structured hazard explanations.
+    Optimized the full pipeline for real-time inference on embedded platforms using Python, PyTorch, and C++—including quantization, dynamic
+    resolution scaling, and an edge-cloud hierarchical architecture where a lightweight edge model filters scenes before offloading complex 
+    reasoning to a larger backend VLM.
+     <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">
+      GitHub
+      </a>
+
+    </p>
+</section>
 
     <section class="project-item">
       <h2>Light Sensor Swarm System</h2>
@@ -39,6 +57,9 @@
         Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central
         Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware
         sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.
+      <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">
+      GitHub
+      </a>
       </p>
     </section>
 
