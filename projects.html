@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Haotian Zhang</title>
   <link rel="stylesheet" href="mypage.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
-<link rel="icon" type="image/png" href="favicon.png">
 <body>
   <header>
     <nav>
@@ -19,89 +19,114 @@
     </nav>
   </header>
 
-  <main class="content-section">
-    <h1 class="page-title">Projects</h1>
+  <main class="page-shell content-section">
+    <h1 class="page-title reveal">Projects</h1>
 
-    <section class="project-item">
-    <h2>Traffic Detection System</h2>
-    <p class="project-period"><em>CARLA, Vision-Language Models, Edge AI</em> <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">
-      GitHub
-      </a></p>
-    <p>
-      Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM)
-      for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB–LiDAR projection fusion,
-      and optimized the trained model for real-time embedded inference using Raspberry Pi.
-    </p>
-    <p> Designed and implemented a multimodal traffic detection pipeline that integrates RGB camera and LiDAR point cloud data 
-      for robust corner-case hazard understanding in autonomous driving scenarios. Built a synthetic dataset generation engine in CARLA, 
-      covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.
-    </p>
-    <p>
-    Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling downstream 
-    Vision-Language Models (MiniCPM-o, Qwen-VL, BLIP-2 variants) to perform spatial reasoning and semantic grounding. 
-    </p>
-    <p>
-    Implemented ontology-driven annotation using AVCCO ontology + TTL triples to guide model reasoning and generate structured hazard explanations.
-    Optimized the full pipeline for real-time inference on embedded platforms using Python, PyTorch, and C++—including quantization, dynamic
-    resolution scaling, and an edge-cloud hierarchical architecture where a lightweight edge model filters scenes before offloading complex 
-    reasoning to a larger backend VLM.
-     
-     <a href="https://nitro.tj.cn/capstone_demo.html" target="_blank" rel="noopener noreferrer">
-      Demo
-    </a>
+    <section class="project-item reveal" id="traffic-detection">
+      <h2>Traffic Detection System</h2>
+      <p class="project-period">
+        <em>CARLA, Vision-Language Models, Edge AI</em>
+        <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+        |
+        <a href="https://nitro.tj.cn/capstone_demo.html" target="_blank" rel="noopener noreferrer">Demo</a>
+      </p>
+      <p>
+        Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM)
+        for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB-LiDAR projection fusion,
+        and optimized the trained model for real-time embedded inference using Raspberry Pi.
+      </p>
+      <p>
+        Designed and implemented a multimodal traffic detection pipeline that integrates RGB camera and LiDAR point cloud data
+        for robust corner-case hazard understanding in autonomous driving scenarios. Built a synthetic dataset generation engine in CARLA,
+        covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.
+      </p>
+      <p>
+        Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling downstream
+        Vision-Language Models (MiniCPM-o, Qwen-VL, BLIP-2 variants) to perform spatial reasoning and semantic grounding.
+      </p>
+      <p>
+        Implemented ontology-driven annotation using AVCCO ontology and TTL triples to guide model reasoning and generate structured hazard explanations.
+        Optimized the full pipeline for real-time inference on embedded platforms using Python, PyTorch, and C++, including quantization, dynamic
+        resolution scaling, and an edge-cloud hierarchical architecture where a lightweight edge model filters scenes before offloading complex
+        reasoning to a larger backend VLM.
+      </p>
+    </section>
 
-    </p>
-</section>
+    <section class="project-item reveal" id="lean-library">
+      <h2>Lean Improvement Knowledge Library Platform</h2>
+      <p class="project-period"><em>Enterprise Web System, Manufacturing IT</em></p>
+      <p><em>.NET 8, SQL Server, Dapper, JavaScript</em></p>
+      <p>
+        Developed an enterprise-scale Lean Improvement Knowledge Library to digitize, standardize, and govern continuous-improvement cases across a
+        manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform.
+      </p>
+      <p>
+        Designed and implemented a full-stack web system using ASP.NET Core (.NET 8) and SQL Server, with secure cookie-based authentication,
+        role-based access control, and RESTful APIs to support long-term operational use.
+      </p>
+      <p>
+        Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and
+        reducing administrative overhead during personnel or structure changes.
+      </p>
+      <p>
+        Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times
+        and reducing improvement retrieval from minutes to seconds.
+      </p>
+      <p>
+        Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency,
+        usability, and cross-department reuse of Lean improvement knowledge.
+      </p>
+    </section>
 
-    <section class="project-item">
+    <section class="project-item reveal" id="light-sensor-swarm">
       <h2>Light Sensor Swarm System</h2>
-      <p class="project-period"><em>ESP8266, Raspberry Pi, IoT Networking</em><a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">
-      GitHub
-      </a></p>
+      <p class="project-period">
+        <em>ESP8266, Raspberry Pi, IoT Networking</em>
+        <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
       <p>
         Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central
         Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware
         sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.
-      
       </p>
     </section>
 
-   <section class="project-item">
-    <h2>Real-Time Canny Edge Detection Optimization</h2>
-    <p class="project-period"><em>OpenCV, Multi-threading, PSNR Evaluation</em></p>
-    <p>
-      Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading
-      and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance
-      across different threading strategies for embedded applications.
-    </p>
-  </section>
+    <section class="project-item reveal">
+      <h2>Real-Time Canny Edge Detection Optimization</h2>
+      <p class="project-period"><em>OpenCV, Multi-threading, PSNR Evaluation</em></p>
+      <p>
+        Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading
+        and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance
+        across different threading strategies for embedded applications.
+      </p>
+    </section>
 
-  <section class="project-item">
-    <h2>Network Simulation</h2>
-    <p class="project-period"><em>Python, FRRouting, ContainerLab, Docker</em></p>
-    <p>
-      Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols,
-      reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation,
-      earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration,
-      and hands-on routing protocol configuration in a virtualized environment.
-    </p>
-  </section>
+    <section class="project-item reveal">
+      <h2>Network Simulation</h2>
+      <p class="project-period"><em>Python, FRRouting, ContainerLab, Docker</em></p>
+      <p>
+        Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols,
+        reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation,
+        earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration,
+        and hands-on routing protocol configuration in a virtualized environment.
+      </p>
+    </section>
 
-  <section class="project-item">
-    <h2>Waybar & Omarchy Linux Workflow Setup</h2>
-    <p class="project-period"><em>Linux, Hyprland, System Automation</em></p>
-    <p>
-      Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity.
-      Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics
-      with MapleMono fonts and script-based automation.
-    </p>
-  </section>
-
+    <section class="project-item reveal">
+      <h2>Waybar and Omarchy Linux Workflow Setup</h2>
+      <p class="project-period"><em>Linux, Hyprland, System Automation</em></p>
+      <p>
+        Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity.
+        Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics
+        with MapleMono fonts and script-based automation.
+      </p>
+    </section>
   </main>
 
-  <footer>
-        <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a href="beian.miit.gov.cn">津ICP备2025036959号</a></p>
+<footer>
+    <p>&copy; 2025 Haotian Zhang. All Rights Reserved.
+      <a class="footer-link" href="beian.miit.gov.cn">津ICP备2025036959号</a>
+    </p>
   </footer>
 </body>
-
 </html>

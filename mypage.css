@@ -1,19 +1,25 @@
 /* =========================================================
-   Earth-Tone Portfolio Stylesheet — Clean Consolidation
+   Earth-Tone Portfolio Stylesheet - Clean Consolidation
    Author: Haotian Zhang
    ========================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&display=swap');
+
 /* ===== Global Theme ===== */
 :root {
-  --primary: #8B6B4A;         /* warm brown */
-  --primary-dark: #5C4033;    /* deep walnut */
-  --primary-light: #EDE3D1;   /* light sand */
-  --accent: #A47449;          /* caramel / clay */
-  --text: #2E2B28;            /* dark charcoal brown */
-  --text-light: #F5F1EB;      /* light beige */
-  --error: #A64B2A;           /* rustic red clay */
-  --warning: #D8A25E;         /* amber sand */
+  --primary: #2b4b45;         /* deep teal */
+  --primary-dark: #1f312e;    /* evergreen */
+  --primary-light: #f5efe4;   /* warm paper */
+  --accent: #c86b36;          /* burnt orange */
+  --text: #1f1d1b;            /* deep ink */
+  --text-light: #f7f1e8;      /* light cream */
+  --error: #b64b2a;           /* rustic red clay */
+  --warning: #d3a642;         /* amber */
+  --surface: rgba(245, 239, 228, 0.92);
+  --shadow: 0 18px 35px rgba(43, 34, 24, 0.18);
+  --shadow-soft: 0 8px 20px rgba(43, 34, 24, 0.12);
 }
+
 @font-face {
   font-family: 'Maple Mono';
   src: url('https://cdn.jsdelivr.net/gh/subframe7536/maple-font/MapleMono-Regular.woff2') format('woff2'),
@@ -31,6 +37,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 /* ===== Base Reset ===== */
 * {
   margin: 0;
@@ -40,16 +47,43 @@
 
 body {
   font-family: 'Maple Mono', monospace;
-  line-height: 1.5;
+  line-height: 1.55;
   letter-spacing: 0.01em;
-  background-color: var(--primary-light);
+  background:
+    radial-gradient(900px 520px at 12% -10%, rgba(240, 221, 190, 0.85), transparent 60%),
+    radial-gradient(700px 520px at 88% 12%, rgba(200, 217, 204, 0.6), transparent 58%),
+    linear-gradient(180deg, #fbf6ee 0%, #f1e4d3 100%);
   color: var(--text);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10% -10% auto -10%;
+  height: 55%;
+  background: linear-gradient(120deg, rgba(200, 107, 54, 0.22), transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(43, 34, 24, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ===== Unified Title Styling ===== */
 h1, h2, h3 {
-  font-family: 'Maple Mono', monospace;
+  font-family: 'Fraunces', 'Maple Mono', serif;
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 nav a {
@@ -58,29 +92,29 @@ nav a {
 }
 
 h1 {
-  font-size: 2rem;
-  color: #7b3f00; /* deep brown like 'Windows Rant' */
+  font-size: 2.3rem;
+  color: #2a2420;
 }
 
 h2 {
-  font-size: 1.6rem;
-  color: #8b4513; /* sienna */
+  font-size: 1.7rem;
+  color: #3a2f28;
 }
 
 h3 {
   font-size: 1.3rem;
-  color: #9a6229; /* lighter brown */
+  color: #4b3a2f;
 }
 
 /* =========================================================
    Header & Navigation
    ========================================================= */
 header {
-  background-color: var(--accent);
+  background: linear-gradient(120deg, #2b4b45, #3b5b54);
   color: var(--text-light);
-  padding: 16px 0;
+  padding: 18px 0;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.25);
+  box-shadow: 0 8px 18px rgba(33, 40, 30, 0.28);
 }
 
 nav ul {
@@ -98,7 +132,7 @@ nav a {
   font-weight: 700;
   text-decoration: none;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 999px;
   color: var(--text-light);
   transition: color .2s ease, background-color .2s ease, transform .08s ease;
 }
@@ -106,7 +140,7 @@ nav a {
 /* Hover + focus underline */
 nav a:hover,
 nav a:focus-visible {
-  background-color: rgba(139, 107, 74, 0.22);
+  background-color: rgba(247, 241, 232, 0.18);
   color: var(--text-light);
   outline: none;
 }
@@ -114,8 +148,8 @@ nav a:focus-visible {
 nav a::after {
   content: "";
   position: absolute;
-  left: 10px;
-  right: 10px;
+  left: 12px;
+  right: 12px;
   bottom: 6px;
   height: 3px;
   border-radius: 2px;
@@ -132,8 +166,8 @@ nav a:focus-visible::after {
 
 /* Active (current page) */
 nav a.active {
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
+  background-color: rgba(247, 241, 232, 0.2);
+  color: var(--text-light);
 }
 
 nav a.active::after {
@@ -144,7 +178,7 @@ nav a.active::after {
 /* Click feedback */
 nav a:active {
   transform: translateY(1px);
-  background-color: #4b352a;
+  background-color: rgba(18, 31, 28, 0.55);
 }
 
 /* Responsive nav scroll */
@@ -169,29 +203,123 @@ section {
   max-width: 1200px;
   margin: 0 auto;
 }
-/* ===== About Page (balanced layout) ===== */
+
+/* ===== Shared Layout ===== */
+main {
+  padding: 10px 20px 30px;
+}
+
+.page-shell {
+  max-width: 960px;
+  margin: 32px auto 0;
+  padding: 36px;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.reveal {
+  animation: rise 0.7s ease both;
+}
+
+.reveal:nth-of-type(2) { animation-delay: 0.08s; }
+.reveal:nth-of-type(3) { animation-delay: 0.16s; }
+.reveal:nth-of-type(4) { animation-delay: 0.24s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+}
+
+/* ===== Home ===== */
+.hero {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+}
+
+.hero-copy p {
+  font-size: 1.05rem;
+  color: #2f2722;
+  margin-top: 0.8rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(200, 107, 54, 0.12);
+  border: 1px solid rgba(200, 107, 54, 0.2);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.hero-card {
+  padding: 22px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(43, 75, 69, 0.92), rgba(32, 47, 44, 0.9));
+  color: var(--text-light);
+  box-shadow: var(--shadow-soft);
+  justify-self: end;
+}
+
+.hero-card h2 {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.stat-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.stat-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.stat-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--warning);
+}
+
+/* ===== About Page ===== */
 #about-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 40px; /* more breathing space */
-  background-color: #EDE3D1; /* consistent with projects & techlife */
-  border-radius: 10px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 0;
 }
 
 #about-page h1 {
   text-align: center;
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: #3a2e27;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.4rem;
 }
 
 #about-page h2 {
-  color: #5c4033;
-  font-size: 1.3rem;
+  color: #2b4b45;
+  font-size: 1.35rem;
   margin-top: 1.6rem;
   margin-bottom: 0.8rem;
-  border-bottom: 1.5px solid rgba(139, 107, 74, 0.25);
+  border-bottom: 1.5px solid rgba(43, 75, 69, 0.2);
   padding-bottom: 0.3rem;
 }
 
@@ -199,7 +327,7 @@ section {
   color: #3d342b;
   line-height: 1.65;
   font-size: 1.05rem;
-  text-align: justify;
+  text-align: left;
   margin-bottom: 1.2rem;
 }
 
@@ -209,10 +337,14 @@ section {
 
 #about-page .experience-item {
   margin-bottom: 1.5rem;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(43, 75, 69, 0.1);
 }
 
 #about-page .experience-item h3 {
-  color: #7b3f00;
+  color: #3a2e27;
   margin-bottom: 0.2rem;
   font-size: 1.15rem;
 }
@@ -224,55 +356,55 @@ section {
 }
 
 /* =========================================================
-   Projects Page (clean text layout)
+   Projects Page
    ========================================================= */
-
 .content-section {
-  max-width: 850px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 25px 16px;   /* tighter overall padding */
-  background-color: #EDE3D1;
+  padding: 0;
 }
 
 .page-title {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #3a2e27;
   margin-bottom: 1.2rem;
-  border-bottom: none;  /* remove underline */
+  border-bottom: none;
 }
 
 .project-item {
-  margin-bottom: 0.9rem;  /* drastically reduced spacing between projects */
+  margin-bottom: 1.2rem;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(43, 75, 69, 0.12);
+  box-shadow: 0 6px 14px rgba(33, 28, 22, 0.08);
 }
 
 .project-item h2 {
-  font-size: 1.15rem;
-  color: #3a2e27;
-  margin-bottom: 0.2rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2b4b45;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
 }
 
 .project-period {
-  color: #8b6b3e;
-  font-weight: 500;
+  color: #7b5c3d;
+  font-weight: 600;
   font-style: italic;
   margin-bottom: 0.25rem;
 }
 
 .project-item p {
   color: #3d352b;
-  line-height: 1.45;    /* more compact line height */
-  text-align: justify;
-  margin-bottom: 0.3rem;
+  line-height: 1.55;
+  text-align: left;
+  margin-bottom: 0.6rem;
 }
 
-/* remove last gap */
 .project-item:last-of-type {
   margin-bottom: 0;
 }
-
-
 
 /* =========================================================
    Tech & Life Page
@@ -280,17 +412,14 @@ section {
 #techlife {
   max-width: 850px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-  background-color: #EDE3D1;
-  border-radius: 12px;
-  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.08);
-  line-height: 1..65;
+  padding: 0;
+  line-height: 1.65;
   color: #3a2e27;
   font-size: 1.05rem;
 }
 
-#techlife h1, 
-#techlife h2, 
+#techlife h1,
+#techlife h2,
 #techlife h3 {
   color: var(--primary-dark);
   margin-bottom: 0.7rem;
@@ -307,19 +436,57 @@ section {
 
 /* Subtle inline link style */
 #techlife a,
-section a.inline-link {
+section a.inline-link,
+.project-item a {
   color: var(--primary-dark);
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 1px;
+  border-bottom: 2px solid rgba(200, 107, 54, 0.6);
+  padding-bottom: 2px;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 #techlife a:hover,
-section a.inline-link:hover {
+section a.inline-link:hover,
+.project-item a:hover {
   color: var(--accent);
   border-color: var(--primary-dark);
+}
+
+.project-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(43, 75, 69, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(33, 28, 22, 0.1);
+}
+
+.project-card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.read-more:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(33, 28, 22, 0.15);
+  background: #345a53;
 }
 
 /* =========================================================
@@ -327,7 +494,7 @@ section a.inline-link:hover {
    ========================================================= */
 footer {
   text-align: center;
-  background: var(--primary);
+  background: var(--primary-dark);
   color: var(--text-light);
   padding: 1.5rem 0;
   margin-top: 50px;
@@ -342,4 +509,15 @@ footer {
 .footer-link:hover {
   color: var(--error);
   text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    padding: 26px;
+    margin: 20px auto 0;
+  }
+
+  h1 { font-size: 2rem; }
+  .hero { gap: 18px; }
+  .hero-card { padding: 18px; }
 }

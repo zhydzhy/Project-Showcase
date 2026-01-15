@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Haotian Zhang</title>
   <link rel="stylesheet" href="mypage.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
-<link rel="icon" type="image/png" href="favicon.png">
 <body>
   <header>
     <nav>
@@ -19,45 +19,61 @@
     </nav>
   </header>
 
-  <section id="about">
-    <h1>About Me</h1>
-    <p>
-      Hi! I’m <strong>Haotian (Nitro) Zhang</strong> — a Master’s student in Embedded and Cyber-Physical Systems at UC Irvine. 
-      I’m passionate about Edge AI, robotics, and building intelligent systems that merge hardware and machine learning.
-    </p>
-    <h2>Contact</h2>
+  <main class="page-shell">
+    <section id="about-page" class="reveal">
+      <h1>About Me</h1>
+      <p>
+        Hi! I'm <strong>Haotian (Nitro) Zhang</strong>, my work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores
+          AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming
+          manufacturing improvement cases into a searchable, governed knowledge platform used at scale.
+
+      <h2>Contact</h2>
       <p>Email: <a class="footer-link" href="mailto:HaotianZhang@nitro.tj.cn">HaotianZhang@nitro.tj.cn</a></p>
 
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Master of Science</strong> in Embedded and Cyber-Physical Systems — University of California, Irvine (2024 – Present)</li>
-      <li><strong>Bachelor of Science</strong> in Computer Science — University of California, Irvine (2020 – 2024)</li>
-    </ul>
-    <h2>Professional Experience</h2>
-
-    <div class="experience">
-      <h3>Research Assistant — IAS Laboratory, University of California, Irvine</h3>
-      <p><em>June 2025 – Present | Irvine, CA</em></p>
+      <h2>Education</h2>
       <ul>
-        <li>Developed a traffic hazard detection system in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) for Vision-Language Model training.</li>
-        <li>Designed a 0–1 hazard scoring evaluation framework to compare model predictions against human annotations.</li>
-        <li>Enhanced model robustness by fusing RGB and LiDAR data, and stress-testing against synthetic edge-case datasets.</li>
+        <li><strong>Master of Engineering</strong> in Embedded and Cyber-Physical Systems - UC Irvine, 2025</li>
+        <li><strong>Bachelor of Science</strong> in Computer Science - UC Irvine, 2024</li>
       </ul>
-    </div>
 
-    <div class="experience">
-      <h3>System Testing Intern — Boeing Tianjin Composites Co., Ltd.</h3>
-      <p><em>February 2023 – June 2023 | Tianjin, China</em></p>
-      <ul>
-        <li>Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly.</li>
-        <li>Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs.</li>
-        <li>Trained 20+ users on MES operations and authored user manuals and deployment documentation.</li>
-      </ul>
-    </div>
+      <h2>Professional Experience</h2>
+      <div class="experience">
+        <div class="experience-item">
+          <h3>Software Engineering Intern - Boeing Tianjin Composites Co., Ltd.</h3>
+          <p><em>December 2024 - Present | Tianjin, China</em></p>
+          <ul>
+            <li>Designed and deployed a full-stack Lean Improvement Knowledge Library supporting ~900 internal users, centralizing continuous-improvement cases across departments.</li>
+            <li>Implemented a secure ASP.NET Core (.NET 8) backend with cookie-based authentication, role-based access control, and administrative governance workflows.</li>
+            <li>Modeled scalable organizational and ownership relationships (departments, positions, managers) without storing full employee records, reducing data complexity and maintenance cost.</li>
+            <li>Built high-performance search, filtering, and analytics APIs (Dapper + SQL Server) enabling rapid retrieval and statistical analysis of improvement outcomes.</li>
+            <li>Developed dynamic frontend components for cascaded classification, attachments, and in-browser previews, improving usability and long-term knowledge reuse.</li>
+          </ul>
+        </div>
 
-  </section>
+        <div class="experience-item">
+          <h3>Research Assistant - IAS Laboratory, University of California, Irvine</h3>
+          <p><em>June 2025 - December 2025 | Irvine, CA</em></p>
+          <ul>
+            <li>Developed a traffic hazard detection system in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) for Vision-Language Model training.</li>
+            <li>Designed a 0-1 hazard scoring evaluation framework to compare model predictions against human annotations.</li>
+            <li>Enhanced model robustness by fusing RGB and LiDAR data, and stress-testing against synthetic edge-case datasets.</li>
+          </ul>
+        </div>
 
-  <footer>
+        <div class="experience-item">
+          <h3>System Testing Intern - Boeing Tianjin Composites Co., Ltd.</h3>
+          <p><em>February 2023 - June 2023 | Tianjin, China</em></p>
+          <ul>
+            <li>Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly.</li>
+            <li>Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs.</li>
+            <li>Trained 20+ users on MES operations and authored user manuals and deployment documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ <footer>
     <p>&copy; 2025 Haotian Zhang. All Rights Reserved.
       <a class="footer-link" href="beian.miit.gov.cn">津ICP备2025036959号</a>
     </p>

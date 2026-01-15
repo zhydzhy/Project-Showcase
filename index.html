@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Haotian Zhang | Portfolio</title>
   <link rel="stylesheet" href="mypage.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
-<link rel="icon" type="image/png" href="favicon.png">
 <body>
   <header>
     <nav>
@@ -15,55 +15,72 @@
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="techlife.html">Tech & Life</a></li>
-
       </ul>
     </nav>
   </header>
 
-  <section id="home">
-    <h1>Welcome to My Portfolio</h1>
-    <p>
-      Hi! I’m <strong>Haotian (Nitro) Zhang</strong> — a graduate student at the University of California, Irvine, pursuing a Master’s in <em>Embedded and Cyber-Physical Systems</em>.
-    </p>
-    <p>
-      I specialize in embedded AI, robotics, and system-level optimization, working across Python, C++, and Linux to build efficient and intelligent systems.
-      This site showcases my technical projects, research experience, and professional journey.
-    </p>
-  </section>
-
-  <section id="highlight">
-    <h2>Featured Work</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Traffic Detection System</h3>
+  <main>
+    <section id="home" class="page-shell hero reveal">
+      <div class="hero-copy">
+        <p class="eyebrow">CARLA • Edge AI • Manufacturing IT</p>
+        <h1>Welcome to My Portfolio</h1>
         <p>
-          Developed a multimodal Vision-Language Model pipeline using synthetic RGB + LiDAR data in CARLA to detect hazardous road interactions.
-          Optimized for embedded Edge AI deployment and real-time inference.
+          Hi! I'm <strong>Haotian (Nitro) Zhang</strong> — a systems-minded engineer who enjoys turning messy, real-world problems into
+          reliable, well-structured solutions. I care deeply about how software behaves not just in theory, but in production.
         </p>
-        <a href="projects.html" class="read-more">View All Projects</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Light Sensor Swarm System</h3>
         <p>
-          Built a distributed IoT sensor network using ESP8266 nodes and a Raspberry Pi hub for adaptive light detection with dynamic discovery and power management.
+          My work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores
+          AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming
+          manufacturing improvement cases into a searchable, governed knowledge platform used at scale.
         </p>
-        <a href="projects.html" class="read-more">View All Projects</a>
+
       </div>
-    </div>
-  </section>
+      <div class="hero-card">
+        <h2>Focus Areas</h2>
+        <ul class="stat-list">
+          <li><span class="stat-dot"></span>CARLA-based AI hazard detection and multimodal sensor fusion</li>
+          <li><span class="stat-dot"></span>Edge AI optimization for real-time inference</li>
+          <li><span class="stat-dot"></span>Enterprise web systems for Lean improvement analytics</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="about-brief">
-    <h2>About Me</h2>
-    <p>
-      I enjoy combining <strong>AI-driven perception</strong> with <strong>real-time embedded systems</strong>.
-      Beyond engineering, I’m a lifelong learner and gamer — often diving into strategy and precision games like <em>CS2</em> to sharpen focus and teamwork.
-    </p>
-    <a href="about.html" class="read-more">Learn More</a>
-  </section>
+    <section id="highlight" class="page-shell reveal">
+      <h2>Featured Work</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Traffic Detection System</h3>
+          <p>
+            Developed a multimodal Vision-Language Model pipeline using synthetic RGB and LiDAR data in CARLA to detect hazardous road interactions.
+            Optimized for embedded Edge AI deployment and real-time inference.
+          </p>
+          <a href="projects.html#traffic-detection" class="read-more">View All Projects</a>
+        </div>
 
-    <footer>
-        <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a href="beian.miit.gov.cn">津ICP备2025036959号</a></p>
-    </footer>
+        <div class="project-card">
+          <h3>Lean Library Platform</h3>
+          <p>
+            Built an enterprise-scale platform to digitize and govern continuous-improvement cases across manufacturing,
+            with fast search, analytics, and role-based access for ~900 internal users.
+          </p>
+          <a href="projects.html#lean-library" class="read-more">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-brief" class="page-shell reveal">
+      <h2>About Me</h2>
+      <p>
+        I enjoy combining <strong>AI-driven perception</strong> with <strong>real-time embedded systems</strong>.
+        Beyond engineering, I'm a lifelong learner and gamer, often diving into strategy and precision games like <em>CS2</em>
+        to sharpen focus and teamwork.
+      </p>
+      <a href="#about.html" class="read-more">Learn More</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a class="footer-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">津ICP备2025036959号</a></p>
+  </footer>
 </body>
 </html>
