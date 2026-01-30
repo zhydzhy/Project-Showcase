@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,49 +11,53 @@
   <header>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="techlife.html" class="active">Tech & Life</a></li>
+        <li><a href="index.html" data-i18n-en="Home" data-i18n-zh="主页">Home</a></li>
+        <li><a href="about.html" data-i18n-en="About" data-i18n-zh="关于">About</a></li>
+        <li><a href="projects.html" data-i18n-en="Projects" data-i18n-zh="项目">Projects</a></li>
+        <li><a href="techlife.html" class="active" data-i18n-en="Tech & Life" data-i18n-zh="技术与生活">Tech & Life</a></li>
       </ul>
+      <div class="nav-actions">
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language" data-i18n-en="EN" data-i18n-zh="中文">EN</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Theme</button>
+      </div>
     </nav>
   </header>
 
   <main class="page-shell">
     <section id="techlife" class="reveal">
-      <h1>My Take on Technology & Life</h1>
-      <p>
+      <h1 data-i18n-en="My Take on Technology & Life" data-i18n-zh="我对技术与生活的看法">My Take on Technology & Life</h1>
+      <p data-i18n-html-en="Technology should work <em>for</em> you - quietly, predictably, and without asking for permission every five minutes. My philosophy is simple: <strong>build what you can trust, and understand what you use</strong>." data-i18n-html-zh="技术应该 <em>为你</em> 服务——安静、可预测，不需要每五分钟就索要一次许可。我的理念很简单：<strong>构建你可以信任的东西，并理解你所使用的一切</strong>。">
         Technology should work <em>for</em> you - quietly, predictably, and without asking for permission every five minutes.
         My philosophy is simple: <strong>build what you can trust, and understand what you use</strong>.
       </p>
 
-      <h2>Daily Driving Linux</h2>
-      <p>
+      <h2 data-i18n-en="Daily Driving Linux" data-i18n-zh="日用 Linux">Daily Driving Linux</h2>
+      <p data-i18n-html-en="I use <strong><a href=&quot;https://linux.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Linux</a></strong>, an alternative operating system to Windows and macOS, as my daily driver. It's fast, minimal, and completely under my control - no nags, no background analytics, no &quot;smart&quot; assistants that phone home. It was not an easy shift: I have nuked my entire GUI, messed up my bootloader, and destroyed drivers just by updating them. After hopping across many distros, I am satisfied with it for now." data-i18n-html-zh="我使用 <strong><a href=&quot;https://linux.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Linux</a></strong> 作为日用系统，它是 Windows 和 macOS 的替代方案。它快速、极简、完全在我的掌控之中——没有骚扰提示、没有后台分析，也没有会“回传数据”的“智能”助手。这个迁移并不轻松：我曾经把整个 GUI 弄坏、把引导加载器搞崩，甚至只因为更新驱动就把系统弄挂。经历多次发行版折腾后，我目前对它很满意。">
         I use <strong><a href="https://linux.org" target="_blank" rel="noopener">Linux</a></strong>, an alternative operating system to Windows and macOS, as my daily driver.
         It's fast, minimal, and completely under my control - no nags, no background analytics, no "smart" assistants that phone home.
         It was not an easy shift: I have nuked my entire GUI, messed up my bootloader, and destroyed drivers just by updating them.
         After hopping across many distros, I am satisfied with it for now.
       </p>
 
-      <h2>The Windows Rant</h2>
-      <p>
+      <h2 data-i18n-en="The Windows Rant" data-i18n-zh="对 Windows 的吐槽">The Windows Rant</h2>
+      <p data-i18n-en="Every time I boot into Windows, I'm greeted by a pop-up asking if I'd like to use Bing. Then another one about Microsoft Edge. Then &quot;helpful suggestions&quot; from the Store. The Start menu is not a launcher anymore - it is a billboard." data-i18n-zh="每次我启动 Windows，都会被弹窗问要不要用 Bing，接着是关于 Microsoft Edge 的提示，再来是商店的“贴心建议”。开始菜单已不再是启动器，而是广告牌。">
         Every time I boot into Windows, I'm greeted by a pop-up asking if I'd like to use Bing.
         Then another one about Microsoft Edge. Then "helpful suggestions" from the Store.
         The Start menu is not a launcher anymore - it is a billboard.
       </p>
-      <p>
+      <p data-i18n-en="Even the search bar does not search my files first; it wants to search the web, run ads, or &quot;personalize results.&quot; I just want to find a document, not argue with Bing about it." data-i18n-zh="甚至搜索栏也不会先搜我的文件；它更想搜网页、投放广告，或者“个性化结果”。我只是想找个文件，并不想和 Bing 争论。">
         Even the search bar does not search my files first; it wants to search the web,
         run ads, or "personalize results."
         I just want to find a document, not argue with Bing about it.
       </p>
-      <p>
+      <p data-i18n-html-en="The more they tighten the grip on <a href=&quot;https://www.tomshardware.com/software/windows/microsoft-clamping-down-on-windows-11-local-account-setup-latest-insider-build-removes-local-only-commands-skipping-microsoft-account-sign-in-will-crash-setup-process&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>telemetry, ads, and recommended content</a>, the more it feels like using your own computer on borrowed time. Linux is my way out - no telemetry, no surprises, no assistant watching my keystrokes and total control." data-i18n-html-zh="他们对 <a href=&quot;https://www.tomshardware.com/software/windows/microsoft-clamping-down-on-windows-11-local-account-setup-latest-insider-build-removes-local-only-commands-skipping-microsoft-account-sign-in-will-crash-setup-process&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>遥测、广告与推荐内容</a> 的管控越紧，就越像在“借用”的电脑上使用自己的设备。Linux 是我的出口——没有遥测、没有意外、没有监视敲击的助手，完全掌控。">
         The more they tighten the grip on
         <a href="https://www.tomshardware.com/software/windows/microsoft-clamping-down-on-windows-11-local-account-setup-latest-insider-build-removes-local-only-commands-skipping-microsoft-account-sign-in-will-crash-setup-process" target="_blank" rel="noopener">telemetry, ads, and recommended content</a>,
         the more it feels like using your own computer on borrowed time.
         Linux is my way out - no telemetry, no surprises, no assistant watching my keystrokes and total control.
       </p>
 
-      <p>
+      <p data-i18n-en="In some occasions I still need Windows for certain software or games, especially those that refuse to run on Linux via Proton or WINE. For example, League of Legends, Battlefield 6, online matching platforms for CS2 like Perfect World or 5E, and most AAA titles with anti-cheat systems or kernel-level &quot;protection&quot; (they just add more vulnerabilities to your devices)." data-i18n-zh="有时我仍需要 Windows 来运行某些软件或游戏，尤其是那些无法通过 Proton 或 WINE 在 Linux 上运行的。例如：英雄联盟、战地 6、CS2 的线上匹配平台（如完美世界或 5E），以及大多数带反作弊或内核级“保护”的 3A 游戏（它们只会给设备带来更多安全隐患）。">
         In some occasions I still need Windows for certain software or games, especially those that refuse to run on Linux via Proton or WINE.
         For example, League of Legends, Battlefield 6, online matching platforms for CS2 like Perfect World or 5E, and most AAA titles with anti-cheat systems
         or kernel-level "protection" (they just add more vulnerabilities to your devices).
@@ -62,9 +66,76 @@
   </main>
 
 <footer>
-    <p>&copy; 2025 Haotian Zhang. All Rights Reserved.
+    <p data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved.
       <a class="footer-link" href="beian.miit.gov.cn">津ICP备2025036959号</a>
     </p>
   </footer>
+  <script>
+    (() => {
+      const themeKey = "theme";
+      const langKey = "lang";
+      const root = document.documentElement;
+      const themeButton = document.getElementById("theme-toggle");
+      const langButton = document.getElementById("lang-toggle");
+      if (!themeButton || !langButton) return;
+
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const systemLang = () =>
+        (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+
+      const applyThemeLabel = (theme) => {
+        const lang = root.dataset.lang || systemLang();
+        const label = theme === "dark"
+          ? (lang === "zh" ? themeButton.dataset.darkZh : themeButton.dataset.darkEn)
+          : (lang === "zh" ? themeButton.dataset.lightZh : themeButton.dataset.lightEn);
+        themeButton.textContent = label;
+        themeButton.setAttribute("aria-pressed", String(theme === "dark"));
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        applyThemeLabel(theme);
+      };
+
+      const applyLang = (lang) => {
+        root.dataset.lang = lang;
+        root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+        document.querySelectorAll("[data-i18n-en]").forEach((node) => {
+          const next = lang === "zh" ? node.dataset.i18nZh : node.dataset.i18nEn;
+          if (next !== undefined) node.textContent = next;
+        });
+        document.querySelectorAll("[data-i18n-html-en]").forEach((node) => {
+          const next = lang === "zh" ? node.dataset.i18nHtmlZh : node.dataset.i18nHtmlEn;
+          if (next !== undefined) node.innerHTML = next;
+        });
+        applyThemeLabel(root.dataset.theme || (media.matches ? "dark" : "light"));
+      };
+
+      const storedLang = localStorage.getItem(langKey);
+      applyLang(storedLang || systemLang());
+
+      const storedTheme = localStorage.getItem(themeKey);
+      applyTheme(storedTheme || (media.matches ? "dark" : "light"));
+
+      media.addEventListener("change", (event) => {
+        if (!localStorage.getItem(themeKey)) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      langButton.addEventListener("click", () => {
+        const next = root.dataset.lang === "zh" ? "en" : "zh";
+        localStorage.setItem(langKey, next);
+        applyLang(next);
+      });
+
+      themeButton.addEventListener("click", () => {
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem(themeKey, next);
+        applyTheme(next);
+      });
+    })();
+  </script>
 </body>
 </html>
+

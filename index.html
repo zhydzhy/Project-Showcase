@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,76 +11,146 @@
   <header>
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="techlife.html">Tech & Life</a></li>
+        <li><a href="index.html" class="active" data-i18n-en="Home" data-i18n-zh="主页">Home</a></li>
+        <li><a href="about.html" data-i18n-en="About" data-i18n-zh="关于">About</a></li>
+        <li><a href="projects.html" data-i18n-en="Projects" data-i18n-zh="项目">Projects</a></li>
+        <li><a href="techlife.html" data-i18n-en="Tech & Life" data-i18n-zh="技术与生活">Tech & Life</a></li>
       </ul>
+      <div class="nav-actions">
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language" data-i18n-en="EN" data-i18n-zh="中文">EN</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Theme</button>
+      </div>
     </nav>
   </header>
 
   <main>
     <section id="home" class="page-shell hero reveal">
       <div class="hero-copy">
-        <p class="eyebrow">CARLA • Edge AI • Manufacturing IT</p>
-        <h1>Welcome to My Portfolio</h1>
-        <p>
+        <p class="eyebrow" data-i18n-en="CARLA • Edge AI • Manufacturing IT" data-i18n-zh="CARLA · 边缘 AI · 制造业信息化">CARLA • Edge AI • Manufacturing IT</p>
+        <h1 data-i18n-en="Welcome to My Portfolio" data-i18n-zh="欢迎来到我的作品集">Welcome to My Portfolio</h1>
+        <p data-i18n-html-en="Hi! I'm <strong>Haotian (Nitro) Zhang</strong> — a systems-minded engineer who enjoys turning messy, real-world problems into reliable, well-structured solutions. I care deeply about how software behaves not just in theory, but in production." data-i18n-html-zh="你好！我是 <strong>Haotian (Nitro) Zhang</strong>，一名系统思维的工程师，喜欢把现实世界中复杂的问题转化为可靠、有结构的解决方案。我关注软件在生产环境中的真实表现，而不仅是理论层面。">
           Hi! I'm <strong>Haotian (Nitro) Zhang</strong> — a systems-minded engineer who enjoys turning messy, real-world problems into
           reliable, well-structured solutions. I care deeply about how software behaves not just in theory, but in production.
         </p>
-        <p>
+        <p data-i18n-en="My work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming manufacturing improvement cases into a searchable, governed knowledge platform used at scale." data-i18n-zh="我的工作涵盖连接仿真、感知与真实运行的智能系统。我的毕设研究基于 CARLA 的 RGB 与 LiDAR 融合的 AI 交通风险检测；同时，我的精益改进知识库项目专注于将制造业改进案例转化为可检索、可治理、可规模化使用的平台。">
           My work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores
           AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming
           manufacturing improvement cases into a searchable, governed knowledge platform used at scale.
         </p>
-
       </div>
       <div class="hero-card">
-        <h2>Focus Areas</h2>
+        <h2 data-i18n-en="Focus Areas" data-i18n-zh="聚焦方向">Focus Areas</h2>
         <ul class="stat-list">
-          <li><span class="stat-dot"></span>CARLA-based AI hazard detection and multimodal sensor fusion</li>
-          <li><span class="stat-dot"></span>Edge AI optimization for real-time inference</li>
-          <li><span class="stat-dot"></span>Enterprise web systems for Lean improvement analytics</li>
+          <li><span class="stat-dot"></span><span data-i18n-en="CARLA-based AI hazard detection and multimodal sensor fusion" data-i18n-zh="基于 CARLA 的 AI 风险检测与多模态传感器融合">CARLA-based AI hazard detection and multimodal sensor fusion</span></li>
+          <li><span class="stat-dot"></span><span data-i18n-en="Edge AI optimization for real-time inference" data-i18n-zh="面向实时推理的边缘 AI 优化">Edge AI optimization for real-time inference</span></li>
+          <li><span class="stat-dot"></span><span data-i18n-en="Enterprise web systems for Lean improvement analytics" data-i18n-zh="面向精益改进分析的企业级 Web 系统">Enterprise web systems for Lean improvement analytics</span></li>
         </ul>
       </div>
     </section>
 
     <section id="highlight" class="page-shell reveal">
-      <h2>Featured Work</h2>
+      <h2 data-i18n-en="Featured Work" data-i18n-zh="精选项目">Featured Work</h2>
       <div class="project-grid">
         <div class="project-card">
-          <h3>Traffic Detection System</h3>
-          <p>
+          <h3 data-i18n-en="Traffic Detection System" data-i18n-zh="交通风险检测系统">Traffic Detection System</h3>
+          <p data-i18n-en="Developed a multimodal Vision-Language Model pipeline using synthetic RGB and LiDAR data in CARLA to detect hazardous road interactions. Optimized for embedded Edge AI deployment and real-time inference." data-i18n-zh="基于 CARLA 的合成 RGB 与 LiDAR 数据构建多模态视觉-语言模型流程，用于检测道路危险交互。并针对嵌入式边缘 AI 部署与实时推理进行优化。">
             Developed a multimodal Vision-Language Model pipeline using synthetic RGB and LiDAR data in CARLA to detect hazardous road interactions.
             Optimized for embedded Edge AI deployment and real-time inference.
           </p>
-          <a href="projects.html#traffic-detection" class="read-more">View All Projects</a>
+          <a href="projects.html#traffic-detection" class="read-more" data-i18n-en="View All Projects" data-i18n-zh="查看全部项目">View All Projects</a>
         </div>
 
         <div class="project-card">
-          <h3>Lean Library Platform</h3>
-          <p>
+          <h3 data-i18n-en="Lean Library Platform" data-i18n-zh="精益知识库平台">Lean Library Platform</h3>
+          <p data-i18n-en="Built an enterprise-scale platform to digitize and govern continuous-improvement cases across manufacturing, with fast search, analytics, and role-based access for ~900 internal users." data-i18n-zh="搭建企业级平台，将制造业持续改进案例数字化与治理，提供快速检索、分析与角色权限管理，服务约 900 名内部用户。">
             Built an enterprise-scale platform to digitize and govern continuous-improvement cases across manufacturing,
             with fast search, analytics, and role-based access for ~900 internal users.
           </p>
-          <a href="projects.html#lean-library" class="read-more">View All Projects</a>
+          <a href="projects.html#lean-library" class="read-more" data-i18n-en="View All Projects" data-i18n-zh="查看全部项目">View All Projects</a>
         </div>
       </div>
     </section>
 
     <section id="about-brief" class="page-shell reveal">
-      <h2>About Me</h2>
-      <p>
+      <h2 data-i18n-en="About Me" data-i18n-zh="关于我">About Me</h2>
+      <p data-i18n-html-en="I enjoy combining <strong>AI-driven perception</strong> with <strong>real-time embedded systems</strong>. Beyond engineering, I'm a lifelong learner and gamer, often diving into strategy and precision games like <em>CS2</em> to sharpen focus and teamwork." data-i18n-html-zh="我喜欢将 <strong>AI 驱动的感知</strong> 与 <strong>实时嵌入式系统</strong> 结合。除了工程工作，我还是终身学习者和玩家，常通过 <em>CS2</em> 等策略与精确类游戏来锻炼专注力与团队协作。">
         I enjoy combining <strong>AI-driven perception</strong> with <strong>real-time embedded systems</strong>.
         Beyond engineering, I'm a lifelong learner and gamer, often diving into strategy and precision games like <em>CS2</em>
         to sharpen focus and teamwork.
       </p>
-      <a href="#about.html" class="read-more">Learn More</a>
+      <a href="#about.html" class="read-more" data-i18n-en="Learn More" data-i18n-zh="了解更多">Learn More</a>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Haotian Zhang. All Rights Reserved. <a class="footer-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">津ICP备2025036959号</a></p>
+    <p data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved. <a class="footer-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">津ICP备2025036959号</a></p>
   </footer>
+  <script>
+    (() => {
+      const themeKey = "theme";
+      const langKey = "lang";
+      const root = document.documentElement;
+      const themeButton = document.getElementById("theme-toggle");
+      const langButton = document.getElementById("lang-toggle");
+      if (!themeButton || !langButton) return;
+
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const systemLang = () =>
+        (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+
+      const applyThemeLabel = (theme) => {
+        const lang = root.dataset.lang || systemLang();
+        const label = theme === "dark"
+          ? (lang === "zh" ? themeButton.dataset.darkZh : themeButton.dataset.darkEn)
+          : (lang === "zh" ? themeButton.dataset.lightZh : themeButton.dataset.lightEn);
+        themeButton.textContent = label;
+        themeButton.setAttribute("aria-pressed", String(theme === "dark"));
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        applyThemeLabel(theme);
+      };
+
+      const applyLang = (lang) => {
+        root.dataset.lang = lang;
+        root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+        document.querySelectorAll("[data-i18n-en]").forEach((node) => {
+          const next = lang === "zh" ? node.dataset.i18nZh : node.dataset.i18nEn;
+          if (next !== undefined) node.textContent = next;
+        });
+        document.querySelectorAll("[data-i18n-html-en]").forEach((node) => {
+          const next = lang === "zh" ? node.dataset.i18nHtmlZh : node.dataset.i18nHtmlEn;
+          if (next !== undefined) node.innerHTML = next;
+        });
+        applyThemeLabel(root.dataset.theme || (media.matches ? "dark" : "light"));
+      };
+
+      const storedLang = localStorage.getItem(langKey);
+      applyLang(storedLang || systemLang());
+
+      const storedTheme = localStorage.getItem(themeKey);
+      applyTheme(storedTheme || (media.matches ? "dark" : "light"));
+
+      media.addEventListener("change", (event) => {
+        if (!localStorage.getItem(themeKey)) {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      langButton.addEventListener("click", () => {
+        const next = root.dataset.lang === "zh" ? "en" : "zh";
+        localStorage.setItem(langKey, next);
+        applyLang(next);
+      });
+
+      themeButton.addEventListener("click", () => {
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem(themeKey, next);
+        applyTheme(next);
+      });
+    })();
+  </script>
 </body>
 </html>
+
