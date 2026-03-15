@@ -6,27 +6,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
 
 :root {
-  --primary: #2b4b45;
-  --primary-dark: #1f312e;
-  --primary-light: #f5efe4;
-  --accent: #c86b36;
-  --warning: #d3a642;
-  --error: #b64b2a;
-  --text: #1f1d1b;
-  --text-light: #f7f1e8;
+  --primary: #4b392f;
+  --primary-dark: #2f2923;
+  --primary-light: #f6efe4;
+  --accent: #bb6b3c;
+  --warning: #c79a52;
+  --error: #9f553d;
+  --text: #2f2923;
+  --text-light: #fffaf3;
   --ink: var(--text);
-  --muted: #3d342b;
+  --muted: #6a5644;
   --paper: var(--primary-light);
-  --line: rgba(43, 75, 69, 0.32);
-  --surface: rgba(255, 255, 255, 0.65);
-  --surface-strong: rgba(255, 255, 255, 0.9);
-  --ink-strong: #171311;
-  --ink-soft: #4a3d35;
-  --accent-2: #2f5d57;
-  --bg-spot-1: rgba(240, 221, 190, 0.85);
-  --bg-spot-2: rgba(200, 217, 204, 0.6);
-  --bg-base-1: #fbf6ee;
-  --bg-base-2: #f1e4d3;
+  --line: rgba(47, 41, 35, 0.14);
+  --surface: rgba(255, 248, 240, 0.72);
+  --surface-strong: rgba(255, 252, 247, 0.9);
+  --ink-strong: #2f2923;
+  --ink-soft: #6a5644;
+  --accent-2: #8d5d40;
+  --bg-spot-1: rgba(187, 107, 60, 0.18);
+  --bg-spot-2: rgba(234, 219, 200, 0.76);
+  --bg-base-1: #f6efe4;
+  --bg-base-2: #eadbc8;
   --radius-mac-panel: 22px;
   --radius-mac-control: 999px;
   --shadow-mac-panel: none;
@@ -60,27 +60,27 @@
 }
 
 :root[data-theme="light"] {
-  --primary: #2b4b45;
-  --primary-dark: #1f312e;
-  --primary-light: #f5efe4;
-  --accent: #c86b36;
-  --warning: #d3a642;
-  --error: #b64b2a;
-  --text: #1f1d1b;
-  --text-light: #f7f1e8;
+  --primary: #4b392f;
+  --primary-dark: #2f2923;
+  --primary-light: #f6efe4;
+  --accent: #bb6b3c;
+  --warning: #c79a52;
+  --error: #9f553d;
+  --text: #2f2923;
+  --text-light: #fffaf3;
   --ink: var(--text);
-  --muted: #3d342b;
+  --muted: #6a5644;
   --paper: var(--primary-light);
-  --line: rgba(43, 75, 69, 0.32);
-  --surface: rgba(255, 255, 255, 0.65);
-  --surface-strong: rgba(255, 255, 255, 0.9);
-  --ink-strong: #171311;
-  --ink-soft: #4a3d35;
-  --accent-2: #2f5d57;
-  --bg-spot-1: rgba(240, 221, 190, 0.85);
-  --bg-spot-2: rgba(200, 217, 204, 0.6);
-  --bg-base-1: #fbf6ee;
-  --bg-base-2: #f1e4d3;
+  --line: rgba(47, 41, 35, 0.14);
+  --surface: rgba(255, 248, 240, 0.72);
+  --surface-strong: rgba(255, 252, 247, 0.9);
+  --ink-strong: #2f2923;
+  --ink-soft: #6a5644;
+  --accent-2: #8d5d40;
+  --bg-spot-1: rgba(187, 107, 60, 0.18);
+  --bg-spot-2: rgba(234, 219, 200, 0.76);
+  --bg-base-1: #f6efe4;
+  --bg-base-2: #eadbc8;
 }
 
 :root[data-theme="dark"] {
