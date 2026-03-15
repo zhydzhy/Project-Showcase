@@ -27,6 +27,9 @@
   --bg-spot-2: rgba(200, 217, 204, 0.6);
   --bg-base-1: #fbf6ee;
   --bg-base-2: #f1e4d3;
+  --radius-mac-panel: 22px;
+  --radius-mac-control: 999px;
+  --shadow-mac-panel: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,6 +55,7 @@
     --bg-spot-2: rgba(40, 42, 54, 0.6);
     --bg-base-1: #282a36;
     --bg-base-2: #1f202a;
+    --shadow-mac-panel: none;
   }
 }
 
@@ -101,6 +105,7 @@
   --bg-spot-2: rgba(40, 42, 54, 0.6);
   --bg-base-1: #282a36;
   --bg-base-2: #1f202a;
+  --shadow-mac-panel: none;
 }
 
 * {
@@ -224,7 +229,7 @@ nav a.active {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 6px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-mac-control);
   cursor: pointer;
   transition: color 200ms ease, border-color 200ms ease, transform 150ms ease;
 }
@@ -290,6 +295,9 @@ section {
   border: 1px solid var(--line);
   padding: 18px;
   background: var(--surface);
+  border-radius: var(--radius-mac-panel);
+  box-shadow: var(--shadow-mac-panel);
+  overflow: hidden;
 }
 
 .hero-card h2 {
@@ -387,6 +395,9 @@ section {
   border: 1px solid var(--line);
   padding: 18px;
   background: var(--surface);
+  border-radius: var(--radius-mac-panel);
+  box-shadow: var(--shadow-mac-panel);
+  overflow: hidden;
 }
 
 .read-more {

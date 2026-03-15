@@ -18,28 +18,49 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
+      :root {
+        color-scheme: dark;
+        --demo-bg: #1a1c26;
+        --demo-panel: #202331;
+        --demo-border: rgba(255, 255, 255, 0.12);
+        --demo-text: #f5f7fb;
+        --demo-edge: rgba(232, 238, 247, 0.84);
+        --demo-edge-label: rgba(18, 20, 28, 0.88);
+        --demo-node-orange: #ffb36b;
+        --demo-node-blue: #b7dbff;
+        --demo-node-text: #16181f;
+      }
+
       html,
       body {
         height: 100%;
         width: 100%;
         margin: 0;
-        padding: 0;
+        padding: 12px;
         overflow: hidden;
-        background: #222;
+        background: var(--demo-bg);
+        color: var(--demo-text);
+        font-family: "SF Pro Display", "Segoe UI", Arial, sans-serif;
       }
 
       .card {
         height: 100%;
         width: 100%;
-        border-radius: 0;
+        border-radius: 22px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+          var(--demo-panel);
+        border: 1px solid var(--demo-border);
       }
 
       #mynetwork {
         width: 100%;
         height: 100%;
-        background-color: #222222;
+        background-color: transparent;
         border: none;
         position: relative;
+        border-radius: inherit;
       }
 
       /* Fullscreen button */
@@ -48,6 +69,13 @@
         top: 15px;
         right: 15px;
         z-index: 10;
+        border-radius: 999px;
+        padding-inline: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(245, 247, 251, 0.96);
+        color: #16181f;
+        font-weight: 600;
+        letter-spacing: 0.01em;
       }
     </style>
   </head>
@@ -86,55 +114,121 @@
       var allEdges;
       var nodeColors;
       var network;
+      var palette = {
+        edge: "#e8eef7",
+        nodeOrange: "#ffb36b",
+        nodeBlue: "#b7dbff",
+        nodeText: "#16181f"
+      };
+
+      function wrapNodeLabel(label) {
+        return label
+          .replace(/_/g, "_\n")
+          .replace(/([a-z])([A-Z])/g, "$1\n$2");
+      }
 
       function drawGraph() {
         var container = document.getElementById("mynetwork");
 
         nodes = new vis.DataSet([
-          { color: "#97c2fc", font: { color: "white" }, id: 0, label: "sceneContent", shape: "ellipse" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 1, label: "Entity", shape: "box" },
-          { color: "#97c2fc", font: { color: "white" }, id: 2, label: "occlusionEvent_01", shape: "ellipse" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 3, label: "imageBoundary", shape: "box" },
-          { color: "#97c2fc", font: { color: "white" }, id: 4, label: "vehicleA", shape: "ellipse" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 5, label: "Agent", shape: "box" },
-          { color: "#97c2fc", font: { color: "white" }, id: 6, label: "observation_02", shape: "ellipse" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 7, label: "cameraFeed_01", shape: "box" },
-          { color: "#97c2fc", font: { color: "white" }, id: 8, label: "vehicleA_obs_activity_1", shape: "ellipse" },
-          { color: "#97c2fc", font: { color: "white" }, id: 9, label: "observation_01", shape: "ellipse" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 10, label: "Activity", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 11, label: "Observation", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 12, label: "Vehicle", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 13, label: "0.9", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 14, label: "OcclusionEvent", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 15, label: "0.95", shape: "box" },
-          { color: "#FF6D1F", font: { color: "white" }, id: 16, label: "CameraFeed", shape: "box" }
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 0, label: "sceneContent", shape: "ellipse" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 1, label: "Entity", shape: "box" },
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 2, label: "occlusionEvent_01", shape: "ellipse" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 3, label: "imageBoundary", shape: "box" },
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 4, label: "vehicleA", shape: "ellipse" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 5, label: "Agent", shape: "box" },
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 6, label: "observation_02", shape: "ellipse" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 7, label: "cameraFeed_01", shape: "box" },
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 8, label: "vehicleA_obs_activity_1", shape: "ellipse" },
+          { color: { background: palette.nodeBlue }, font: { color: palette.nodeText }, id: 9, label: "observation_01", shape: "ellipse" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 10, label: "Activity", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 11, label: "Observation", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 12, label: "Vehicle", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 13, label: "0.9", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 14, label: "OcclusionEvent", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 15, label: "0.95", shape: "box" },
+          { color: { background: palette.nodeOrange }, font: { color: palette.nodeText }, id: 16, label: "CameraFeed", shape: "box" }
         ]);
 
+        nodes.forEach((node) => {
+          nodes.update({
+            id: node.id,
+            label: wrapNodeLabel(node.label)
+          });
+        });
+
         edges = new vis.DataSet([
-          { color: "white", from: 0, label: "type", to: 1 },
-          { color: "white", from: 2, label: "hasOccluder", to: 3 },
-          { color: "white", from: 4, label: "type", to: 5 },
-          { color: "white", from: 6, label: "hasSensorEvidence", to: 7 },
-          { color: "white", from: 8, label: "wasAssociatedWith", to: 4 },
-          { color: "white", from: 9, label: "hasSensorEvidence", to: 7 },
-          { color: "white", from: 6, label: "hasTriggerEvent", to: 2 },
-          { color: "white", from: 8, label: "type", to: 10 },
-          { color: "white", from: 9, label: "type", to: 11 },
-          { color: "white", from: 3, label: "type", to: 1 },
-          { color: "white", from: 4, label: "type", to: 12 },
-          { color: "white", from: 6, label: "hasConfidenceScore", to: 13 },
-          { color: "white", from: 9, label: "wasGeneratedBy", to: 8 },
-          { color: "white", from: 6, label: "type", to: 11 },
-          { color: "white", from: 2, label: "type", to: 14 },
-          { color: "white", from: 2, label: "hasOccludedEntity", to: 0 },
-          { color: "white", from: 9, label: "hasConfidenceScore", to: 15 },
-          { color: "white", from: 7, label: "type", to: 16 },
-          { color: "white", from: 6, label: "wasGeneratedBy", to: 8 }
+          { color: palette.edge, from: 0, label: "type", to: 1 },
+          { color: palette.edge, from: 2, label: "hasOccluder", to: 3 },
+          { color: palette.edge, from: 4, label: "type", to: 5 },
+          { color: palette.edge, from: 6, label: "hasSensorEvidence", to: 7 },
+          { color: palette.edge, from: 8, label: "wasAssociatedWith", to: 4 },
+          { color: palette.edge, from: 9, label: "hasSensorEvidence", to: 7 },
+          { color: palette.edge, from: 6, label: "hasTriggerEvent", to: 2 },
+          { color: palette.edge, from: 8, label: "type", to: 10 },
+          { color: palette.edge, from: 9, label: "type", to: 11 },
+          { color: palette.edge, from: 3, label: "type", to: 1 },
+          { color: palette.edge, from: 4, label: "type", to: 12 },
+          { color: palette.edge, from: 6, label: "hasConfidenceScore", to: 13 },
+          { color: palette.edge, from: 9, label: "wasGeneratedBy", to: 8 },
+          { color: palette.edge, from: 6, label: "type", to: 11 },
+          { color: palette.edge, from: 2, label: "type", to: 14 },
+          { color: palette.edge, from: 2, label: "hasOccludedEntity", to: 0 },
+          { color: palette.edge, from: 9, label: "hasConfidenceScore", to: 15 },
+          { color: palette.edge, from: 7, label: "type", to: 16 },
+          { color: palette.edge, from: 6, label: "wasGeneratedBy", to: 8 }
         ]);
 
         data = { nodes: nodes, edges: edges };
 
-        var options = { physics: { enabled: true, stabilization: { iterations: 100 } } };
+        var options = {
+          physics: { enabled: true, stabilization: { iterations: 100 } },
+          nodes: {
+            borderWidth: 1.5,
+            borderWidthSelected: 2,
+            margin: { top: 10, right: 14, bottom: 10, left: 14 },
+            widthConstraint: { maximum: 190 },
+            shapeProperties: { borderRadius: 22 },
+            font: {
+              color: "#16181f",
+              face: "SF Pro Display, Segoe UI, Arial, sans-serif",
+              size: 22,
+              strokeWidth: 0,
+              multi: "html",
+              bold: {
+                color: "#16181f",
+                size: 22,
+                face: "SF Pro Display, Segoe UI, Arial, sans-serif"
+              }
+            }
+          },
+          edges: {
+            color: {
+              color: "rgba(232, 238, 247, 0.78)",
+              highlight: "#ffffff",
+              hover: "#ffffff"
+            },
+            font: {
+              color: "#f5f7fb",
+              face: "SF Pro Display, Segoe UI, Arial, sans-serif",
+              size: 18,
+              strokeWidth: 0,
+              background: "rgba(18, 20, 28, 0.88)",
+              align: "middle"
+            },
+            smooth: {
+              type: "dynamic",
+              roundness: 0.18
+            },
+            selectionWidth: 2,
+            width: 1.8
+          },
+          interaction: {
+            hover: true,
+            navigationButtons: true,
+            keyboard: true
+          }
+        };
 
         network = new vis.Network(container, data, options);
       }
