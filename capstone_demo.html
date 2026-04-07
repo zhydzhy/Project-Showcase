@@ -19,16 +19,16 @@
 
     <style>
       :root {
-        color-scheme: dark;
-        --demo-bg: #1a1c26;
-        --demo-panel: #202331;
-        --demo-border: rgba(255, 255, 255, 0.12);
-        --demo-text: #f5f7fb;
-        --demo-edge: rgba(232, 238, 247, 0.84);
-        --demo-edge-label: rgba(18, 20, 28, 0.88);
-        --demo-node-orange: #ffb36b;
-        --demo-node-blue: #b7dbff;
-        --demo-node-text: #16181f;
+        color-scheme: light;
+        --demo-bg: #f5f4ed;
+        --demo-panel: #faf9f5;
+        --demo-border: #e8e6dc;
+        --demo-text: #141413;
+        --demo-edge: rgba(77, 76, 72, 0.74);
+        --demo-edge-label: rgba(250, 249, 245, 0.96);
+        --demo-node-orange: #c96442;
+        --demo-node-blue: #d9d5c8;
+        --demo-node-text: #141413;
       }
 
       html,
@@ -38,20 +38,22 @@
         margin: 0;
         padding: 12px;
         overflow: hidden;
-        background: var(--demo-bg);
+        background:
+          radial-gradient(circle at top left, rgba(201, 100, 66, 0.1), transparent 24%),
+          radial-gradient(circle at 85% 12%, rgba(95, 110, 78, 0.08), transparent 18%),
+          var(--demo-bg);
         color: var(--demo-text);
-        font-family: "SF Pro Display", "Segoe UI", Arial, sans-serif;
+        font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
       }
 
       .card {
         height: 100%;
         width: 100%;
-        border-radius: 22px;
+        border-radius: 32px;
         overflow: hidden;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-          var(--demo-panel);
+        background: var(--demo-panel);
         border: 1px solid var(--demo-border);
+        box-shadow: rgba(20, 20, 19, 0.05) 0 4px 24px;
       }
 
       #mynetwork {
@@ -71,9 +73,9 @@
         z-index: 10;
         border-radius: 999px;
         padding-inline: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(245, 247, 251, 0.96);
-        color: #16181f;
+        border: 1px solid var(--demo-border);
+        background: #ffffff;
+        color: #141413;
         font-weight: 600;
         letter-spacing: 0.01em;
       }
@@ -191,29 +193,29 @@
             shapeProperties: { borderRadius: 22 },
             font: {
               color: "#16181f",
-              face: "SF Pro Display, Segoe UI, Arial, sans-serif",
-              size: 22,
+              face: "Source Sans 3, Segoe UI, Arial, sans-serif",
+              size: 20,
               strokeWidth: 0,
               multi: "html",
               bold: {
                 color: "#16181f",
-                size: 22,
-                face: "SF Pro Display, Segoe UI, Arial, sans-serif"
+                size: 20,
+                face: "Source Sans 3, Segoe UI, Arial, sans-serif"
               }
             }
           },
           edges: {
             color: {
-              color: "rgba(232, 238, 247, 0.78)",
-              highlight: "#ffffff",
-              hover: "#ffffff"
+              color: "rgba(77, 76, 72, 0.72)",
+              highlight: "#141413",
+              hover: "#141413"
             },
             font: {
-              color: "#f5f7fb",
-              face: "SF Pro Display, Segoe UI, Arial, sans-serif",
-              size: 18,
+              color: "#141413",
+              face: "Source Sans 3, Segoe UI, Arial, sans-serif",
+              size: 16,
               strokeWidth: 0,
-              background: "rgba(18, 20, 28, 0.88)",
+              background: "rgba(250, 249, 245, 0.92)",
               align: "middle"
             },
             smooth: {

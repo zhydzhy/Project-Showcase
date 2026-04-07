@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,196 +8,111 @@
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="brand-lockup">Haotian Zhang</a>
+      <ul class="nav-links">
         <li><a href="index.html" data-i18n-en="Home" data-i18n-zh="主页">Home</a></li>
         <li><a href="about.html" data-i18n-en="About" data-i18n-zh="关于">About</a></li>
         <li><a href="projects.html" class="active" data-i18n-en="Projects" data-i18n-zh="项目">Projects</a></li>
         <li><a href="techlife.html" data-i18n-en="Tech & Life" data-i18n-zh="技术与生活">Tech & Life</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language" data-i18n-en="EN" data-i18n-zh="中文">EN</button>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Theme</button>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">EN</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Light</button>
       </div>
     </nav>
   </header>
 
-  <main class="page-shell content-section">
-    <h1 class="page-title reveal" data-i18n-en="Projects" data-i18n-zh="项目">Projects</h1>
-
-    <section class="project-item reveal" id="traffic-detection">
-      <h2 data-i18n-en="Traffic Detection System" data-i18n-zh="交通风险检测系统">Traffic Detection System</h2>
-      <p class="project-period" data-i18n-html-en="<em>CARLA, Vision-Language Models, Edge AI</em> <a href=&quot;https://github.com/zhydzhy/VLM-Corner-Case-Dectection&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>GitHub</a> | <a href=&quot;https://nitro.tj.cn/capstone_demo.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>Demo</a>" data-i18n-html-zh="<em>CARLA，视觉-语言模型，边缘 AI</em> <a href=&quot;https://github.com/zhydzhy/VLM-Corner-Case-Dectection&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>GitHub</a> | <a href=&quot;https://nitro.tj.cn/capstone_demo.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>演示</a>">
-        <em>CARLA, Vision-Language Models, Edge AI</em>
-        <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
-        |
-        <a href="https://nitro.tj.cn/capstone_demo.html" target="_blank" rel="noopener noreferrer">Demo</a>
-      </p>
-      <p data-i18n-en="Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM) for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB-LiDAR projection fusion, and optimized the trained model for real-time embedded inference using Raspberry Pi." data-i18n-zh="开发多模态交通检测系统，融合 RGB 与 LiDAR 传感器数据训练视觉-语言模型（VLM），用于自动驾驶中的边缘危险场景检测。使用 CARLA 生成合成数据集，应用 RGB-LiDAR 投影融合，并针对树莓派的实时嵌入式推理进行优化。">
-        Developed a multimodal traffic detection system combining RGB and LiDAR sensor data to train a Vision-Language Model (VLM)
-        for corner-case hazard detection in autonomous driving. Generated synthetic datasets using CARLA, applied RGB-LiDAR projection fusion,
-        and optimized the trained model for real-time embedded inference using Raspberry Pi.
-      </p>
-      <p data-i18n-en="Designed and implemented a multimodal traffic detection pipeline that integrates RGB camera and LiDAR point cloud data for robust corner-case hazard understanding in autonomous driving scenarios. Built a synthetic dataset generation engine in CARLA, covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors." data-i18n-zh="设计并实现多模态交通检测流程，融合 RGB 摄像头与 LiDAR 点云数据，用于自动驾驶场景中的边缘风险识别。构建 CARLA 合成数据生成引擎，覆盖遮挡、恶劣天气、近距离险情与异常行为等稀有事件。">
-        Designed and implemented a multimodal traffic detection pipeline that integrates RGB camera and LiDAR point cloud data
-        for robust corner-case hazard understanding in autonomous driving scenarios. Built a synthetic dataset generation engine in CARLA,
-        covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.
-      </p>
-      <p data-i18n-en="Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling downstream Vision-Language Models (MiniCPM-o, Qwen-VL, BLIP-2 variants) to perform spatial reasoning and semantic grounding." data-i18n-zh="开发基于 RGB-LiDAR 投影的融合模块，将 LiDAR 深度与反射率转换为与 RGB 对齐的通道，使下游视觉-语言模型（MiniCPM-o、Qwen-VL、BLIP-2 等）能够进行空间推理与语义对齐。">
-        Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling downstream
-        Vision-Language Models (MiniCPM-o, Qwen-VL, BLIP-2 variants) to perform spatial reasoning and semantic grounding.
-      </p>
-      <p data-i18n-en="Implemented ontology-driven annotation using AVCCO ontology and TTL triples to guide model reasoning and generate structured hazard explanations. Optimized the full pipeline for real-time inference on embedded platforms using Python, PyTorch, and C++, including quantization, dynamic resolution scaling, and an edge-cloud hierarchical architecture where a lightweight edge model filters scenes before offloading complex reasoning to a larger backend VLM." data-i18n-zh="采用 AVCCO 本体与 TTL 三元组实现本体驱动标注，引导模型推理并生成结构化风险解释。使用 Python、PyTorch 与 C++ 优化嵌入式平台上的实时推理流程，包括量化、动态分辨率缩放，以及“边缘过滤 + 云端推理”的分层架构。">
-        Implemented ontology-driven annotation using AVCCO ontology and TTL triples to guide model reasoning and generate structured hazard explanations.
-        Optimized the full pipeline for real-time inference on embedded platforms using Python, PyTorch, and C++, including quantization, dynamic
-        resolution scaling, and an edge-cloud hierarchical architecture where a lightweight edge model filters scenes before offloading complex
-        reasoning to a larger backend VLM.
-      </p>
+  <main>
+    <section class="section section-light section-flow">
+      <div class="section-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n-en="Projects" data-i18n-zh="项目">Projects</p>
+          <h1 data-i18n-en="Projects" data-i18n-zh="项目">Projects</h1>
+        </div>
+      </div>
     </section>
 
-    <section class="project-item reveal" id="lean-library">
-      <h2 data-i18n-en="Lean Improvement Knowledge Library Platform" data-i18n-zh="精益改进知识库平台">Lean Improvement Knowledge Library Platform</h2>
-      <p class="project-period" data-i18n-html-en="<em>Enterprise Web System, Manufacturing IT</em>" data-i18n-html-zh="<em>企业级 Web 系统，制造业信息化</em>"><em>Enterprise Web System, Manufacturing IT</em></p>
-      <p data-i18n-html-en="<em>.NET 8, SQL Server, Dapper, JavaScript</em>" data-i18n-html-zh="<em>.NET 8，SQL Server，Dapper，JavaScript</em>"><em>.NET 8, SQL Server, Dapper, JavaScript</em></p>
-      <p data-i18n-en="Developed an enterprise-scale Lean Improvement Knowledge Library to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform." data-i18n-zh="开发企业级精益改进知识库，用于数字化、标准化并治理制造业组织内的持续改进案例，作为集中化的知识与分析平台服务约 900 名内部用户。">
-        Developed an enterprise-scale Lean Improvement Knowledge Library to digitize, standardize, and govern continuous-improvement cases across a
-        manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform.
-      </p>
-      <p data-i18n-en="Designed and implemented a full-stack web system using ASP.NET Core (.NET 8) and SQL Server, with secure cookie-based authentication, role-based access control, and RESTful APIs to support long-term operational use." data-i18n-zh="使用 ASP.NET Core（.NET 8）与 SQL Server 设计并实现全栈 Web 系统，包含安全的 Cookie 认证、角色权限控制与 RESTful API，支持长期运营使用。">
-        Designed and implemented a full-stack web system using ASP.NET Core (.NET 8) and SQL Server, with secure cookie-based authentication,
-        role-based access control, and RESTful APIs to support long-term operational use.
-      </p>
-      <p data-i18n-en="Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and reducing administrative overhead during personnel or structure changes." data-i18n-zh="通过部门与岗位建模组织归属关系而非个人员工，实现可扩展维护并降低人员或组织变动时的管理成本。">
-        Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and
-        reducing administrative overhead during personnel or structure changes.
-      </p>
-      <p data-i18n-en="Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times and reducing improvement retrieval from minutes to seconds." data-i18n-zh="使用 Dapper 优化 SQL 查询，构建高性能检索、筛选与分析流程，实现亚秒级响应，将检索时间从分钟级降至秒级。">
-        Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times
-        and reducing improvement retrieval from minutes to seconds.
-      </p>
-      <p data-i18n-en="Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency, usability, and cross-department reuse of Lean improvement knowledge." data-i18n-zh="实现联动分类、附件与浏览器内预览等动态前端组件，提升数据一致性、可用性与跨部门复用能力。">
-        Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency,
-        usability, and cross-department reuse of Lean improvement knowledge.
-      </p>
+    <section class="section section-white section-flow">
+      <div class="section-inner stack">
+        <article class="project-card reveal" id="lean-library">
+          <p class="meta" data-i18n-en="Enterprise Web System, Manufacturing IT" data-i18n-zh="企业级 Web 系统，制造业信息化">Enterprise Web System, Manufacturing IT</p>
+          <h2 data-i18n-en="Lean Activity Management Platform" data-i18n-zh="精益活动管理平台">Lean Activity Management Platform</h2>
+          <div class="project-detail">
+            <p data-i18n-en="Developed an enterprise-scale Lean Activity Management Platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform." data-i18n-zh="开发企业级精益活动管理平台，用于数字化、标准化并治理制造业组织内的持续改进案例，作为集中化的知识与分析平台服务约 900 名内部用户。">Developed an enterprise-scale Lean Activity Management Platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform.</p>
+            <p data-i18n-en="Designed and implemented a full-stack web system using ASP.NET Core (.NET 10) and SQL Server, with secure cookie-based authentication, role-based access control, and RESTful APIs to support long-term operational use." data-i18n-zh="使用 ASP.NET Core（.NET 10）与 SQL Server 设计并实现全栈 Web 系统，包含安全的 Cookie 认证、角色权限控制与 RESTful API，支持长期运营使用。">Designed and implemented a full-stack web system using ASP.NET Core (.NET 10) and SQL Server, with secure cookie-based authentication, role-based access control, and RESTful APIs to support long-term operational use.</p>
+            <p data-i18n-en="Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and reducing administrative overhead during personnel or structure changes." data-i18n-zh="通过部门与岗位建模组织归属关系而非个人员工，实现可扩展维护并降低人员或组织变动时的管理成本。">Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and reducing administrative overhead during personnel or structure changes.</p>
+            <p data-i18n-en="Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times and reducing improvement retrieval from minutes to seconds." data-i18n-zh="使用 Dapper 优化 SQL 查询，构建高性能检索、筛选与分析流程，实现亚秒级响应，将检索时间从分钟级降至秒级。">Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times and reducing improvement retrieval from minutes to seconds.</p>
+            <p data-i18n-en="Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency, usability, and cross-department reuse of Lean improvement knowledge." data-i18n-zh="实现联动分类、附件与浏览器内预览等动态前端组件，提升数据一致性、可用性与跨部门复用能力。">Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency, usability, and cross-department reuse of Lean improvement knowledge.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="project-item reveal" id="light-sensor-swarm">
-      <h2 data-i18n-en="Light Sensor Swarm System" data-i18n-zh="光传感器群体系统">Light Sensor Swarm System</h2>
-      <p class="project-period" data-i18n-html-en="<em>ESP8266, Raspberry Pi, IoT Networking</em> <a href=&quot;https://github.com/zhydzhy/Light-Swarm-Dectection&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>GitHub</a>" data-i18n-html-zh="<em>ESP8266，树莓派，物联网网络</em> <a href=&quot;https://github.com/zhydzhy/Light-Swarm-Dectection&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>GitHub</a>">
-        <em>ESP8266, Raspberry Pi, IoT Networking</em>
-        <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </p>
-      <p data-i18n-en="Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking." data-i18n-zh="设计分布式物联网系统，六个 ESP8266 光传感器节点通过 UDP 与树莓派中心节点通信。构建动态发现协议将部署时间减少 50%，并实现节能休眠调度以延长电池寿命。实时光照跟踪的传输可靠性达到 95%。">
-        Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central
-        Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware
-        sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.
-      </p>
+    <section class="section section-muted section-flow">
+      <div class="section-inner stack">
+        <article class="project-card reveal" id="traffic-detection">
+          <p class="meta" data-i18n-en="CARLA, Multimodal Data Pipeline, Inference Evaluation" data-i18n-zh="CARLA，多模态数据流程，推理评估">CARLA, Multimodal Data Pipeline, Inference Evaluation</p>
+          <h2 data-i18n-en="Traffic Detection System" data-i18n-zh="交通风险检测系统">Traffic Detection System</h2>
+          <div class="link-row">
+            <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="capstone_demo.html" data-i18n-en="Demo" data-i18n-zh="演示">Demo</a>
+          </div>
+          <div class="project-detail">
+            <p data-i18n-en="Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios. The work centered on synthetic data generation in CARLA, downstream data cleaning, inference runs, validation, and benchmarking." data-i18n-zh="构建了一个结合 RGB 与 LiDAR 数据的多模态交通风险分析流程，用于自动驾驶场景中的边缘情况评估。该工作以 CARLA 中的合成数据生成、后续数据清洗、推理、验证与基准测试为核心。">Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios. The work centered on synthetic data generation in CARLA, downstream data cleaning, inference runs, validation, and benchmarking.</p>
+            <p data-i18n-en="Designed and implemented a multimodal workflow that integrates RGB camera and LiDAR point cloud data for robust hazard understanding. Built a synthetic dataset generation engine in CARLA covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors." data-i18n-zh="设计并实现了一个融合 RGB 摄像头与 LiDAR 点云数据的多模态流程，用于更稳健地理解风险场景。构建了 CARLA 合成数据生成引擎，覆盖遮挡、恶劣天气、近距离险情与异常行为等稀有事件。">Designed and implemented a multimodal workflow that integrates RGB camera and LiDAR point cloud data for robust hazard understanding. Built a synthetic dataset generation engine in CARLA covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.</p>
+            <p data-i18n-en="Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling consistent multimodal inputs for downstream inference and comparison across models." data-i18n-zh="开发了基于 RGB-LiDAR 投影的融合模块，将 LiDAR 深度与反射率转换为与 RGB 对齐的通道，为下游推理与跨模型比较提供一致的多模态输入。">Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling consistent multimodal inputs for downstream inference and comparison across models.</p>
+            <p data-i18n-en="Implemented ontology-driven annotation using AVCCO ontology and TTL triples to support structured hazard analysis. The pipeline was used to run inference, validate outputs against human judgment, and benchmark behavior across different hazard scenarios and model setups." data-i18n-zh="采用 AVCCO 本体与 TTL 三元组实现本体驱动标注，以支持结构化风险分析。该流程用于执行推理、对照人工判断验证输出结果，并在不同风险场景和模型配置下进行基准测试。">Implemented ontology-driven annotation using AVCCO ontology and TTL triples to support structured hazard analysis. The pipeline was used to run inference, validate outputs against human judgment, and benchmark behavior across different hazard scenarios and model setups.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="project-item reveal">
-      <h2 data-i18n-en="Real-Time Canny Edge Detection Optimization" data-i18n-zh="实时 Canny 边缘检测优化">Real-Time Canny Edge Detection Optimization</h2>
-      <p class="project-period" data-i18n-html-en="<em>OpenCV, Multi-threading, PSNR Evaluation</em>" data-i18n-html-zh="<em>OpenCV，多线程，PSNR 评估</em>"><em>OpenCV, Multi-threading, PSNR Evaluation</em></p>
-      <p data-i18n-en="Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance across different threading strategies for embedded applications." data-i18n-zh="通过多线程与动态频率调节优化 Canny 边缘检测算法，提升实时性能。集成基于 PSNR 的图像质量评估，并对不同线程策略在嵌入式应用中的表现进行基准测试。">
-        Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading
-        and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance
-        across different threading strategies for embedded applications.
-      </p>
-    </section>
+    <section class="section section-white section-flow">
+      <div class="section-inner stack">
+        <article class="project-card reveal">
+          <p class="meta" data-i18n-en="ESP8266, Raspberry Pi, IoT Networking" data-i18n-zh="ESP8266，树莓派，物联网网络">ESP8266, Raspberry Pi, IoT Networking</p>
+          <h2 data-i18n-en="Light Sensor Swarm System" data-i18n-zh="光传感器群体系统">Light Sensor Swarm System</h2>
+          <div class="project-detail">
+            <p data-i18n-en="Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking." data-i18n-zh="设计分布式物联网系统，六个 ESP8266 光传感器节点通过 UDP 与树莓派中心节点通信。构建动态发现协议将部署时间减少 50%，并实现节能休眠调度以延长电池寿命。实时光照跟踪的传输可靠性达到 95%。">Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.</p>
+          </div>
+          <div class="link-row">
+            <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </article>
 
-    <section class="project-item reveal">
-      <h2 data-i18n-en="Network Simulation" data-i18n-zh="网络仿真">Network Simulation</h2>
-      <p class="project-period" data-i18n-html-en="<em>Python, FRRouting, ContainerLab, Docker</em>" data-i18n-html-zh="<em>Python，FRRouting，ContainerLab，Docker</em>"><em>Python, FRRouting, ContainerLab, Docker</em></p>
-      <p data-i18n-en="Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols, reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation, earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration, and hands-on routing protocol configuration in a virtualized environment." data-i18n-zh="使用 ContainerLab 设计并自动化部署 10+ 个虚拟路由器，采用动态 BGP 与 OSPF 路由协议，将拓扑搭建时间减少 40%。协调 3 人团队完成实现、测试与展示，获得教师积极评价。项目聚焦可扩展网络自动化、容器化实验编排与虚拟环境中的路由协议配置实践。">
-        Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols,
-        reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation,
-        earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration,
-        and hands-on routing protocol configuration in a virtualized environment.
-      </p>
-    </section>
+        <article class="project-card reveal reveal-delay-1">
+          <p class="meta" data-i18n-en="OpenCV, Multi-threading, PSNR Evaluation" data-i18n-zh="OpenCV，多线程，PSNR 评估">OpenCV, Multi-threading, PSNR Evaluation</p>
+          <h2 data-i18n-en="Real-Time Canny Edge Detection Optimization" data-i18n-zh="实时 Canny 边缘检测优化">Real-Time Canny Edge Detection Optimization</h2>
+          <div class="project-detail">
+            <p data-i18n-en="Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance across different threading strategies for embedded applications." data-i18n-zh="通过多线程与动态频率调节优化 Canny 边缘检测算法，提升实时性能。集成基于 PSNR 的图像质量评估，并对不同线程策略在嵌入式应用中的表现进行基准测试。">Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance across different threading strategies for embedded applications.</p>
+          </div>
+        </article>
 
-    <section class="project-item reveal">
-      <h2 data-i18n-en="Waybar and Omarchy Linux Workflow Setup" data-i18n-zh="Waybar 与 Omarchy 的 Linux 工作流搭建">Waybar and Omarchy Linux Workflow Setup</h2>
-      <p class="project-period" data-i18n-html-en="<em>Linux, Hyprland, System Automation</em>" data-i18n-html-zh="<em>Linux，Hyprland，系统自动化</em>"><em>Linux, Hyprland, System Automation</em></p>
-      <p data-i18n-en="Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity. Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics with MapleMono fonts and script-based automation." data-i18n-zh="使用 Hyprland 与 Waybar 定制极简 Linux 桌面环境，实现键盘驱动的高效工作流。集成 VPN 开关、多时区时钟模块与 fcitx5-Rime 输入法支持，并通过 MapleMono 字体与脚本自动化完善视觉与流程。">
-        Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity.
-        Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics
-        with MapleMono fonts and script-based automation.
-      </p>
+        <article class="project-card reveal reveal-delay-2">
+          <p class="meta" data-i18n-en="Python, FRRouting, ContainerLab, Docker" data-i18n-zh="Python，FRRouting，ContainerLab，Docker">Python, FRRouting, ContainerLab, Docker</p>
+          <h2 data-i18n-en="Network Simulation" data-i18n-zh="网络仿真">Network Simulation</h2>
+          <div class="project-detail">
+            <p data-i18n-en="Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols, reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation, earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration, and hands-on routing protocol configuration in a virtualized environment." data-i18n-zh="使用 ContainerLab 设计并自动化部署 10+ 个虚拟路由器，采用动态 BGP 与 OSPF 路由协议，将拓扑搭建时间减少 40%。协调 3 人团队完成实现、测试与展示，获得教师积极评价。项目聚焦可扩展网络自动化、容器化实验编排与虚拟环境中的路由协议配置实践。">Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols, reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation, earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration, and hands-on routing protocol configuration in a virtualized environment.</p>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <p class="meta" data-i18n-en="Linux, Hyprland, System Automation" data-i18n-zh="Linux，Hyprland，系统自动化">Linux, Hyprland, System Automation</p>
+          <h2 data-i18n-en="Waybar and Omarchy Linux Workflow Setup" data-i18n-zh="Waybar 与 Omarchy 的 Linux 工作流搭建">Waybar and Omarchy Linux Workflow Setup</h2>
+          <div class="project-detail">
+            <p data-i18n-en="Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity. Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics with MapleMono fonts and script-based automation." data-i18n-zh="使用 Hyprland 与 Waybar 定制极简 Linux 桌面环境，实现键盘驱动的高效工作流。集成 VPN 开关、多时区时钟模块与 fcitx5-Rime 输入法支持，并通过 MapleMono 字体与脚本自动化完善视觉与流程。">Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity. Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics with MapleMono fonts and script-based automation.</p>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
-<footer>
-    <p data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved.
-      <a class="footer-link" href="beian.miit.gov.cn">津ICP备2025036959号</a>
-    </p>
+  <footer class="site-footer">
+    <p class="footer-copy" data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved. <a class="footer-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">津ICP备2025036959号</a></p>
   </footer>
-  <script>
-    (() => {
-      const themeKey = "theme";
-      const langKey = "lang";
-      const root = document.documentElement;
-      const themeButton = document.getElementById("theme-toggle");
-      const langButton = document.getElementById("lang-toggle");
-      if (!themeButton || !langButton) return;
 
-      const media = window.matchMedia("(prefers-color-scheme: dark)");
-      const systemLang = () =>
-        (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-
-      const applyThemeLabel = (theme) => {
-        const lang = root.dataset.lang || systemLang();
-        const label = theme === "dark"
-          ? (lang === "zh" ? themeButton.dataset.darkZh : themeButton.dataset.darkEn)
-          : (lang === "zh" ? themeButton.dataset.lightZh : themeButton.dataset.lightEn);
-        themeButton.textContent = label;
-        themeButton.setAttribute("aria-pressed", String(theme === "dark"));
-      };
-
-      const applyTheme = (theme) => {
-        root.dataset.theme = theme;
-        applyThemeLabel(theme);
-      };
-
-      const applyLang = (lang) => {
-        root.dataset.lang = lang;
-        root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-        document.querySelectorAll("[data-i18n-en]").forEach((node) => {
-          const next = lang === "zh" ? node.dataset.i18nZh : node.dataset.i18nEn;
-          if (next !== undefined) node.textContent = next;
-        });
-        document.querySelectorAll("[data-i18n-html-en]").forEach((node) => {
-          const next = lang === "zh" ? node.dataset.i18nHtmlZh : node.dataset.i18nHtmlEn;
-          if (next !== undefined) node.innerHTML = next;
-        });
-        applyThemeLabel(root.dataset.theme || (media.matches ? "dark" : "light"));
-      };
-
-      const storedLang = localStorage.getItem(langKey);
-      applyLang(storedLang || systemLang());
-
-      const storedTheme = localStorage.getItem(themeKey);
-      applyTheme(storedTheme || (media.matches ? "dark" : "light"));
-
-      media.addEventListener("change", (event) => {
-        if (!localStorage.getItem(themeKey)) {
-          applyTheme(event.matches ? "dark" : "light");
-        }
-      });
-
-      langButton.addEventListener("click", () => {
-        const next = root.dataset.lang === "zh" ? "en" : "zh";
-        localStorage.setItem(langKey, next);
-        applyLang(next);
-      });
-
-      themeButton.addEventListener("click", () => {
-        const next = root.dataset.theme === "dark" ? "light" : "dark";
-        localStorage.setItem(themeKey, next);
-        applyTheme(next);
-      });
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>
-

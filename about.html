@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,147 +8,94 @@
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="index.html" class="brand-lockup">Haotian Zhang</a>
+      <ul class="nav-links">
         <li><a href="index.html" data-i18n-en="Home" data-i18n-zh="主页">Home</a></li>
         <li><a href="about.html" class="active" data-i18n-en="About" data-i18n-zh="关于">About</a></li>
         <li><a href="projects.html" data-i18n-en="Projects" data-i18n-zh="项目">Projects</a></li>
         <li><a href="techlife.html" data-i18n-en="Tech & Life" data-i18n-zh="技术与生活">Tech & Life</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language" data-i18n-en="EN" data-i18n-zh="中文">EN</button>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Theme</button>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">EN</button>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Light</button>
       </div>
     </nav>
   </header>
 
-  <main class="page-shell">
-    <section id="about-page" class="reveal">
-      <h1 data-i18n-en="About Me" data-i18n-zh="关于我">About Me</h1>
-      <p data-i18n-html-en="Hi! I'm <strong>Haotian (Nitro) Zhang</strong>, my work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming manufacturing improvement cases into a searchable, governed knowledge platform used at scale." data-i18n-html-zh="你好！我是 <strong>Haotian (Nitro) Zhang</strong>，我的工作聚焦于连接仿真、感知与真实运行的智能系统。我的毕设研究基于 CARLA 的 RGB–LiDAR 融合的 AI 交通风险检测；同时，我的精益改进知识库项目致力于将制造业改进案例转化为可检索、可治理、可规模化使用的平台。">
-        Hi! I'm <strong>Haotian (Nitro) Zhang</strong>, my work spans intelligent systems that connect simulation, perception, and real operations. My capstone project explores
-          AI-driven traffic hazard detection using RGB–LiDAR fusion in CARLA, while my Lean Improvement Library focuses on transforming
-          manufacturing improvement cases into a searchable, governed knowledge platform used at scale.
-      </p>
-
-      <h2 data-i18n-en="Contact" data-i18n-zh="联系">Contact</h2>
-      <p><span data-i18n-en="Email:" data-i18n-zh="邮箱：">Email:</span> <a class="footer-link" href="mailto:haotianzhang@nitro.tj.cn">412841308@qq.com</a></p>
-
-      <h2 data-i18n-en="Education" data-i18n-zh="教育经历">Education</h2>
-      <ul>
-        <li data-i18n-html-en="<strong>Master of Engineering</strong> in Embedded and Cyber-Physical Systems - UC Irvine, 2025" data-i18n-html-zh="<strong>嵌入式与信息物理系统工程硕士</strong> - 加州大学尔湾分校，2025"> <strong>Master of Engineering</strong> in Embedded and Cyber-Physical Systems - UC Irvine, 2025</li>
-        <li data-i18n-html-en="<strong>Bachelor of Science</strong> in Computer Science - UC Irvine, 2024" data-i18n-html-zh="<strong>计算机科学理学学士</strong> - 加州大学尔湾分校，2024"><strong>Bachelor of Science</strong> in Computer Science - UC Irvine, 2024</li>
-      </ul>
-
-      <h2 data-i18n-en="Professional Experience" data-i18n-zh="工作经历">Professional Experience</h2>
-      <div class="experience">
-        <div class="experience-item">
-          <h3 data-i18n-en="Software Engineering Intern - Boeing Tianjin Composites Co., Ltd." data-i18n-zh="软件工程实习生 - 天津波音复合材料有限公司">Software Engineering Intern - Boeing Tianjin Composites Co., Ltd.</h3>
-          <p data-i18n-html-en="<em>December 2024 - Present | Tianjin, China</em>" data-i18n-html-zh="<em>2024 年 12 月 - 至今 | 中国天津</em>"><em>December 2024 - Present | Tianjin, China</em></p>
-          <ul>
-            <li data-i18n-en="Designed and deployed a full-stack Lean Improvement Knowledge Library supporting ~900 internal users, centralizing continuous-improvement cases across departments." data-i18n-zh="设计并部署全栈精益改进知识库，支持约 900 名内部用户，集中管理跨部门持续改进案例。">Designed and deployed a full-stack Lean Improvement Knowledge Library supporting ~900 internal users, centralizing continuous-improvement cases across departments.</li>
-            <li data-i18n-en="Implemented a secure ASP.NET Core (.NET 10) backend with cookie-based authentication, role-based access control, and administrative governance workflows." data-i18n-zh="实现安全的 ASP.NET Core（.NET 10）后端，包含基于 Cookie 的认证、角色权限控制与管理治理流程。">Implemented a secure ASP.NET Core (.NET 10) backend with cookie-based authentication, role-based access control, and administrative governance workflows.</li>
-            <li data-i18n-en="Modeled scalable organizational and ownership relationships (departments, positions, managers) without storing full employee records, reducing data complexity and maintenance cost." data-i18n-zh="在不存储完整员工档案的前提下，建模可扩展的组织与归属关系（部门、岗位、管理者），降低数据复杂度与维护成本。">Modeled scalable organizational and ownership relationships (departments, positions, managers) without storing full employee records, reducing data complexity and maintenance cost.</li>
-            <li data-i18n-en="Built high-performance search, filtering, and analytics APIs (Dapper + SQL Server) enabling rapid retrieval and statistical analysis of improvement outcomes." data-i18n-zh="构建高性能检索、筛选与分析 API（Dapper + SQL Server），实现改进成果的快速检索与统计分析。">Built high-performance search, filtering, and analytics APIs (Dapper + SQL Server) enabling rapid retrieval and statistical analysis of improvement outcomes.</li>
-            <li data-i18n-en="Developed dynamic frontend components for cascaded classification, attachments, and in-browser previews, improving usability and long-term knowledge reuse." data-i18n-zh="开发联动分类、附件与浏览器内预览等前端组件，提升可用性与长期知识复用。">Developed dynamic frontend components for cascaded classification, attachments, and in-browser previews, improving usability and long-term knowledge reuse.</li>
-          </ul>
+  <main>
+    <section class="section section-light section-flow">
+      <div class="section-inner split-hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-i18n-en="About Me" data-i18n-zh="关于我">About Me</p>
+          <h1 data-i18n-en="About Me" data-i18n-zh="关于我">About Me</h1>
+          <p class="lede" data-i18n-html-en="Hi! I'm <strong>Haotian (Nitro) Zhang</strong>, my work spans intelligent systems that connect simulation, perception, and real operations. A major focus is my <strong>Lean Activity Management Platform</strong>, which transforms manufacturing improvement cases into a searchable, governed knowledge platform used at scale, alongside a CARLA-based pipeline for traffic hazard analysis covering data generation, cleaning, inference, validation, and benchmarking." data-i18n-html-zh="你好！我是 <strong>Haotian (Nitro) Zhang</strong>，我的工作聚焦于连接仿真、感知与真实运行的智能系统。其中一个重点项目是我的 <strong>精益活动管理平台</strong>，它将制造业改进案例转化为可检索、可治理、可规模化使用的知识平台；同时我也在进行基于 CARLA 的交通风险分析流程，覆盖数据生成、数据清洗、推理、验证与基准测试。">Hi! I'm <strong>Haotian (Nitro) Zhang</strong>, my work spans intelligent systems that connect simulation, perception, and real operations. A major focus is my <strong>Lean Activity Management Platform</strong>, which transforms manufacturing improvement cases into a searchable, governed knowledge platform used at scale, alongside a CARLA-based pipeline for traffic hazard analysis covering data generation, cleaning, inference, validation, and benchmarking.</p>
         </div>
+        <aside class="hero-panel reveal reveal-delay-1">
+          <p class="meta" data-i18n-en="Contact" data-i18n-zh="联系">Contact</p>
+          <h3 data-i18n-en="Contact" data-i18n-zh="联系">Contact</h3>
+          <p><span data-i18n-en="Email:" data-i18n-zh="邮箱：">Email:</span> <a href="mailto:haotianzhang@nitro.tj.cn">HaotianZhang@nitro.tj.cn</a></p>
+          <div class="contact-block">
+            <div>
+              <p class="meta" data-i18n-en="Education" data-i18n-zh="教育经历">Education</p>
+              <ul class="bullet-list">
+                <li data-i18n-html-en="<strong>Master of Engineering</strong> in Embedded and Cyber-Physical Systems - UC Irvine, 2025" data-i18n-html-zh="<strong>嵌入式与信息物理系统工程硕士</strong> - 加州大学尔湾分校，2025"><strong>Master of Engineering</strong> in Embedded and Cyber-Physical Systems - UC Irvine, 2025</li>
+                <li data-i18n-html-en="<strong>Bachelor of Science</strong> in Computer Science - UC Irvine, 2024" data-i18n-html-zh="<strong>计算机科学理学学士</strong> - 加州大学尔湾分校，2024"><strong>Bachelor of Science</strong> in Computer Science - UC Irvine, 2024</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <div class="experience-item">
-          <h3 data-i18n-en="Research Assistant - IAS Laboratory, University of California, Irvine" data-i18n-zh="研究助理 - 加州大学尔湾分校 IAS 实验室">Research Assistant - IAS Laboratory, University of California, Irvine</h3>
-          <p data-i18n-html-en="<em>June 2025 - December 2025 | Irvine, CA</em>" data-i18n-html-zh="<em>2025 年 6 月 - 2025 年 12 月 | 美国加州尔湾</em>"><em>June 2025 - December 2025 | Irvine, CA</em></p>
-          <ul>
-            <li data-i18n-en="Developed a traffic hazard detection system in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) for Vision-Language Model training." data-i18n-zh="在 CARLA 中开发交通风险检测系统，生成并处理 5 万+ 多模态样本（RGB + LiDAR）用于视觉-语言模型训练。">Developed a traffic hazard detection system in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) for Vision-Language Model training.</li>
-            <li data-i18n-en="Designed a 0-1 hazard scoring evaluation framework to compare model predictions against human annotations." data-i18n-zh="设计 0-1 风险评分评估框架，对比模型预测与人工标注。">Designed a 0-1 hazard scoring evaluation framework to compare model predictions against human annotations.</li>
-            <li data-i18n-en="Enhanced model robustness by fusing RGB and LiDAR data, and stress-testing against synthetic edge-case datasets." data-i18n-zh="通过 RGB 与 LiDAR 融合提升模型鲁棒性，并在合成极端场景数据集上进行压力测试。">Enhanced model robustness by fusing RGB and LiDAR data, and stress-testing against synthetic edge-case datasets.</li>
-          </ul>
+    <section class="section section-muted section-flow">
+      <div class="section-inner">
+        <div class="section-header left reveal">
+          <p class="meta" data-i18n-en="Professional Experience" data-i18n-zh="工作经历">Professional Experience</p>
+          <h2 data-i18n-en="Professional Experience" data-i18n-zh="工作经历">Professional Experience</h2>
         </div>
+        <div class="timeline compact">
+          <article class="experience-card reveal">
+            <p class="meta" data-i18n-en="December 2024 - Present | Tianjin, China" data-i18n-zh="2024 年 12 月 - 至今 | 中国天津">December 2024 - Present | Tianjin, China</p>
+            <h3 data-i18n-en="Software Engineering Intern - Boeing Tianjin Composites Co., Ltd." data-i18n-zh="软件工程实习生 - 天津波音复合材料有限公司">Software Engineering Intern - Boeing Tianjin Composites Co., Ltd.</h3>
+            <ul>
+              <li data-i18n-en="Designed and deployed a full-stack Lean Activity Management Platform supporting ~900 internal users, centralizing continuous-improvement cases across departments." data-i18n-zh="设计并部署全栈精益活动管理平台，支持约 900 名内部用户，集中管理跨部门持续改进案例。">Designed and deployed a full-stack Lean Activity Management Platform supporting ~900 internal users, centralizing continuous-improvement cases across departments.</li>
+              <li data-i18n-en="Implemented a secure ASP.NET Core (.NET 10) backend with cookie-based authentication, role-based access control, and administrative governance workflows." data-i18n-zh="实现安全的 ASP.NET Core（.NET 10）后端，包含基于 Cookie 的认证、角色权限控制与管理治理流程。">Implemented a secure ASP.NET Core (.NET 10) backend with cookie-based authentication, role-based access control, and administrative governance workflows.</li>
+              <li data-i18n-en="Modeled scalable organizational and ownership relationships (departments, positions, managers) without storing full employee records, reducing data complexity and maintenance cost." data-i18n-zh="在不存储完整员工档案的前提下，建模可扩展的组织与归属关系（部门、岗位、管理者），降低数据复杂度与维护成本。">Modeled scalable organizational and ownership relationships (departments, positions, managers) without storing full employee records, reducing data complexity and maintenance cost.</li>
+              <li data-i18n-en="Built high-performance search, filtering, and analytics APIs (Dapper + SQL Server) enabling rapid retrieval and statistical analysis of improvement outcomes." data-i18n-zh="构建高性能检索、筛选与分析 API（Dapper + SQL Server），实现改进成果的快速检索与统计分析。">Built high-performance search, filtering, and analytics APIs (Dapper + SQL Server) enabling rapid retrieval and statistical analysis of improvement outcomes.</li>
+              <li data-i18n-en="Developed dynamic frontend components for cascaded classification, attachments, and in-browser previews, improving usability and long-term knowledge reuse." data-i18n-zh="开发联动分类、附件与浏览器内预览等前端组件，提升可用性与长期知识复用。">Developed dynamic frontend components for cascaded classification, attachments, and in-browser previews, improving usability and long-term knowledge reuse.</li>
+            </ul>
+          </article>
 
-        <div class="experience-item">
-          <h3 data-i18n-en="System Testing Intern - Boeing Tianjin Composites Co., Ltd." data-i18n-zh="系统测试实习生 - 天津波音复合材料有限公司">System Testing Intern - Boeing Tianjin Composites Co., Ltd.</h3>
-          <p data-i18n-html-en="<em>February 2023 - June 2023 | Tianjin, China</em>" data-i18n-html-zh="<em>2023 年 2 月 - 2023 年 6 月 | 中国天津</em>"><em>February 2023 - June 2023 | Tianjin, China</em></p>
-          <ul>
-            <li data-i18n-en="Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly." data-i18n-zh="使用 Python 脚本自动化手工流程，将交付效率提升 60%，每周节省 4 小时以上。">Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly.</li>
-            <li data-i18n-en="Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs." data-i18n-zh="为制造执行系统（MES）进行系统测试，识别并记录 50+ 个软件缺陷。">Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs.</li>
-            <li data-i18n-en="Trained 20+ users on MES operations and authored user manuals and deployment documentation." data-i18n-zh="培训 20+ 名用户掌握 MES 操作，并编写用户手册与部署文档。">Trained 20+ users on MES operations and authored user manuals and deployment documentation.</li>
-          </ul>
+          <article class="experience-card reveal reveal-delay-1">
+            <p class="meta" data-i18n-en="June 2025 - December 2025 | Irvine, CA" data-i18n-zh="2025 年 6 月 - 2025 年 12 月 | 美国加州尔湾">June 2025 - December 2025 | Irvine, CA</p>
+            <h3 data-i18n-en="Research Assistant - IAS Laboratory, University of California, Irvine" data-i18n-zh="研究助理 - 加州大学尔湾分校 IAS 实验室">Research Assistant - IAS Laboratory, University of California, Irvine</h3>
+            <ul>
+              <li data-i18n-en="Built a traffic hazard analysis pipeline in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) across data generation, cleaning, inference, validation, and benchmarking." data-i18n-zh="在 CARLA 中构建交通风险分析流程，生成并处理 5 万+ 多模态样本（RGB + LiDAR），覆盖数据生成、数据清洗、推理、验证与基准测试。">Built a traffic hazard analysis pipeline in CARLA, producing and processing 50K+ multimodal samples (RGB + LiDAR) across data generation, cleaning, inference, validation, and benchmarking.</li>
+              <li data-i18n-en="Designed a 0-1 hazard scoring evaluation framework to compare model predictions against human annotations." data-i18n-zh="设计 0-1 风险评分评估框架，对比模型预测与人工标注。">Designed a 0-1 hazard scoring evaluation framework to compare model predictions against human annotations.</li>
+              <li data-i18n-en="Used RGB-LiDAR fusion together with synthetic edge-case datasets to validate outputs and benchmark inference behavior across hazard scenarios." data-i18n-zh="结合 RGB-LiDAR 融合与合成极端场景数据集，对输出结果进行验证，并对不同风险场景下的推理表现进行基准测试。">Used RGB-LiDAR fusion together with synthetic edge-case datasets to validate outputs and benchmark inference behavior across hazard scenarios.</li>
+            </ul>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-2">
+            <p class="meta" data-i18n-en="February 2023 - June 2023 | Tianjin, China" data-i18n-zh="2023 年 2 月 - 2023 年 6 月 | 中国天津">February 2023 - June 2023 | Tianjin, China</p>
+            <h3 data-i18n-en="System Testing Intern - Boeing Tianjin Composites Co., Ltd." data-i18n-zh="系统测试实习生 - 天津波音复合材料有限公司">System Testing Intern - Boeing Tianjin Composites Co., Ltd.</h3>
+            <ul>
+              <li data-i18n-en="Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly." data-i18n-zh="使用 Python 脚本自动化手工流程，将交付效率提升 60%，每周节省 4 小时以上。">Automated manual workflows using Python scripts, improving product delivery efficiency by 60% and saving 4+ hours weekly.</li>
+              <li data-i18n-en="Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs." data-i18n-zh="为制造执行系统（MES）进行系统测试，识别并记录 50+ 个软件缺陷。">Conducted system testing for a Manufacturing Execution System (MES), identifying and logging over 50 software bugs.</li>
+              <li data-i18n-en="Trained 20+ users on MES operations and authored user manuals and deployment documentation." data-i18n-zh="培训 20+ 名用户掌握 MES 操作，并编写用户手册与部署文档。">Trained 20+ users on MES operations and authored user manuals and deployment documentation.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
- <footer>
-    <p data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;beian.miit.gov.cn&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved.
-      <a class="footer-link" href="beian.miit.gov.cn">津ICP备2025036959号</a>
-    </p>
+  <footer class="site-footer">
+    <p class="footer-copy" data-i18n-html-en="&copy; 2025 Haotian Zhang. All Rights Reserved. <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>" data-i18n-html-zh="&copy; 2025 Haotian Zhang. 版权所有。 <a class=&quot;footer-link&quot; href=&quot;https://beian.miit.gov.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;>津ICP备2025036959号</a>">&copy; 2025 Haotian Zhang. All Rights Reserved. <a class="footer-link" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">津ICP备2025036959号</a></p>
   </footer>
-  <script>
-    (() => {
-      const themeKey = "theme";
-      const langKey = "lang";
-      const root = document.documentElement;
-      const themeButton = document.getElementById("theme-toggle");
-      const langButton = document.getElementById("lang-toggle");
-      if (!themeButton || !langButton) return;
 
-      const media = window.matchMedia("(prefers-color-scheme: dark)");
-      const systemLang = () =>
-        (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-
-      const applyThemeLabel = (theme) => {
-        const lang = root.dataset.lang || systemLang();
-        const label = theme === "dark"
-          ? (lang === "zh" ? themeButton.dataset.darkZh : themeButton.dataset.darkEn)
-          : (lang === "zh" ? themeButton.dataset.lightZh : themeButton.dataset.lightEn);
-        themeButton.textContent = label;
-        themeButton.setAttribute("aria-pressed", String(theme === "dark"));
-      };
-
-      const applyTheme = (theme) => {
-        root.dataset.theme = theme;
-        applyThemeLabel(theme);
-      };
-
-      const applyLang = (lang) => {
-        root.dataset.lang = lang;
-        root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-        document.querySelectorAll("[data-i18n-en]").forEach((node) => {
-          const next = lang === "zh" ? node.dataset.i18nZh : node.dataset.i18nEn;
-          if (next !== undefined) node.textContent = next;
-        });
-        document.querySelectorAll("[data-i18n-html-en]").forEach((node) => {
-          const next = lang === "zh" ? node.dataset.i18nHtmlZh : node.dataset.i18nHtmlEn;
-          if (next !== undefined) node.innerHTML = next;
-        });
-        applyThemeLabel(root.dataset.theme || (media.matches ? "dark" : "light"));
-      };
-
-      const storedLang = localStorage.getItem(langKey);
-      applyLang(storedLang || systemLang());
-
-      const storedTheme = localStorage.getItem(themeKey);
-      applyTheme(storedTheme || (media.matches ? "dark" : "light"));
-
-      media.addEventListener("change", (event) => {
-        if (!localStorage.getItem(themeKey)) {
-          applyTheme(event.matches ? "dark" : "light");
-        }
-      });
-
-      langButton.addEventListener("click", () => {
-        const next = root.dataset.lang === "zh" ? "en" : "zh";
-        localStorage.setItem(langKey, next);
-        applyLang(next);
-      });
-
-      themeButton.addEventListener("click", () => {
-        const next = root.dataset.theme === "dark" ? "light" : "dark";
-        localStorage.setItem(themeKey, next);
-        applyTheme(next);
-      });
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>
-
