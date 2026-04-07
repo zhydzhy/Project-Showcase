@@ -45,3 +45,25 @@ If you want this to feel like Obsidian publishing instead of website editing:
 4. Sync or copy that folder into this repo before publishing.
 
 The page fetches Markdown over HTTP, so local preview should be done with a static server rather than opening `techlife.html` directly as a file.
+
+## ERP snapshot
+
+The Tech & Life page also reads the top-card value from:
+
+- `content/ERP.md`
+
+That file is intended to be generated server-side, not edited manually. Use:
+
+```bash
+python3 scripts/update_equity_premium.py
+```
+
+It fetches the latest HS300 TTM and ChinaBond 10Y values on the server, computes the spread, and rewrites `content/ERP.md`.
+
+Example cron entry for every 30 minutes:
+
+```cron
+*/30 * * * * cd /path/to/Project-Showcase && /usr/bin/python3 scripts/update_equity_premium.py >> /var/log/equity-premium.log 2>&1
+```
+
+With Nginx serving this repo as static files, the frontend only needs to request `content/ERP.md`, so there is no browser CORS dependency.

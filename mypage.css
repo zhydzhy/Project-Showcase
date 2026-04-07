@@ -438,6 +438,34 @@ code {
   gap: 24px;
 }
 
+.techlife-calculator {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 720px);
+  margin: 0 auto;
+  justify-items: center;
+  text-align: center;
+}
+
+.techlife-calculator-header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.techlife-calculator-result {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.techlife-calculator-result-value {
+  color: var(--text);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: 0.95;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
 .techlife-archive {
   display: grid;
   gap: 36px;
