@@ -18,25 +18,34 @@
         <li><a href="techlife.html" class="active" data-i18n-en="Tech & Life" data-i18n-zh="技术与生活">Tech & Life</a></li>
       </ul>
       <div class="nav-actions">
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">EN</button>
         <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" data-light-en="Light" data-dark-en="Dark" data-light-zh="浅色" data-dark-zh="深色">Light</button>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="section section-light">
-      <div class="section-inner stack">
-        <div class="stack techlife-shell">
-          <article class="essay-card techlife-calculator reveal" id="erpCard">
-            <div class="techlife-calculator-header">
-              <p class="micro">You're Welcome, Tony K</p>
-              <h1>ERP Value</h1>
-            </div>
+    <section class="section section-light techlife-hero-section">
+      <div class="section-inner">
+        <article class="page-side-block techlife-snapshot techlife-snapshot-hero reveal" id="erpCard" hidden>
+          <div class="techlife-snapshot-head">
+            <p class="micro">You're Welcome, Tony K</p>
+            <p class="meta" data-i18n-en="Weekday ERP Snapshot" data-i18n-zh="工作日 ERP 快照">Weekday ERP Snapshot</p>
+          </div>
+          <h1 data-i18n-en="ERP Value" data-i18n-zh="ERP 数值">ERP Value</h1>
+          <section class="techlife-calculator-result" aria-live="polite">
+            <div id="resultValue" class="techlife-calculator-result-value">5.7415</div>
+          </section>
+          <p class="techlife-snapshot-note" data-i18n-en="Weekday market spread snapshot pulled from local Markdown content." data-i18n-zh="工作日市场价差快照，数据来自本地 Markdown 内容。">Weekday market spread snapshot pulled from local Markdown content.</p>
+        </article>
+      </div>
+    </section>
 
-            <section class="techlife-calculator-result" aria-live="polite">
-              <div id="resultValue" class="techlife-calculator-result-value">5.7415</div>
-            </section>
-          </article>
+    <section class="section section-light home-section">
+      <div class="section-inner">
+        <div class="section-header left reveal">
+          <p class="meta" data-i18n-en="Notes Archive" data-i18n-zh="笔记归档">Notes Archive</p>
+          <h2 data-i18n-en="Short entries, loaded from Markdown." data-i18n-zh="从 Markdown 加载的短笔记。">Short entries, loaded from Markdown.</h2>
         </div>
 
         <div class="stack techlife-shell" data-techlife-root>

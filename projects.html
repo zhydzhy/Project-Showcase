@@ -25,86 +25,134 @@
   </header>
 
   <main>
-    <section class="section section-light section-flow">
+    <section class="page-hero">
+      <div class="section-inner page-hero-grid">
+        <div class="page-hero-copy reveal">
+          <p class="meta" data-i18n-en="Projects" data-i18n-zh="项目">Projects</p>
+          <h1 class="page-title" data-i18n-en="Selected systems, built for measurable behavior and long-term use." data-i18n-zh="围绕可衡量表现与长期使用而构建的系统。">Selected systems, built for measurable behavior and long-term use.</h1>
+          <p class="page-lede" data-i18n-en="The strongest work here is not organized by visual polish. It is organized by whether the system can be defended, maintained, and used after the first demo." data-i18n-zh="这里最核心的作品不是按视觉包装来组织的，而是看这些系统在第一次展示之后，是否仍然经得起论证、维护与实际使用。">The strongest work here is not organized by visual polish. It is organized by whether the system can be defended, maintained, and used after the first demo.</p>
+          <p class="page-summary" data-i18n-en="The two flagship projects below define the portfolio. The rest of the archive shows the broader engineering range around embedded systems, networking, and productivity tooling." data-i18n-zh="下面两个旗舰项目定义了这份作品集，其余部分则展示了我在嵌入式系统、网络与效率工具方面更广的工程范围。">The two flagship projects below define the portfolio. The rest of the archive shows the broader engineering range around embedded systems, networking, and productivity tooling.</p>
+        </div>
+        <aside class="page-side reveal reveal-delay-1">
+          <div class="page-side-block">
+            <p class="micro">PORTFOLIO VIEW</p>
+            <div class="stat-list">
+              <div class="stat-item">
+                <p class="stat-label" data-i18n-en="Flagship Work" data-i18n-zh="核心项目">Flagship Work</p>
+                <p class="stat-value" data-i18n-en="Enterprise operations software + multimodal hazard analysis" data-i18n-zh="企业运营软件 + 多模态风险分析">Enterprise operations software + multimodal hazard analysis</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label" data-i18n-en="Additional Range" data-i18n-zh="扩展范围">Additional Range</p>
+                <p class="stat-value" data-i18n-en="IoT systems, OpenCV optimization, network simulation, Linux workflow tooling" data-i18n-zh="物联网系统、OpenCV 优化、网络仿真、Linux 工作流工具">IoT systems, OpenCV optimization, network simulation, Linux workflow tooling</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-light home-section">
       <div class="section-inner">
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-i18n-en="Projects" data-i18n-zh="项目">Projects</p>
-          <h1 data-i18n-en="Projects" data-i18n-zh="项目">Projects</h1>
+        <div class="section-header left reveal">
+          <p class="meta" data-i18n-en="Flagship Systems" data-i18n-zh="旗舰系统">Flagship Systems</p>
+          <h2 data-i18n-en="The two projects that carry the clearest point of view." data-i18n-zh="最能代表我方法论的两个项目。">The two projects that carry the clearest point of view.</h2>
+        </div>
+
+        <div class="editorial-list">
+          <article class="project-feature reveal" id="lean-library">
+            <div class="project-feature-meta">
+              <p class="meta" data-i18n-en="Enterprise Web System / Manufacturing IT" data-i18n-zh="企业级 Web 系统 / 制造业信息化">Enterprise Web System / Manufacturing IT</p>
+              <p class="feature-index">01</p>
+            </div>
+            <div class="project-feature-body">
+              <h3 data-i18n-en="Lean Activity Management Platform" data-i18n-zh="精益活动管理平台">Lean Activity Management Platform</h3>
+              <p data-i18n-en="Developed an enterprise-scale platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform." data-i18n-zh="开发企业级精益活动管理平台，用于数字化、标准化并治理制造业组织内的持续改进案例，作为集中化知识与分析平台服务约 900 名内部用户。">Developed an enterprise-scale platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform.</p>
+              <ul class="bullet-list">
+                <li data-i18n-en="Designed a full-stack ASP.NET Core (.NET 10) and SQL Server system with secure cookie authentication and role-based access control." data-i18n-zh="设计并实现基于 ASP.NET Core（.NET 10）与 SQL Server 的全栈系统，包含安全 Cookie 认证与角色权限控制。">Designed a full-stack ASP.NET Core (.NET 10) and SQL Server system with secure cookie authentication and role-based access control.</li>
+                <li data-i18n-en="Modeled organizational ownership through departments and positions instead of individual employee records for scalable governance." data-i18n-zh="通过部门与岗位而非个人员工档案建模组织归属关系，以支持可扩展治理。">Modeled organizational ownership through departments and positions instead of individual employee records for scalable governance.</li>
+                <li data-i18n-en="Built Dapper-optimized search and analytics workflows that reduced retrieval from minutes to seconds." data-i18n-zh="构建基于 Dapper 优化的检索与分析流程，将检索时间从分钟级缩短到秒级。">Built Dapper-optimized search and analytics workflows that reduced retrieval from minutes to seconds.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-feature reveal reveal-delay-1" id="traffic-detection">
+            <div class="project-feature-meta">
+              <p class="meta" data-i18n-en="CARLA / Multimodal Pipeline / Inference Evaluation" data-i18n-zh="CARLA / 多模态流程 / 推理评估">CARLA / Multimodal Pipeline / Inference Evaluation</p>
+              <p class="feature-index">02</p>
+            </div>
+            <div class="project-feature-body">
+              <div class="project-feature-head">
+                <h3 data-i18n-en="Traffic Detection System" data-i18n-zh="交通风险检测系统">Traffic Detection System</h3>
+                <div class="link-row">
+                  <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="capstone_demo.html" data-i18n-en="Demo" data-i18n-zh="演示">Demo</a>
+                </div>
+              </div>
+              <p data-i18n-en="Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios, centered on synthetic data generation, cleaning, inference, validation, and benchmarking." data-i18n-zh="构建结合 RGB 与 LiDAR 数据的多模态交通风险分析流程，用于自动驾驶场景中的边缘情况评估，覆盖合成数据生成、清洗、推理、验证与基准测试。">Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios, centered on synthetic data generation, cleaning, inference, validation, and benchmarking.</p>
+              <ul class="bullet-list">
+                <li data-i18n-en="Built a CARLA synthetic dataset engine for rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors." data-i18n-zh="构建 CARLA 合成数据引擎，用于生成遮挡、恶劣天气、近距离险情与异常行为等稀有事件。">Built a CARLA synthetic dataset engine for rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.</li>
+                <li data-i18n-en="Developed an RGB-LiDAR projection-based fusion module to produce aligned multimodal inputs for downstream comparison across models." data-i18n-zh="开发基于 RGB-LiDAR 投影的融合模块，为下游跨模型比较提供对齐后的多模态输入。">Developed an RGB-LiDAR projection-based fusion module to produce aligned multimodal inputs for downstream comparison across models.</li>
+                <li data-i18n-en="Used ontology-driven annotation and hazard scoring to validate outputs against structured judgment rather than intuition alone." data-i18n-zh="通过本体驱动标注与风险评分来验证输出结果，让判断建立在结构化标准之上，而不只是直觉。">Used ontology-driven annotation and hazard scoring to validate outputs against structured judgment rather than intuition alone.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-white section-flow">
-      <div class="section-inner stack">
-        <article class="project-card reveal" id="lean-library">
-          <p class="meta" data-i18n-en="Enterprise Web System, Manufacturing IT" data-i18n-zh="企业级 Web 系统，制造业信息化">Enterprise Web System, Manufacturing IT</p>
-          <h2 data-i18n-en="Lean Activity Management Platform" data-i18n-zh="精益活动管理平台">Lean Activity Management Platform</h2>
-          <div class="project-detail">
-            <p data-i18n-en="Developed an enterprise-scale Lean Activity Management Platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform." data-i18n-zh="开发企业级精益活动管理平台，用于数字化、标准化并治理制造业组织内的持续改进案例，作为集中化的知识与分析平台服务约 900 名内部用户。">Developed an enterprise-scale Lean Activity Management Platform to digitize, standardize, and govern continuous-improvement cases across a manufacturing organization, supporting ~900 internal users as a centralized knowledge and analytics platform.</p>
-            <p data-i18n-en="Designed and implemented a full-stack web system using ASP.NET Core (.NET 10) and SQL Server, with secure cookie-based authentication, role-based access control, and RESTful APIs to support long-term operational use." data-i18n-zh="使用 ASP.NET Core（.NET 10）与 SQL Server 设计并实现全栈 Web 系统，包含安全的 Cookie 认证、角色权限控制与 RESTful API，支持长期运营使用。">Designed and implemented a full-stack web system using ASP.NET Core (.NET 10) and SQL Server, with secure cookie-based authentication, role-based access control, and RESTful APIs to support long-term operational use.</p>
-            <p data-i18n-en="Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and reducing administrative overhead during personnel or structure changes." data-i18n-zh="通过部门与岗位建模组织归属关系而非个人员工，实现可扩展维护并降低人员或组织变动时的管理成本。">Modeled organizational ownership through departments and positions instead of individual employees, enabling scalable maintenance and reducing administrative overhead during personnel or structure changes.</p>
-            <p data-i18n-en="Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times and reducing improvement retrieval from minutes to seconds." data-i18n-zh="使用 Dapper 优化 SQL 查询，构建高性能检索、筛选与分析流程，实现亚秒级响应，将检索时间从分钟级降至秒级。">Built high-performance search, filtering, and analytics workflows using Dapper-optimized SQL queries, delivering sub-second response times and reducing improvement retrieval from minutes to seconds.</p>
-            <p data-i18n-en="Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency, usability, and cross-department reuse of Lean improvement knowledge." data-i18n-zh="实现联动分类、附件与浏览器内预览等动态前端组件，提升数据一致性、可用性与跨部门复用能力。">Implemented dynamic frontend components for cascaded classification, attachments, and in-browser preview, improving data consistency, usability, and cross-department reuse of Lean improvement knowledge.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+    <section class="section section-muted home-section">
+      <div class="section-inner">
+        <div class="section-header left reveal">
+          <p class="meta" data-i18n-en="Additional Builds" data-i18n-zh="更多项目">Additional Builds</p>
+          <h2 data-i18n-en="Supporting work across systems, tooling, and infrastructure." data-i18n-zh="围绕系统、工具链与基础设施的补充项目。">Supporting work across systems, tooling, and infrastructure.</h2>
+        </div>
 
-    <section class="section section-muted section-flow">
-      <div class="section-inner stack">
-        <article class="project-card reveal" id="traffic-detection">
-          <p class="meta" data-i18n-en="CARLA, Multimodal Data Pipeline, Inference Evaluation" data-i18n-zh="CARLA，多模态数据流程，推理评估">CARLA, Multimodal Data Pipeline, Inference Evaluation</p>
-          <h2 data-i18n-en="Traffic Detection System" data-i18n-zh="交通风险检测系统">Traffic Detection System</h2>
-          <div class="link-row">
-            <a href="https://github.com/zhydzhy/VLM-Corner-Case-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="capstone_demo.html" data-i18n-en="Demo" data-i18n-zh="演示">Demo</a>
-          </div>
-          <div class="project-detail">
-            <p data-i18n-en="Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios. The work centered on synthetic data generation in CARLA, downstream data cleaning, inference runs, validation, and benchmarking." data-i18n-zh="构建了一个结合 RGB 与 LiDAR 数据的多模态交通风险分析流程，用于自动驾驶场景中的边缘情况评估。该工作以 CARLA 中的合成数据生成、后续数据清洗、推理、验证与基准测试为核心。">Built a multimodal traffic hazard analysis pipeline combining RGB and LiDAR data for corner-case evaluation in autonomous driving scenarios. The work centered on synthetic data generation in CARLA, downstream data cleaning, inference runs, validation, and benchmarking.</p>
-            <p data-i18n-en="Designed and implemented a multimodal workflow that integrates RGB camera and LiDAR point cloud data for robust hazard understanding. Built a synthetic dataset generation engine in CARLA covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors." data-i18n-zh="设计并实现了一个融合 RGB 摄像头与 LiDAR 点云数据的多模态流程，用于更稳健地理解风险场景。构建了 CARLA 合成数据生成引擎，覆盖遮挡、恶劣天气、近距离险情与异常行为等稀有事件。">Designed and implemented a multimodal workflow that integrates RGB camera and LiDAR point cloud data for robust hazard understanding. Built a synthetic dataset generation engine in CARLA covering rare events such as occlusions, adverse weather, near-miss collisions, and unusual agent behaviors.</p>
-            <p data-i18n-en="Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling consistent multimodal inputs for downstream inference and comparison across models." data-i18n-zh="开发了基于 RGB-LiDAR 投影的融合模块，将 LiDAR 深度与反射率转换为与 RGB 对齐的通道，为下游推理与跨模型比较提供一致的多模态输入。">Developed an RGB-LiDAR projection-based fusion module to convert LiDAR depth and reflectance into RGB-aligned channels, enabling consistent multimodal inputs for downstream inference and comparison across models.</p>
-            <p data-i18n-en="Implemented ontology-driven annotation using AVCCO ontology and TTL triples to support structured hazard analysis. The pipeline was used to run inference, validate outputs against human judgment, and benchmark behavior across different hazard scenarios and model setups." data-i18n-zh="采用 AVCCO 本体与 TTL 三元组实现本体驱动标注，以支持结构化风险分析。该流程用于执行推理、对照人工判断验证输出结果，并在不同风险场景和模型配置下进行基准测试。">Implemented ontology-driven annotation using AVCCO ontology and TTL triples to support structured hazard analysis. The pipeline was used to run inference, validate outputs against human judgment, and benchmark behavior across different hazard scenarios and model setups.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+        <div class="editorial-list">
+          <article class="editorial-entry reveal">
+            <div class="editorial-entry-meta">
+              <p class="meta" data-i18n-en="ESP8266 / Raspberry Pi / IoT Networking" data-i18n-zh="ESP8266 / 树莓派 / 物联网网络">ESP8266 / Raspberry Pi / IoT Networking</p>
+            </div>
+            <div class="editorial-entry-body">
+              <div class="project-feature-head">
+                <h3 data-i18n-en="Light Sensor Swarm System" data-i18n-zh="光传感器群体系统">Light Sensor Swarm System</h3>
+                <div class="link-row">
+                  <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+              </div>
+              <p data-i18n-en="Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub, with dynamic discovery and power-aware scheduling." data-i18n-zh="设计分布式物联网系统，六个 ESP8266 光传感器节点通过 UDP 与树莓派中心节点通信，并实现动态发现与节能调度。">Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub, with dynamic discovery and power-aware scheduling.</p>
+            </div>
+          </article>
 
-    <section class="section section-white section-flow">
-      <div class="section-inner stack">
-        <article class="project-card reveal">
-          <p class="meta" data-i18n-en="ESP8266, Raspberry Pi, IoT Networking" data-i18n-zh="ESP8266，树莓派，物联网网络">ESP8266, Raspberry Pi, IoT Networking</p>
-          <h2 data-i18n-en="Light Sensor Swarm System" data-i18n-zh="光传感器群体系统">Light Sensor Swarm System</h2>
-          <div class="project-detail">
-            <p data-i18n-en="Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking." data-i18n-zh="设计分布式物联网系统，六个 ESP8266 光传感器节点通过 UDP 与树莓派中心节点通信。构建动态发现协议将部署时间减少 50%，并实现节能休眠调度以延长电池寿命。实时光照跟踪的传输可靠性达到 95%。">Designed a distributed IoT system with six ESP8266 light sensor nodes communicating via UDP to a central Raspberry Pi hub. Built a dynamic discovery protocol reducing setup time by 50% and implemented power-aware sleep scheduling to extend battery life. Achieved 95% transmission reliability with real-time light tracking.</p>
-          </div>
-          <div class="link-row">
-            <a href="https://github.com/zhydzhy/Light-Swarm-Dectection" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </article>
+          <article class="editorial-entry reveal reveal-delay-1">
+            <div class="editorial-entry-meta">
+              <p class="meta" data-i18n-en="OpenCV / Multi-threading / PSNR Evaluation" data-i18n-zh="OpenCV / 多线程 / PSNR 评估">OpenCV / Multi-threading / PSNR Evaluation</p>
+            </div>
+            <div class="editorial-entry-body">
+              <h3 data-i18n-en="Real-Time Canny Edge Detection Optimization" data-i18n-zh="实时 Canny 边缘检测优化">Real-Time Canny Edge Detection Optimization</h3>
+              <p data-i18n-en="Improved real-time edge detection performance through multi-threading and dynamic frequency scaling, and benchmarked the image-quality tradeoffs with PSNR evaluation." data-i18n-zh="通过多线程与动态频率调节提升实时边缘检测性能，并使用 PSNR 评估图像质量权衡。">Improved real-time edge detection performance through multi-threading and dynamic frequency scaling, and benchmarked the image-quality tradeoffs with PSNR evaluation.</p>
+            </div>
+          </article>
 
-        <article class="project-card reveal reveal-delay-1">
-          <p class="meta" data-i18n-en="OpenCV, Multi-threading, PSNR Evaluation" data-i18n-zh="OpenCV，多线程，PSNR 评估">OpenCV, Multi-threading, PSNR Evaluation</p>
-          <h2 data-i18n-en="Real-Time Canny Edge Detection Optimization" data-i18n-zh="实时 Canny 边缘检测优化">Real-Time Canny Edge Detection Optimization</h2>
-          <div class="project-detail">
-            <p data-i18n-en="Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance across different threading strategies for embedded applications." data-i18n-zh="通过多线程与动态频率调节优化 Canny 边缘检测算法，提升实时性能。集成基于 PSNR 的图像质量评估，并对不同线程策略在嵌入式应用中的表现进行基准测试。">Enhanced real-time edge detection performance by optimizing Canny Edge algorithms with multi-threading and dynamic frequency scaling. Integrated PSNR-based image quality evaluation and benchmarked performance across different threading strategies for embedded applications.</p>
-          </div>
-        </article>
+          <article class="editorial-entry reveal reveal-delay-2">
+            <div class="editorial-entry-meta">
+              <p class="meta" data-i18n-en="Python / FRRouting / ContainerLab / Docker" data-i18n-zh="Python / FRRouting / ContainerLab / Docker">Python / FRRouting / ContainerLab / Docker</p>
+            </div>
+            <div class="editorial-entry-body">
+              <h3 data-i18n-en="Network Simulation" data-i18n-zh="网络仿真">Network Simulation</h3>
+              <p data-i18n-en="Automated deployment of 10+ virtual routers with dynamic BGP and OSPF routing in ContainerLab, focusing on scalable network orchestration and faster topology setup." data-i18n-zh="使用 ContainerLab 自动化部署 10+ 个虚拟路由器，实现动态 BGP 与 OSPF 路由，重点放在可扩展编排与更快的拓扑搭建上。">Automated deployment of 10+ virtual routers with dynamic BGP and OSPF routing in ContainerLab, focusing on scalable network orchestration and faster topology setup.</p>
+            </div>
+          </article>
 
-        <article class="project-card reveal reveal-delay-2">
-          <p class="meta" data-i18n-en="Python, FRRouting, ContainerLab, Docker" data-i18n-zh="Python，FRRouting，ContainerLab，Docker">Python, FRRouting, ContainerLab, Docker</p>
-          <h2 data-i18n-en="Network Simulation" data-i18n-zh="网络仿真">Network Simulation</h2>
-          <div class="project-detail">
-            <p data-i18n-en="Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols, reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation, earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration, and hands-on routing protocol configuration in a virtualized environment." data-i18n-zh="使用 ContainerLab 设计并自动化部署 10+ 个虚拟路由器，采用动态 BGP 与 OSPF 路由协议，将拓扑搭建时间减少 40%。协调 3 人团队完成实现、测试与展示，获得教师积极评价。项目聚焦可扩展网络自动化、容器化实验编排与虚拟环境中的路由协议配置实践。">Designed and automated deployment of 10+ virtual routers using ContainerLab with dynamic BGP and OSPF routing protocols, reducing topology setup time by 40%. Coordinated a team of three to implement, test, and present the simulation, earning a positive faculty evaluation. The project emphasized scalable network automation, containerized lab orchestration, and hands-on routing protocol configuration in a virtualized environment.</p>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <p class="meta" data-i18n-en="Linux, Hyprland, System Automation" data-i18n-zh="Linux，Hyprland，系统自动化">Linux, Hyprland, System Automation</p>
-          <h2 data-i18n-en="Waybar and Omarchy Linux Workflow Setup" data-i18n-zh="Waybar 与 Omarchy 的 Linux 工作流搭建">Waybar and Omarchy Linux Workflow Setup</h2>
-          <div class="project-detail">
-            <p data-i18n-en="Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity. Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics with MapleMono fonts and script-based automation." data-i18n-zh="使用 Hyprland 与 Waybar 定制极简 Linux 桌面环境，实现键盘驱动的高效工作流。集成 VPN 开关、多时区时钟模块与 fcitx5-Rime 输入法支持，并通过 MapleMono 字体与脚本自动化完善视觉与流程。">Customized a minimalist Linux desktop environment using Hyprland and Waybar for keyboard-driven productivity. Integrated VPN toggles, multi-clock modules, and fcitx5-Rime support, refining workflow aesthetics with MapleMono fonts and script-based automation.</p>
-          </div>
-        </article>
+          <article class="editorial-entry reveal">
+            <div class="editorial-entry-meta">
+              <p class="meta" data-i18n-en="Linux / Hyprland / Workflow Automation" data-i18n-zh="Linux / Hyprland / 工作流自动化">Linux / Hyprland / Workflow Automation</p>
+            </div>
+            <div class="editorial-entry-body">
+              <h3 data-i18n-en="Waybar and Omarchy Linux Workflow Setup" data-i18n-zh="Waybar 与 Omarchy 的 Linux 工作流搭建">Waybar and Omarchy Linux Workflow Setup</h3>
+              <p data-i18n-en="Built a minimalist, keyboard-driven Linux workflow around Hyprland and Waybar, integrating VPN toggles, multi-clock modules, and script-based automation." data-i18n-zh="围绕 Hyprland 与 Waybar 构建极简、键盘驱动的 Linux 工作流，集成 VPN 开关、多时区时钟模块与脚本自动化。">Built a minimalist, keyboard-driven Linux workflow around Hyprland and Waybar, integrating VPN toggles, multi-clock modules, and script-based automation.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
