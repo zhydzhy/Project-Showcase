@@ -17,103 +17,49 @@
       .replaceAll("\"", "&quot;")
       .replaceAll("'", "&#39;");
 
-  const sanitizeUrl = (value) => {
-    try {
-      const parsed = new URL(value, window.location.href);
-      return ["http:", "https:", "mailto:"].includes(parsed.protocol) ? parsed.href : "";
-    } catch {
-      return "";
-    }
-  };
-
-  const renderInlineMarkdown = (text) => {
-    const tokens = [];
-    const stash = (html) => {
-      tokens.push(html);
-      return `@@TOKEN_${tokens.length - 1}@@`;
-    };
-
-    let staged = text;
-
-    staged = staged.replace(/`([^`]+)`/g, (_, code) => stash(`<code>${escapeHtml(code)}</code>`));
-    staged = staged.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
-      const safeHref = sanitizeUrl(href.trim());
-      const safeLabel = escapeHtml(label.trim());
-      return safeHref
-        ? stash(`<a href="${safeHref}" target="_blank" rel="noopener">${safeLabel}</a>`)
-        : safeLabel;
-    });
-    staged = escapeHtml(staged);
-    staged = staged.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-    staged = staged.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-
-    return staged.replace(/@@TOKEN_(\d+)@@/g, (_, index) => tokens[Number(index)] || "");
-  };
-
-  const renderBlocks = (markdown) => {
-    const lines = markdown.split("\n");
-    const blocks = [];
-    let paragraph = [];
-    let list = [];
-
-    const flushParagraph = () => {
-      if (!paragraph.length) return;
-      blocks.push(`<p>${renderInlineMarkdown(paragraph.join(" "))}</p>`);
-      paragraph = [];
-    };
-
-    const flushList = () => {
-      if (!list.length) return;
-      blocks.push(`<ul class="bullet-list">${list.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join("")}</ul>`);
-      list = [];
-    };
-
-    lines.forEach((line) => {
-      const trimmed = line.trim();
-
-      if (!trimmed) {
-        flushParagraph();
-        flushList();
-        return;
-      }
-
-      if (trimmed.startsWith("- ")) {
-        flushParagraph();
-        list.push(trimmed.slice(2).trim());
-        return;
-      }
-
-      flushList();
-      paragraph.push(trimmed);
-    });
-
-    flushParagraph();
-    flushList();
-
-    return blocks.join("");
-  };
-
-  const parseTechlifeEntry = (source, fallbackTitle = "") => {
+  const stripFrontMatter = (source) => {
     const normalized = source.replace(/\r\n/g, "\n").trim();
-    const lines = normalized.split("\n");
-    const meta = {};
+    if (!normalized.startsWith("---\n")) return normalized;
 
-    while (lines.length) {
-      const line = lines[0].trim();
-      const match = line.match(/^([A-Za-z][A-Za-z ]+):\s*(.+)$/);
-      if (!match) break;
-      meta[match[1].toLowerCase().replace(/\s+/g, "-")] = match[2].trim();
-      lines.shift();
+    const closeIndex = normalized.indexOf("\n---", 4);
+    if (closeIndex === -1) return normalized;
+
+    return normalized.slice(closeIndex + 4).trim();
+  };
+
+  const setRenderedLinkAttrs = (html) => {
+    const template = document.createElement("template");
+    template.innerHTML = html;
+    template.content.querySelectorAll("a[href]").forEach((link) => {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener");
+    });
+    return template.innerHTML;
+  };
+
+  const sanitizeRenderedHtml = (html) => {
+    if (!window.DOMPurify) return escapeHtml(html);
+    return window.DOMPurify.sanitize(html, {
+      USE_PROFILES: { html: true },
+      ADD_ATTR: ["target"],
+    });
+  };
+
+  const renderMarkdown = (markdown, inline = false) => {
+    if (!window.marked || !window.DOMPurify) {
+      return inline
+        ? escapeHtml(markdown)
+        : markdown
+          .split(/\n{2,}/)
+          .map((block) => `<p>${escapeHtml(block.trim())}</p>`)
+          .join("");
     }
 
-    while (lines.length && !lines[0].trim()) lines.shift();
+    const rendered = inline
+      ? window.marked.parseInline(markdown)
+      : window.marked.parse(markdown, { mangle: false, headerIds: false });
 
-    return {
-      title: meta.title || fallbackTitle,
-      date: meta.date || "",
-      summary: meta.summary || "",
-      body: lines.join("\n").trim(),
-    };
+    return setRenderedLinkAttrs(sanitizeRenderedHtml(rendered));
   };
 
   const sortEntriesByDate = (entries) => {
@@ -199,8 +145,8 @@
                 </button>
                 <div class="techlife-entry-body" id="${entry.entryId}-body" ${entry.expanded ? "" : "hidden"}>
                   ${summary}
-                  <div class="stack">
-                    ${renderBlocks(entry.body)}
+                  <div class="stack techlife-markdown">
+                    ${renderMarkdown(entry.body)}
                   </div>
                 </div>
               </article>
@@ -227,14 +173,24 @@
         throw new Error("No post files found in content/techlife/index.json");
       }
 
-      const entries = await Promise.all(posts.map(async (path) => {
+      const entries = await Promise.all(posts.map(async (post) => {
+        const path = typeof post === "string" ? post : post.path;
+        if (!path) {
+          throw new Error("A post entry is missing its path in content/techlife/index.json");
+        }
+
         const response = await fetch(`content/techlife/${path}`, { cache: "no-store" });
         if (!response.ok) {
           throw new Error(`Post request failed for ${path} with status ${response.status}`);
         }
 
         const fallbackTitle = path.split("/").pop().replace(/\.md$/i, "").replace(/[-_]/g, " ");
-        return parseTechlifeEntry(await response.text(), fallbackTitle);
+        return {
+          title: post.title || fallbackTitle,
+          date: post.date || "",
+          summary: post.summary || "",
+          body: stripFrontMatter(await response.text()),
+        };
       }));
 
       const sortedEntries = sortEntriesByDate(entries).filter((entry) => entry.title && entry.body);
@@ -246,7 +202,7 @@
       const quoteCard = manifest.quote
         ? `
           <aside class="essay-card quote-box reveal reveal-delay-1 techlife-quote">
-            <blockquote>${renderInlineMarkdown(manifest.quote)}</blockquote>
+            <blockquote>${renderMarkdown(manifest.quote, true)}</blockquote>
           </aside>
         `
         : "";

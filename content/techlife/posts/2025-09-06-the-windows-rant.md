@@ -1,5 +1,8 @@
-Title: The Windows Rant
-Date: 2025-09-06
+---
+title: The Windows Rant
+date: 2025-09-06
+summary: ""
+---
 
 Every time I boot into Windows, I get nudged toward Bing, Edge, cloud features, and recommendations I never asked for. The Start menu feels less like a launcher and more like ad inventory.
 
