@@ -31,9 +31,26 @@
           <div class="techlife-snapshot-head">
             <p class="micro">You're Welcome, Tony K</p>
           </div>
-          <h1 data-i18n-en="ERP Value" data-i18n-zh="ERP 数值">ERP Value</h1>
+          <h1 data-i18n-en="Equity Risk Premium ERP" data-i18n-zh="股权风险溢价 ERP">Equity Risk Premium ERP</h1>
           <section class="techlife-calculator-result" aria-live="polite">
-            <div id="resultValue" class="techlife-calculator-result-value">5.7415</div>
+            <div class="erp-primary-metric">
+              <div id="resultValue" class="techlife-calculator-result-value">-</div>
+            </div>
+            <div class="erp-metric-grid">
+              <div class="erp-metric">
+                <span data-i18n-en="Historical Percentile" data-i18n-zh="历史分位">Historical Percentile</span>
+                <strong id="erpPercentile">-</strong>
+              </div>
+              <div class="erp-metric">
+                <span data-i18n-en="Current Status" data-i18n-zh="当前状态">Current Status</span>
+                <strong id="erpStatus">-</strong>
+              </div>
+              <div class="erp-metric erp-metric-wide">
+                <span data-i18n-en="This Month's Suggested Investment" data-i18n-zh="本月建议定投">This Month's Suggested Investment</span>
+                <strong id="erpInvestmentAmount">-</strong>
+                <em id="erpInvestmentMultiplier">-</em>
+              </div>
+            </div>
           </section>
         </article>
       </div>

@@ -1,3 +1,17 @@
+## 2026-06-02 ERP Base Investment Amount Adjustment
+- Problem: The ERP decision card used `10000` as the base monthly investment amount, but the desired real DCA base is `8000`.
+- Root cause: The first ERP decision implementation encoded the original requested base amount as `baseInvestmentAmount = 10000`, so the rendered 1.2x recommendation was `12,000 元`.
+- Resolution: Changed the default base amount to `8000`, added a render-level test proving the current 1.2x recommendation displays `9,600 元`, and verified the live page after refresh.
+- Prevention: Cover both the pure investment-plan function and the rendered default amount whenever changing the DCA base.
+- Related git commit ID: pending (uncommitted)
+
+## 2026-06-02 ERP Investment Decision Display
+- Problem: The Tech & Life ERP card only exposed the raw spread number, so `5.5665` looked like an unexplained decimal instead of a usable monthly DCA signal.
+- Root cause: The frontend rendered `Spread` directly with four decimals and had no historical percentile, valuation bucket, or investment sizing layer after the existing ERP fetch.
+- Resolution: Kept the existing `content/ERP.md` spread loading path, confirmed the stored value is already percentage-form ERP, added formatting, historical percentile, valuation status, and base-amount investment plan functions, then rendered the card as ERP percent, percentile, status, amount, and multiplier. Added a small Node test for the calculation helpers and responsive single-column metric layout for mobile.
+- Prevention: Treat ERP display as an investment-decision summary, not a raw data dump; test percentage-unit handling and percentile thresholds whenever the calculation UI changes.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-04-28 Homepage Claude Redesign
 - Problem: The homepage was still built around a cold technical-grid hero with nested boxes, unstable bilingual line breaks, and decorative elements that did not support the portfolio narrative.
 - Root cause: The earlier structure optimized for technical signaling instead of a single dominant composition, and the hero relied on automatic text wrapping that broke Chinese phrase integrity and caused English overflow.

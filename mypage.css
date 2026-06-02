@@ -776,7 +776,7 @@ code {
 .techlife-snapshot-hero h1 {
   font-size: clamp(2rem, 5vw, 3.6rem);
   line-height: 0.94;
-  letter-spacing: -0.07em;
+  letter-spacing: 0;
   text-align: center;
 }
 
@@ -867,6 +867,7 @@ code {
 
 .techlife-calculator-result {
   display: grid;
+  gap: 1.25rem;
   justify-items: center;
   width: 100%;
   padding: 0;
@@ -875,10 +876,52 @@ code {
   text-align: center;
 }
 
+.erp-primary-metric {
+  display: grid;
+  justify-items: center;
+}
+
 .techlife-calculator-result-value {
   color: var(--text);
   font-size: clamp(2.8rem, 8vw, 5rem);
   line-height: 0.95;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.erp-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.erp-metric {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--nav-border);
+  border-radius: 8px;
+  background: var(--bg-subtle);
+}
+
+.erp-metric-wide {
+  grid-column: 1 / -1;
+}
+
+.erp-metric span,
+.erp-metric em {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.erp-metric strong {
+  color: var(--text);
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  line-height: 1.1;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
@@ -1191,6 +1234,10 @@ code {
   .techlife-entry-toggle {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .erp-metric-grid {
+    grid-template-columns: 1fr;
   }
 
   .techlife-entry-body {
