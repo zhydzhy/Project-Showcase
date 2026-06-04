@@ -4,6 +4,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const source = fs.readFileSync(path.join(__dirname, "..", "calculator.js"), "utf8");
+const techlifeHtml = fs.readFileSync(path.join(__dirname, "..", "techlife.html"), "utf8");
 const elements = new Map();
 [
   "erpCard",
@@ -48,5 +49,6 @@ assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(10, 8000)))
 sandbox.renderErpDecision(5.7415);
 assert.equal(elements.get("erpInvestmentAmount").textContent, "9,600 元");
 assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x 基础定投");
+assert.match(techlifeHtml, /<script src="calculator\.js\?v=[^"]+"><\/script>/);
 
 console.log("calculator tests passed");

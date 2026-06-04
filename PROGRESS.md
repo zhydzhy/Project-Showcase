@@ -1,3 +1,10 @@
+## 2026-06-04 ERP Script Cache Busting
+- Problem: After deployment, the Tech & Life ERP card could show the new metric labels while historical percentile, status, and suggested investment stayed as `-`.
+- Root cause: `techlife.html` loaded `calculator.js` without a versioned URL, so a browser or static cache could serve an older script against newer HTML and leave newly added fields unpopulated.
+- Resolution: Added a version query to the `calculator.js` script tag and added a regression assertion so the Tech & Life page must keep the cache-busting URL.
+- Prevention: Version static JavaScript references whenever HTML and script behavior must deploy together.
+- Related git commit ID: pending (created in this handoff)
+
 ## 2026-06-02 ERP Base Investment Amount Adjustment
 - Problem: The ERP decision card used `10000` as the base monthly investment amount, but the desired real DCA base is `8000`.
 - Root cause: The first ERP decision implementation encoded the original requested base amount as `baseInvestmentAmount = 10000`, so the rendered 1.2x recommendation was `12,000 元`.
