@@ -1,3 +1,10 @@
+## 2026-06-04 ERP Real History Backfill
+- Problem: The ERP percentile still relied on a synthetic in-code fallback because `content/erp_history.json` only had one collected reading.
+- Root cause: The updater had only started collecting current snapshots and did not include historical ERP observations, so the browser fell back to `historicalErpValues`.
+- Resolution: Backfilled `content/erp_history.json` with 120 real HS300 equity-bond-spread points from 2016-07-29 through 2026-06-03, sourced from Baifenwei's published Lixinger-based `pe_ttm.mcw + tcm_y10` series, and added a regression assertion for history length/source.
+- Prevention: Keep real history in `content/erp_history.json`; do not let the page rely on synthetic fallback data for displayed percentiles.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-06-04 Homepage Hero Visual Removal
 - Problem: The homepage first viewport was dominated by a large abstract node-graph visual, making the hero feel broken and distracting from the portfolio copy.
 - Root cause: The latest homepage polish added a decorative SVG visual to the hero; on desktop it became the strongest first-screen element instead of supporting the content.

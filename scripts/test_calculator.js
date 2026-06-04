@@ -5,6 +5,7 @@ const vm = require("node:vm");
 
 const source = fs.readFileSync(path.join(__dirname, "..", "calculator.js"), "utf8");
 const techlifeHtml = fs.readFileSync(path.join(__dirname, "..", "techlife.html"), "utf8");
+const erpHistory = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "content", "erp_history.json"), "utf8"));
 const elements = new Map();
 [
   "erpCard",
@@ -50,5 +51,8 @@ sandbox.renderErpDecision(5.7415);
 assert.equal(elements.get("erpInvestmentAmount").textContent, "9,600 元");
 assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x 基础定投");
 assert.match(techlifeHtml, /<script src="calculator\.js\?v=[^"]+"><\/script>/);
+assert.ok(erpHistory.length >= 100);
+assert.equal(erpHistory[0].date, "2016-07-29");
+assert.match(erpHistory[0].source, /lixingren/);
 
 console.log("calculator tests passed");

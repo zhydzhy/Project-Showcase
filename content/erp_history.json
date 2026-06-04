@@ -1,9 +1,602 @@
 [
   {
-    "date": "2026-06-04",
-    "spread": 5.465,
-    "hs300_pe": 13.93,
-    "cb_10y": 1.71,
-    "source": "legulegu + chinabond"
+    "date": "2016-07-29",
+    "spread": 5.4162,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2016-08-31",
+    "spread": 4.832,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2016-09-30",
+    "spread": 5.0428,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2016-10-31",
+    "spread": 5.0021,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2016-11-30",
+    "spread": 4.383,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2016-12-30",
+    "spread": 4.7362,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-01-26",
+    "spread": 4.1565,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-02-28",
+    "spread": 4.0856,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-03-31",
+    "spread": 4.1143,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-04-28",
+    "spread": 4.2025,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-05-31",
+    "spread": 3.9748,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-06-30",
+    "spread": 3.7309,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-07-31",
+    "spread": 3.4666,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-08-31",
+    "spread": 3.4344,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-09-29",
+    "spread": 3.4616,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-10-31",
+    "spread": 3.1838,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-11-30",
+    "spread": 3.2193,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2017-12-29",
+    "spread": 3.1106,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-01-31",
+    "spread": 2.5211,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-02-28",
+    "spread": 3.0864,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-03-30",
+    "spread": 3.6629,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-04-27",
+    "spread": 4.1508,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-05-31",
+    "spread": 4.2514,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-06-29",
+    "spread": 4.9162,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-07-31",
+    "spread": 4.8108,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-08-31",
+    "spread": 5.3724,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-09-28",
+    "spread": 4.9517,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-10-31",
+    "spread": 5.829,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-11-30",
+    "spread": 6.1061,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2018-12-28",
+    "spread": 6.5462,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-01-31",
+    "spread": 6.1249,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-02-28",
+    "spread": 5.0559,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-03-29",
+    "spread": 4.8353,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-04-30",
+    "spread": 4.5863,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-05-31",
+    "spread": 5.2339,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-06-28",
+    "spread": 4.8125,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-07-31",
+    "spread": 4.9061,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-08-30",
+    "spread": 5.3731,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-09-30",
+    "spread": 5.2611,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-10-31",
+    "spread": 5.1553,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-11-29",
+    "spread": 5.4321,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2019-12-31",
+    "spread": 4.8761,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-01-23",
+    "spread": 5.2277,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-02-28",
+    "spread": 5.7151,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-03-31",
+    "spread": 6.494,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-04-30",
+    "spread": 5.7184,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-05-29",
+    "spread": 5.6751,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-06-30",
+    "spread": 5.0583,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-07-31",
+    "spread": 4.1609,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-08-31",
+    "spread": 3.538,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-09-30",
+    "spread": 3.6837,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-10-30",
+    "spread": 3.7859,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-11-30",
+    "spread": 3.2853,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2020-12-31",
+    "spread": 3.0681,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-01-29",
+    "spread": 2.8661,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-02-26",
+    "spread": 2.8033,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-03-31",
+    "spread": 3.4191,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-04-30",
+    "spread": 3.9925,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-05-31",
+    "spread": 3.8245,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-06-30",
+    "spread": 3.6908,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-07-30",
+    "spread": 4.5436,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-08-31",
+    "spread": 4.9089,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-09-30",
+    "spread": 4.7488,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-10-29",
+    "spread": 4.5439,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-11-30",
+    "spread": 4.8986,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2021-12-31",
+    "spread": 4.3608,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-01-28",
+    "spread": 4.9313,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-02-28",
+    "spread": 4.7746,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-03-31",
+    "spread": 5.3074,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-04-29",
+    "spread": 5.6087,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-05-31",
+    "spread": 5.4535,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-06-30",
+    "spread": 4.8796,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-07-29",
+    "spread": 5.4985,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-08-31",
+    "spread": 5.866,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-09-30",
+    "spread": 6.1717,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-10-31",
+    "spread": 7.0754,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-11-30",
+    "spread": 5.9611,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2022-12-30",
+    "spread": 5.997,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-01-31",
+    "spread": 5.4288,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-02-28",
+    "spread": 5.4927,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-03-31",
+    "spread": 5.4251,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-04-28",
+    "spread": 5.4097,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-05-31",
+    "spread": 5.8696,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-06-30",
+    "spread": 5.9237,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-07-31",
+    "spread": 5.6075,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-08-31",
+    "spread": 6.0238,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-09-28",
+    "spread": 6.0038,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-10-31",
+    "spread": 6.2834,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-11-30",
+    "spread": 6.4482,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2023-12-29",
+    "spread": 6.6578,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-01-31",
+    "spread": 6.9879,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-02-29",
+    "spread": 6.4144,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-03-29",
+    "spread": 6.3122,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-04-30",
+    "spread": 5.9831,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-05-31",
+    "spread": 6.0288,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-06-28",
+    "spread": 6.2378,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-07-31",
+    "spread": 6.4035,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-08-30",
+    "spread": 6.7114,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-09-30",
+    "spread": 5.3905,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-10-31",
+    "spread": 5.9225,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-11-29",
+    "spread": 5.9795,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2024-12-31",
+    "spread": 6.0581,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-01-27",
+    "spread": 6.3856,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-02-28",
+    "spread": 6.229,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-03-31",
+    "spread": 6.2559,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-04-30",
+    "spread": 6.5672,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-05-30",
+    "spread": 6.3539,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-06-30",
+    "spread": 6.1098,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-07-31",
+    "spread": 5.8816,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-08-29",
+    "spread": 5.2268,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-09-30",
+    "spread": 5.1691,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-10-31",
+    "spread": 5.2905,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-11-28",
+    "spread": 5.3321,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2025-12-31",
+    "spread": 5.2094,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-01-30",
+    "spread": 5.2285,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-02-27",
+    "spread": 5.2805,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-03-31",
+    "spread": 5.3843,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-04-30",
+    "spread": 5.0443,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-05-29",
+    "spread": 5.16,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
+  },
+  {
+    "date": "2026-06-03",
+    "spread": 5.1007,
+    "source": "baifenwei / lixingren pe_ttm.mcw + tcm_y10"
   }
 ]
