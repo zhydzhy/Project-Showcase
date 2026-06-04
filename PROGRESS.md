@@ -1,3 +1,10 @@
+## 2026-06-04 Homepage Hero Visual Removal
+- Problem: The homepage first viewport was dominated by a large abstract node-graph visual, making the hero feel broken and distracting from the portfolio copy.
+- Root cause: The latest homepage polish added a decorative SVG visual to the hero; on desktop it became the strongest first-screen element instead of supporting the content.
+- Resolution: Removed the homepage node-graph SVG and its dedicated `.home-hero-visual` CSS so the hero returns to a content-first layout.
+- Prevention: Do not add decorative first-screen visuals unless they strengthen the homepage message when tested in a real browser viewport.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-06-04 ERP Script Cache Busting
 - Problem: After deployment, the Tech & Life ERP card could show the new metric labels while historical percentile, status, and suggested investment stayed as `-`.
 - Root cause: `techlife.html` loaded `calculator.js` without a versioned URL, so a browser or static cache could serve an older script against newer HTML and leave newly added fields unpopulated.
