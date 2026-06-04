@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
   <title>My Take on Tech & Life | Haotian Zhang</title>
   <link rel="stylesheet" href="mypage.css">
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav">
       <a href="index.html" class="brand-lockup">Haotian Zhang</a>
@@ -24,7 +26,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="section section-light techlife-hero-section">
       <div class="section-inner">
         <article class="page-side-block techlife-snapshot techlife-snapshot-hero reveal" id="erpCard" hidden>
@@ -64,7 +66,12 @@
         </div>
 
         <div class="stack techlife-shell" data-techlife-root>
-          <div class="essay-card reveal techlife-loading" data-i18n-en="Loading notes..." data-i18n-zh="正在加载笔记...">Loading notes...</div>
+          <div class="techlife-skeleton">
+            <div class="techlife-skeleton-card"></div>
+            <div class="techlife-skeleton-card"></div>
+            <div class="techlife-skeleton-card"></div>
+            <div class="techlife-skeleton-card"></div>
+          </div>
         </div>
       </div>
     </section>

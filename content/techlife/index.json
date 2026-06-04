@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "path": "posts/2026-06-04-erp-ding-tou.md",
+      "title": "How I Use ERP to Guide My 定投",
+      "date": "2026-06-04",
+      "summary": "A simple rule-based framework for adjusting monthly investments based on how expensive the market is."
+    },
+    {
       "path": "posts/2026-04-07.md",
       "title": "Looking for a Job in this Economy",
       "date": "2026-04-07",

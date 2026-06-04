@@ -91,6 +91,23 @@ body {
   transition: background-color 200ms ease, color 200ms ease;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font: 500 0.92rem/1 Geist, Arial, sans-serif;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -114,6 +131,10 @@ main,
 .site-header {
   position: relative;
   z-index: 1;
+}
+
+main:focus-visible {
+  outline: none;
 }
 
 a {
@@ -209,7 +230,7 @@ a:focus-visible {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--text);
+  color: var(--link);
 }
 
 .nav-actions {
@@ -292,11 +313,32 @@ main {
   width: min(calc(100% - 48px), var(--content));
   margin: 0 auto;
   padding: 60px 0 34px;
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: start;
 }
 
 .home-hero-copy {
   width: min(100%, 920px);
+}
+
+.home-hero-visual {
+  display: none;
+  color: var(--link);
+  opacity: 0.85;
+}
+
+.home-hero-visual svg {
+  display: block;
+  width: clamp(240px, 28vw, 320px);
+  height: auto;
+}
+
+@media (min-width: 981px) {
+  .home-hero-visual {
+    display: block;
+  }
 }
 
 .hero-copy {
@@ -318,6 +360,7 @@ main {
 
 .micro {
   font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--link);
 }
 
 .hero-kicker {
@@ -652,6 +695,25 @@ code {
   border-radius: var(--radius);
   background: var(--bg-elevated);
   box-shadow: var(--surface-shadow-soft);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.page-side-block:hover,
+.principle-card:hover,
+.essay-card:hover,
+.quote-box:hover {
+  box-shadow: var(--surface-shadow);
+  transform: translateY(-1px);
+}
+
+.chapter-entry,
+.project-feature {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.chapter-entry:hover,
+.project-feature:hover {
+  transform: translateY(-1px);
 }
 
 .stat-list,
@@ -1052,6 +1114,41 @@ code {
 .techlife-empty,
 .techlife-loading {
   text-align: left;
+}
+
+.techlife-skeleton {
+  display: grid;
+  gap: 14px;
+}
+
+.techlife-skeleton-card {
+  height: 64px;
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  box-shadow: var(--surface-shadow-soft);
+  animation: skeleton-pulse 1.8s ease-in-out infinite;
+}
+
+.techlife-skeleton-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.techlife-skeleton-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.techlife-skeleton-card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .site-footer {

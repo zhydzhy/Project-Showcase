@@ -19,31 +19,38 @@ function isWeekend(date) {
 }
 
 const historicalErpValues = [
-  3.1,
-  3.45,
-  3.8,
-  4.05,
-  4.22,
-  4.5,
-  4.72,
-  4.9,
-  5.05,
-  5.18,
-  5.3,
-  5.39,
-  5.45,
-  5.5,
-  5.53,
-  5.55,
-  5.5665,
-  5.7,
-  5.9,
-  6.1,
-  6.35,
-  6.6,
-  6.85,
-  7.1,
-  7.35,
+  // ── 2016: post-2015-crash recovery, rates 2.7–3.3% ──
+  3.85, 4.42, 4.58, 3.96,
+
+  // ── 2017: blue-chip bull, PE expanding, rates rising 3.3–4.0% ──
+  3.72, 3.35, 3.08, 2.58,
+
+  // ── 2018: trade-war bear, PE collapsed, ERP spiked ──
+  2.86, 3.42, 5.24, 6.18,
+
+  // ── 2019: recovery rally ──
+  5.10, 4.75, 4.66, 4.44,
+
+  // ── 2020: COVID shock + recovery, rates falling ──
+  6.02, 5.22, 4.05, 3.28,
+
+  // ── 2021: post-COVID, regulation crackdowns, PE elevated ──
+  2.72, 2.98, 3.84, 4.32,
+
+  // ── 2022: zero-COVID lockdowns, property crisis ──
+  5.18, 5.56, 6.42, 6.34,
+
+  // ── 2023: reopening rally then fade ──
+  5.08, 5.60, 5.84, 6.46,
+
+  // ── 2024: stimulus, rates at decade lows (1.7–2.5%) ──
+  6.28, 6.00, 5.88, 5.92,
+
+  // ── 2025: low-rate regime, moderate PE ──
+  5.96, 5.75, 6.08, 6.25,
+
+  // ── 2026 YTD ──
+  5.88, 5.74,
 ];
 const baseInvestmentAmount = 8000;
 
@@ -104,8 +111,8 @@ const erpStatus = document.getElementById("erpStatus");
 const erpInvestmentAmount = document.getElementById("erpInvestmentAmount");
 const erpInvestmentMultiplier = document.getElementById("erpInvestmentMultiplier");
 
-function renderErpDecision(spread) {
-  const percentile = calculatePercentile(spread, historicalErpValues);
+function renderErpDecision(spread, values = historicalErpValues) {
+  const percentile = calculatePercentile(spread, values);
   const investmentPlan = getInvestmentPlan(percentile, baseInvestmentAmount);
 
   resultValue.textContent = formatPercent(spread);
@@ -132,6 +139,21 @@ function renderErpError() {
   erpInvestmentMultiplier.textContent = "等待 ERP 数据";
 }
 
+async function fetchHistoryValues() {
+  try {
+    const response = await fetch(`content/erp_history.json?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`History fetch failed: ${response.status}`);
+    const history = await response.json();
+    const values = history
+      .map((entry) => Number.parseFloat(entry.spread))
+      .filter((v) => Number.isFinite(v));
+    if (values.length < 5) throw new Error("Not enough history entries");
+    return values;
+  } catch {
+    return null;
+  }
+}
+
 async function loadErpSnapshot() {
   if (!erpCard || !resultValue) return;
   if (isWeekend(new Date())) {
@@ -142,18 +164,22 @@ async function loadErpSnapshot() {
   erpCard.hidden = false;
 
   try {
-    const response = await fetch(`content/ERP.md?ts=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Request failed with status ${response.status}.`);
+    const [erpResponse, historyValues] = await Promise.all([
+      fetch(`content/ERP.md?ts=${Date.now()}`, { cache: "no-store" }),
+      fetchHistoryValues(),
+    ]);
+
+    if (!erpResponse.ok) {
+      throw new Error(`Request failed with status ${erpResponse.status}.`);
     }
 
-    const parsed = parseErpMarkdown(await response.text());
+    const parsed = parseErpMarkdown(await erpResponse.text());
     const spread = Number.parseFloat(parsed.spread);
     if (Number.isNaN(spread)) {
       throw new Error("Spread value is missing from content/ERP.md.");
     }
 
-    renderErpDecision(spread);
+    renderErpDecision(spread, historyValues || historicalErpValues);
   } catch {
     renderErpError();
   }

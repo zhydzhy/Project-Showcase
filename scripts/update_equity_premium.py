@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -14,6 +15,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = ROOT / "content" / "ERP.md"
+HISTORY_PATH = ROOT / "content" / "erp_history.json"
 
 LEGULEGU_URL = "https://legulegu.com/stockdata/hs300-ttm-lyr"
 CHINABOND_DETAIL_URL = "https://yield.chinabond.com.cn/cbweb-mn/yc/ycDetail"
@@ -164,11 +166,47 @@ def build_snapshot() -> dict[str, object]:
     }
 
 
+def append_history(snapshot: dict[str, object]) -> None:
+    """Append the current ERP reading to the history log, deduplicating by date."""
+    try:
+        if HISTORY_PATH.exists():
+            history = json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
+        else:
+            history = []
+    except (json.JSONDecodeError, OSError):
+        history = []
+
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    if history and history[-1].get("date") == today:
+        # Replace today's existing entry (e.g. re-runs during the same day)
+        history[-1] = {
+            "date": today,
+            "spread": snapshot["spread"],
+            "hs300_pe": snapshot["hs300_ttm"],
+            "cb_10y": snapshot["china_bond_10y_pct"],
+            "source": "legulegu + chinabond",
+        }
+    else:
+        history.append({
+            "date": today,
+            "spread": snapshot["spread"],
+            "hs300_pe": snapshot["hs300_ttm"],
+            "cb_10y": snapshot["china_bond_10y_pct"],
+            "source": "legulegu + chinabond",
+        })
+
+    # Keep last 500 entries (~4 years of weekdays)
+    history = history[-500:]
+    HISTORY_PATH.write_text(json.dumps(history, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Appended to {HISTORY_PATH} ({len(history)} total entries)")
+
+
 def main() -> None:
     snapshot = build_snapshot()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(render_markdown(snapshot), encoding="utf-8")
     print(f"Wrote {OUTPUT_PATH}")
+    append_history(snapshot)
 
 
 def render_markdown(snapshot: dict[str, object]) -> str:
