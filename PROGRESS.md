@@ -1,3 +1,10 @@
+## 2026-06-04 ERP Volatility Adjustment
+- Problem: The ERP card sized monthly contributions using ERP alone, so the same ERP percentile produced the same recommendation in both calm and high-volatility markets.
+- Root cause: The frontend had no HS300 volatility dataset or second-factor adjustment; it only fetched ERP history and mapped ERP percentile to a fixed multiplier.
+- Resolution: Added a daily-cached Eastmoney HS300 daily-kline fetcher that writes 250-trading-day annualized volatility history, added Vol percentile/risk environment display, and changed the contribution formula to `base × ERP multiplier × Vol multiplier`.
+- Prevention: Keep volatility refresh to once per UTC day through `content/hs300_volatility.json.generated_at` so cron runs do not repeatedly request Eastmoney.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-06-04 ERP Real History Backfill
 - Problem: The ERP percentile still relied on a synthetic in-code fallback because `content/erp_history.json` only had one collected reading.
 - Root cause: The updater had only started collecting current snapshots and did not include historical ERP observations, so the browser fell back to `historicalErpValues`.

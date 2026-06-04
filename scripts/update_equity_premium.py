@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -16,10 +17,19 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = ROOT / "content" / "ERP.md"
 HISTORY_PATH = ROOT / "content" / "erp_history.json"
+VOLATILITY_PATH = ROOT / "content" / "hs300_volatility.json"
 
 LEGULEGU_URL = "https://legulegu.com/stockdata/hs300-ttm-lyr"
 CHINABOND_DETAIL_URL = "https://yield.chinabond.com.cn/cbweb-mn/yc/ycDetail"
 CHINABOND_CURVE_ID = "2c9081e50a2f9606010a3068cae70001"
+EASTMONEY_HS300_KLINE_URL = (
+    "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+    "?secid=1.000300"
+    "&fields1=f1,f2,f3,f4,f5,f6"
+    "&fields2=f51,f52,f53,f54,f55,f56,f57"
+    "&klt=101&fqt=1&beg=20050101&end=20500101"
+)
+VOLATILITY_LOOKBACK_DAYS = 250
 
 DEFAULT_HEADERS = {
     "User-Agent": (
@@ -69,6 +79,10 @@ def fetch_text(url: str, *, method: str = "GET", data: bytes | None = None) -> s
         raise RuntimeError(f"Request failed with status {error.code} for {url}") from error
     except URLError as error:
         raise RuntimeError(f"Request failed for {url}: {error.reason}") from error
+
+
+def fetch_json(url: str) -> object:
+    return json.loads(fetch_text(url))
 
 
 def parse_rows(html: str) -> list[list[str]]:
@@ -201,12 +215,115 @@ def append_history(snapshot: dict[str, object]) -> None:
     print(f"Appended to {HISTORY_PATH} ({len(history)} total entries)")
 
 
+def should_refresh_volatility() -> bool:
+    if not VOLATILITY_PATH.exists():
+        return True
+
+    try:
+        payload = json.loads(VOLATILITY_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return True
+
+    generated_at = str(payload.get("generated_at", ""))
+    today = datetime.now(timezone.utc).date().isoformat()
+    return not generated_at.startswith(today)
+
+
+def parse_eastmoney_klines(payload: object) -> list[dict[str, object]]:
+    if not isinstance(payload, dict):
+        raise RuntimeError("Eastmoney kline payload is not an object.")
+
+    data = payload.get("data")
+    if not isinstance(data, dict):
+        raise RuntimeError("Eastmoney kline payload is missing data.")
+
+    klines = data.get("klines")
+    if not isinstance(klines, list):
+        raise RuntimeError("Eastmoney kline payload is missing klines.")
+
+    rows: list[dict[str, object]] = []
+    for raw in klines:
+        if not isinstance(raw, str):
+            continue
+        parts = raw.split(",")
+        if len(parts) < 3:
+            continue
+        try:
+            rows.append({
+                "date": parts[0],
+                "close": float(parts[2]),
+            })
+        except ValueError:
+            continue
+
+    if len(rows) < VOLATILITY_LOOKBACK_DAYS + 2:
+        raise RuntimeError("Eastmoney kline history is too short for 250-day volatility.")
+    return rows
+
+
+def build_volatility_observations(prices: list[dict[str, object]]) -> list[dict[str, object]]:
+    returns: list[dict[str, object]] = []
+    previous_close: float | None = None
+    for row in prices:
+        close = float(row["close"])
+        if previous_close and close > 0 and previous_close > 0:
+            returns.append({
+                "date": row["date"],
+                "return": math.log(close / previous_close),
+                "close": close,
+            })
+        previous_close = close
+
+    observations: list[dict[str, object]] = []
+    rolling_vols: list[float] = []
+    for index in range(VOLATILITY_LOOKBACK_DAYS - 1, len(returns)):
+        window = [float(item["return"]) for item in returns[index - VOLATILITY_LOOKBACK_DAYS + 1:index + 1]]
+        mean = sum(window) / len(window)
+        variance = sum((value - mean) ** 2 for value in window) / (len(window) - 1)
+        volatility = math.sqrt(variance) * math.sqrt(252)
+        rolling_vols.append(volatility)
+        percentile = round(
+            sum(1 for value in rolling_vols if value <= volatility) / len(rolling_vols) * 100
+        )
+        observations.append({
+            "date": returns[index]["date"],
+            "close": round(float(returns[index]["close"]), 4),
+            "volatility": round(volatility, 4),
+            "vol_percentile": percentile,
+        })
+
+    return observations
+
+
+def update_volatility_history() -> None:
+    if not should_refresh_volatility():
+        print(f"Skipped {VOLATILITY_PATH}; already refreshed today")
+        return
+
+    prices = parse_eastmoney_klines(fetch_json(EASTMONEY_HS300_KLINE_URL))
+    observations = build_volatility_observations(prices)
+    payload = {
+        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "source": "eastmoney hs300 daily kline",
+        "index_code": "000300",
+        "lookback_days": VOLATILITY_LOOKBACK_DAYS,
+        "annualization_days": 252,
+        "observations": observations,
+    }
+    VOLATILITY_PATH.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Wrote {VOLATILITY_PATH} ({len(observations)} observations)")
+
+
 def main() -> None:
     snapshot = build_snapshot()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(render_markdown(snapshot), encoding="utf-8")
     print(f"Wrote {OUTPUT_PATH}")
     append_history(snapshot)
+    try:
+        update_volatility_history()
+    except RuntimeError as error:
+        print(f"Skipped volatility update: {error}")
 
 
 def render_markdown(snapshot: dict[str, object]) -> str:

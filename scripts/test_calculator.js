@@ -6,14 +6,18 @@ const vm = require("node:vm");
 const source = fs.readFileSync(path.join(__dirname, "..", "calculator.js"), "utf8");
 const techlifeHtml = fs.readFileSync(path.join(__dirname, "..", "techlife.html"), "utf8");
 const erpHistory = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "content", "erp_history.json"), "utf8"));
+const volatilityHistory = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "content", "hs300_volatility.json"), "utf8"));
 const elements = new Map();
 [
   "erpCard",
   "resultValue",
   "erpPercentile",
   "erpStatus",
+  "erpVolatilityPercentile",
+  "erpRiskEnvironment",
   "erpInvestmentAmount",
   "erpInvestmentMultiplier",
+  "erpDecisionNote",
 ].forEach((id) => elements.set(id, { hidden: false, textContent: "" }));
 
 const sandbox = {
@@ -47,12 +51,31 @@ assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(10, 8000)))
   amount: 4000,
   multiplier: 0.5,
 });
-sandbox.renderErpDecision(5.7415);
-assert.equal(elements.get("erpInvestmentAmount").textContent, "9,600 元");
-assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x 基础定投");
+assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getVolatilityAdjustment(15))), {
+  multiplier: 1.2,
+  label: "低波动",
+});
+assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getVolatilityAdjustment(95))), {
+  multiplier: 0.8,
+  label: "高波动",
+});
+assert.match(sandbox.getDecisionNote(85, 15), /提高新增资金投入/);
+sandbox.renderErpDecision(5.7415, undefined, { percentile: 15, volatility: 0.18 });
+assert.equal(elements.get("erpInvestmentAmount").textContent, "11,520 元");
+assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x ERP × 1.2x Vol");
+assert.equal(elements.get("erpVolatilityPercentile").textContent, "15%");
+assert.equal(elements.get("erpRiskEnvironment").textContent, "低波动");
+assert.match(elements.get("erpDecisionNote").textContent, /常规新增资金节奏/);
 assert.match(techlifeHtml, /<script src="calculator\.js\?v=[^"]+"><\/script>/);
+assert.match(techlifeHtml, /id="erpVolatilityPercentile"/);
+assert.match(techlifeHtml, /id="erpRiskEnvironment"/);
+assert.match(techlifeHtml, /id="erpDecisionNote"/);
 assert.ok(erpHistory.length >= 100);
 assert.equal(erpHistory[0].date, "2016-07-29");
 assert.match(erpHistory[0].source, /lixingren/);
+assert.equal(volatilityHistory.lookback_days, 250);
+assert.match(volatilityHistory.source, /eastmoney/);
+assert.ok(volatilityHistory.observations.length >= 1000);
+assert.ok(Number.isFinite(volatilityHistory.observations.at(-1).vol_percentile));
 
 console.log("calculator tests passed");

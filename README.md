@@ -70,3 +70,5 @@ Example cron entry for every 30 minutes:
 ```
 
 With Nginx serving this repo as static files, the frontend only needs to request `content/ERP.md`, so there is no browser CORS dependency.
+
+The same update script also maintains `content/hs300_volatility.json` from Eastmoney HS300 daily K-line data. That fetch is cached by UTC date, so repeated cron runs on the same day skip the Eastmoney request.

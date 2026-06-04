@@ -104,39 +104,106 @@ function getInvestmentPlan(percentile, baseAmount) {
   };
 }
 
+function getVolatilityAdjustment(percentile) {
+  if (!Number.isFinite(percentile)) {
+    return {
+      multiplier: 1,
+      label: "波动数据暂无",
+    };
+  }
+
+  if (percentile < 20) {
+    return {
+      multiplier: 1.2,
+      label: "低波动",
+    };
+  }
+
+  if (percentile > 80) {
+    return {
+      multiplier: 0.8,
+      label: "高波动",
+    };
+  }
+
+  return {
+    multiplier: 1,
+    label: "常态波动",
+  };
+}
+
+function getDecisionNote(erpPercentile, volPercentile) {
+  if (!Number.isFinite(erpPercentile) || !Number.isFinite(volPercentile)) {
+    return "等待 ERP 与波动率数据，暂按 ERP 单因子估算新增资金节奏。";
+  }
+
+  if (erpPercentile >= 80 && volPercentile > 80) {
+    return "估值便宜，但波动偏高，适合分批加速投入。";
+  }
+
+  if (erpPercentile >= 80 && volPercentile < 20) {
+    return "估值便宜且波动温和，可提高新增资金投入。";
+  }
+
+  if (erpPercentile < 20 && volPercentile < 30) {
+    return "估值吸引力低且市场平静，降低新增资金投入。";
+  }
+
+  if (erpPercentile < 20 && volPercentile >= 30) {
+    return "估值偏低但风险释放中，保持观察，避免机械减仓。";
+  }
+
+  return "ERP 与波动率都处于中间区域，维持常规新增资金节奏。";
+}
+
 const erpCard = document.getElementById("erpCard");
 const resultValue = document.getElementById("resultValue");
 const erpPercentile = document.getElementById("erpPercentile");
 const erpStatus = document.getElementById("erpStatus");
+const erpVolatilityPercentile = document.getElementById("erpVolatilityPercentile");
+const erpRiskEnvironment = document.getElementById("erpRiskEnvironment");
 const erpInvestmentAmount = document.getElementById("erpInvestmentAmount");
 const erpInvestmentMultiplier = document.getElementById("erpInvestmentMultiplier");
+const erpDecisionNote = document.getElementById("erpDecisionNote");
 
-function renderErpDecision(spread, values = historicalErpValues) {
+function renderErpDecision(spread, values = historicalErpValues, volatilitySummary = null) {
   const percentile = calculatePercentile(spread, values);
   const investmentPlan = getInvestmentPlan(percentile, baseInvestmentAmount);
+  const volPercentile = Number.parseFloat(volatilitySummary?.percentile);
+  const volatilityAdjustment = getVolatilityAdjustment(volPercentile);
 
   resultValue.textContent = formatPercent(spread);
 
   if (percentile === null) {
     erpPercentile.textContent = "历史分位暂无数据";
     erpStatus.textContent = "暂无数据";
+    erpVolatilityPercentile.textContent = Number.isFinite(volPercentile) ? `${Math.round(volPercentile)}%` : "-";
+    erpRiskEnvironment.textContent = volatilityAdjustment.label;
     erpInvestmentAmount.textContent = "-";
     erpInvestmentMultiplier.textContent = "等待历史数据";
+    erpDecisionNote.textContent = "等待 ERP 历史数据，暂不调整新增资金节奏。";
     return;
   }
 
+  const adjustedAmount = Math.round(investmentPlan.amount * volatilityAdjustment.multiplier);
   erpPercentile.textContent = `${percentile}%`;
   erpStatus.textContent = getValuationStatus(percentile);
-  erpInvestmentAmount.textContent = `${investmentPlan.amount.toLocaleString("zh-CN")} 元`;
-  erpInvestmentMultiplier.textContent = `${investmentPlan.multiplier.toFixed(1)}x 基础定投`;
+  erpVolatilityPercentile.textContent = Number.isFinite(volPercentile) ? `${Math.round(volPercentile)}%` : "-";
+  erpRiskEnvironment.textContent = volatilityAdjustment.label;
+  erpInvestmentAmount.textContent = `${adjustedAmount.toLocaleString("zh-CN")} 元`;
+  erpInvestmentMultiplier.textContent = `${investmentPlan.multiplier.toFixed(1)}x ERP × ${volatilityAdjustment.multiplier.toFixed(1)}x Vol`;
+  erpDecisionNote.textContent = getDecisionNote(percentile, volPercentile);
 }
 
 function renderErpError() {
   resultValue.textContent = "-";
   erpPercentile.textContent = "历史分位暂无数据";
   erpStatus.textContent = "暂无数据";
+  erpVolatilityPercentile.textContent = "-";
+  erpRiskEnvironment.textContent = "暂无数据";
   erpInvestmentAmount.textContent = "-";
   erpInvestmentMultiplier.textContent = "等待 ERP 数据";
+  erpDecisionNote.textContent = "等待 ERP 与波动率数据。";
 }
 
 async function fetchHistoryValues() {
@@ -154,6 +221,25 @@ async function fetchHistoryValues() {
   }
 }
 
+async function fetchVolatilitySummary() {
+  try {
+    const response = await fetch(`content/hs300_volatility.json?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Volatility fetch failed: ${response.status}`);
+    const payload = await response.json();
+    const observations = Array.isArray(payload?.observations) ? payload.observations : [];
+    const latest = observations[observations.length - 1];
+    if (!latest) throw new Error("No volatility observations");
+    const percentile = Number.parseFloat(latest.vol_percentile);
+    const volatility = Number.parseFloat(latest.volatility);
+    if (!Number.isFinite(percentile) || !Number.isFinite(volatility)) {
+      throw new Error("Invalid volatility observation");
+    }
+    return { percentile, volatility };
+  } catch {
+    return null;
+  }
+}
+
 async function loadErpSnapshot() {
   if (!erpCard || !resultValue) return;
   if (isWeekend(new Date())) {
@@ -164,9 +250,10 @@ async function loadErpSnapshot() {
   erpCard.hidden = false;
 
   try {
-    const [erpResponse, historyValues] = await Promise.all([
+    const [erpResponse, historyValues, volatilitySummary] = await Promise.all([
       fetch(`content/ERP.md?ts=${Date.now()}`, { cache: "no-store" }),
       fetchHistoryValues(),
+      fetchVolatilitySummary(),
     ]);
 
     if (!erpResponse.ok) {
@@ -179,7 +266,7 @@ async function loadErpSnapshot() {
       throw new Error("Spread value is missing from content/ERP.md.");
     }
 
-    renderErpDecision(spread, historyValues || historicalErpValues);
+    renderErpDecision(spread, historyValues || historicalErpValues, volatilitySummary);
   } catch {
     renderErpError();
   }
