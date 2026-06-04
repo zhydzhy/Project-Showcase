@@ -59,13 +59,17 @@ assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getVolatilityAdjustment(95)))
   multiplier: 0.8,
   label: "高波动",
 });
+assert.match(sandbox.getDecisionNote(85, 95), /分批加速投入/);
 assert.match(sandbox.getDecisionNote(85, 15), /提高新增资金投入/);
+assert.match(sandbox.getDecisionNote(10, 15), /估值偏贵且市场平静/);
+assert.match(sandbox.getDecisionNote(10, 95), /谨慎观察/);
+assert.match(sandbox.getDecisionNote(65, 11), /估值略有吸引力且市场波动温和/);
 sandbox.renderErpDecision(5.7415, undefined, { percentile: 15, volatility: 0.18 });
 assert.equal(elements.get("erpInvestmentAmount").textContent, "7,200 元");
 assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x ERP × 1.2x Vol");
 assert.equal(elements.get("erpVolatilityPercentile").textContent, "15%");
 assert.equal(elements.get("erpRiskEnvironment").textContent, "低波动");
-assert.match(elements.get("erpDecisionNote").textContent, /常规新增资金节奏/);
+assert.match(elements.get("erpDecisionNote").textContent, /估值略有吸引力且市场波动温和/);
 assert.match(techlifeHtml, /<script src="calculator\.js\?v=[^"]+"><\/script>/);
 assert.match(techlifeHtml, /id="erpVolatilityPercentile"/);
 assert.match(techlifeHtml, /id="erpRiskEnvironment"/);

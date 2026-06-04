@@ -1,3 +1,10 @@
+## 2026-06-04 ERP Volatility Quadrant Copy
+- Problem: The ERP/Vol explanation could say both factors were in the middle even when ERP percentile was 65% and Vol percentile was 11%, which contradicted the 1.44x contribution result.
+- Root cause: The decision-note fallback did not align with the ERP multiplier thresholds and used vague wording such as low attractiveness instead of explicit valuation states.
+- Resolution: Reworked the quadrant copy around valuation states (`估值便宜/略有吸引力/偏贵`) and volatility states, including the current 65% ERP plus 11% Vol case.
+- Prevention: Keep explanation thresholds tied to the same percentile bands that drive the contribution multiplier.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-06-04 ERP Base Investment Amount 5000
 - Problem: The ERP/Vol monthly contribution model still used `8000` as the base amount, but the desired current cash-flow baseline is `5000`.
 - Root cause: `calculator.js` stores the base monthly contribution as a static `baseInvestmentAmount` constant.

@@ -145,15 +145,39 @@ function getDecisionNote(erpPercentile, volPercentile) {
     return "估值便宜且波动温和，可提高新增资金投入。";
   }
 
+  if (erpPercentile >= 60 && volPercentile < 20) {
+    return "估值略有吸引力且市场波动温和，可适度提高本月定投金额。";
+  }
+
+  if (erpPercentile >= 60 && volPercentile > 80) {
+    return "估值略有吸引力但波动偏高，适合谨慎分批增持。";
+  }
+
   if (erpPercentile < 20 && volPercentile < 30) {
-    return "估值吸引力低且市场平静，降低新增资金投入。";
+    return "估值偏贵且市场平静，降低新增资金投入。";
   }
 
   if (erpPercentile < 20 && volPercentile >= 30) {
-    return "估值偏低但风险释放中，保持观察，避免机械减仓。";
+    return "估值偏贵但风险释放中，谨慎观察，不追涨。";
   }
 
-  return "ERP 与波动率都处于中间区域，维持常规新增资金节奏。";
+  if (erpPercentile < 40 && volPercentile < 30) {
+    return "估值偏贵且波动不高，适合放慢新增资金投入。";
+  }
+
+  if (erpPercentile < 40 && volPercentile >= 30) {
+    return "估值偏贵且波动上升，谨慎观察，不追涨。";
+  }
+
+  if (volPercentile < 20) {
+    return "估值合理且市场波动温和，维持或小幅提高新增资金投入。";
+  }
+
+  if (volPercentile > 80) {
+    return "估值合理但波动偏高，保持分批投入节奏。";
+  }
+
+  return "估值与波动都处于常态区间，维持常规新增资金节奏。";
 }
 
 const erpCard = document.getElementById("erpCard");
