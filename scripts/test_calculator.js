@@ -43,12 +43,12 @@ assert.equal(sandbox.getValuationStatus(85), "偏便宜");
 assert.equal(sandbox.getValuationStatus(68), "正常区间");
 assert.equal(sandbox.getValuationStatus(30), "偏贵");
 assert.equal(sandbox.getValuationStatus(19), "较贵");
-assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(68, 8000))), {
-  amount: 9600,
+assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(68, 5000))), {
+  amount: 6000,
   multiplier: 1.2,
 });
-assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(10, 8000))), {
-  amount: 4000,
+assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getInvestmentPlan(10, 5000))), {
+  amount: 2500,
   multiplier: 0.5,
 });
 assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getVolatilityAdjustment(15))), {
@@ -61,7 +61,7 @@ assert.deepEqual(JSON.parse(JSON.stringify(sandbox.getVolatilityAdjustment(95)))
 });
 assert.match(sandbox.getDecisionNote(85, 15), /提高新增资金投入/);
 sandbox.renderErpDecision(5.7415, undefined, { percentile: 15, volatility: 0.18 });
-assert.equal(elements.get("erpInvestmentAmount").textContent, "11,520 元");
+assert.equal(elements.get("erpInvestmentAmount").textContent, "7,200 元");
 assert.equal(elements.get("erpInvestmentMultiplier").textContent, "1.2x ERP × 1.2x Vol");
 assert.equal(elements.get("erpVolatilityPercentile").textContent, "15%");
 assert.equal(elements.get("erpRiskEnvironment").textContent, "低波动");

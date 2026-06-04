@@ -1,3 +1,10 @@
+## 2026-06-04 ERP Base Investment Amount 5000
+- Problem: The ERP/Vol monthly contribution model still used `8000` as the base amount, but the desired current cash-flow baseline is `5000`.
+- Root cause: `calculator.js` stores the base monthly contribution as a static `baseInvestmentAmount` constant.
+- Resolution: Changed the base amount to `5000` and updated render-level tests for the ERP/Vol-adjusted recommendation.
+- Prevention: Whenever the base amount changes, update both pure multiplier tests and rendered amount assertions.
+- Related git commit ID: pending (uncommitted)
+
 ## 2026-06-04 ERP Volatility Adjustment
 - Problem: The ERP card sized monthly contributions using ERP alone, so the same ERP percentile produced the same recommendation in both calm and high-volatility markets.
 - Root cause: The frontend had no HS300 volatility dataset or second-factor adjustment; it only fetched ERP history and mapped ERP percentile to a fixed multiplier.

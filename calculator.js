@@ -52,7 +52,7 @@ const historicalErpValues = [
   // ── 2026 YTD ──
   5.88, 5.74,
 ];
-const baseInvestmentAmount = 8000;
+const baseInvestmentAmount = 5000;
 
 function normalizeErpPercent(value) {
   return Math.abs(value) < 1 ? value * 100 : value;
